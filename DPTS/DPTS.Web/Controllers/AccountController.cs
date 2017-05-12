@@ -794,19 +794,8 @@ namespace DPTS.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> JoinUs(JoinUsViewModel model)
         {
-            // string joined = string.Join(",", model.Expertise);
             try
             {
-                //if (model.AddressModel.CountryId == 0 || model.AddressModel.StateProvinceId == 0)
-                //{
-                //    ModelState.AddModelError("Select Country or State !!", "");
-                //    ErrorNotification("Select Country or State");
-                //}
-                //if (!model.Expertise.Any())
-                //{
-                //    ModelState.AddModelError("select at least one qualification !!", "");
-                //    ErrorNotification("select at least one qualification !!");
-                //}
                 if(model.PictureId == 0)
                 {
                     ModelState.AddModelError("upload picture !!", "");
@@ -844,16 +833,6 @@ namespace DPTS.Web.Controllers
                             Subscription=model.Subscription
                         };
                         _doctorService.AddDoctor(doctor);
-                        //if (!string.IsNullOrWhiteSpace(doctor.DoctorId) && model.Speciality > 0 && model.SubSpeciality > 0)
-                        //{
-                        //    var specMap = new SpecialityMapping
-                        //    {
-                        //        Doctor_Id = doctor.DoctorId,
-                        //        Speciality_Id = model.Speciality,
-                        //        SubSpeciality_Id = model.SubSpeciality
-                        //    };
-                        //    _specialityService.AddSpecialityByDoctor(specMap);
-                        //}
                         var address = new Address
                         {
                             StateProvinceId = model.AddressModel.StateProvinceId,
@@ -914,8 +893,6 @@ namespace DPTS.Web.Controllers
                     }
                 };
                 model.AddressModel.AvailableCountry = GetCountryList();
-               // model.SpecialityList = GetSpecialityList();
-                //model.SubSpecialityList = typelst;
                 model.AddressModel.AvailableStateProvince = typelst;
                 ViewBag.GenderList = GetGender();
                 return View(model);
