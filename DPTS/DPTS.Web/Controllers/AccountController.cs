@@ -145,25 +145,6 @@ namespace DPTS.Web.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //[AllowAnonymous]
-        //public async Task<ActionResult> TermsConditions(string Name,string Email,string Message,string Subject,string MailTo)
-        //{
-        //    try
-        //    {
-        //        EmailSmsNotifications.Services.EmailNotificationService objE = new EmailSmsNotifications.Services.EmailNotificationService();
-        //        EmailSmsNotifications.ServiceModels.EmailNotificationModel model = new EmailNotificationModel
-        //        {
-        //            content = Message,
-        //            from = MailTo,
-        //            subject = Subject,
-        //            to = Email
-        //        };
-        //        await objE.SendEmail(model);
-        //    }catch(Exception ex) { }
-        //    return View();
-        //}
-
         //
         // POST: /Account/Login
         [HttpPost]
