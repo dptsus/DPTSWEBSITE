@@ -985,7 +985,8 @@ namespace DPTS.Web.Controllers
             try
             {
                 string requestUri = $"http://maps.google.com/maps/api/geocode/xml?address={address}&sensor=false";
-                var request = System.Net.WebRequest.Create(requestUri);
+                var request = WebRequest.Create(requestUri);
+
                 var response = request.GetResponse();
                 var xdoc = XDocument.Load(response.GetResponseStream());
                 var xElement = xdoc.Element(AppInfra.Constants.GeocodeResponse);
