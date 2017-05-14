@@ -290,9 +290,34 @@ namespace DPTS.Web.Controllers
             }
         }
 
+        public string GetProfilePicture(string doctorId)
+        {
+            try
+            {
+                var pictures = _pictureService.GetPicturesByUserId(doctorId);
+                var defaultPicture = pictures.FirstOrDefault();
+                var imageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/user365x365.jpg" :
+                    _pictureService.GetPictureUrl(defaultPicture, 365, false);
+                return imageUrl;
+            }
+            catch
+            {
+                return "/Content/wp-content/themes/docdirect/images/user365x365.jpg";
+            }
+        }
+
         #endregion
 
         #region Methods
+
+        public ActionResult AccountNavigation()
+        {
+            if (!Request.IsAuthenticated && !User.IsInRole("Doctor"))
+                return new HttpUnauthorizedResult();
+
+            ViewBag.ProfilePictureUrl = GetProfilePicture(User.Identity.GetUserId());
+            return PartialView();
+        }
 
         #region Profile Settings
         public ActionResult ProfileSetting()
@@ -329,6 +354,7 @@ namespace DPTS.Web.Controllers
                         model.ConsultationFee = doctor.ConsultationFee;
                         model.IsAvailability = doctor.IsAvailability;
                         model.SkypeHandler = doctor.SkypeHandler;
+                       // model.AddPictureModel = GetProfilePicture(doctor.DoctorId);
                     }
                 }
                 if (user != null)

@@ -13,8 +13,9 @@ namespace DPTS.Web.Models
             //  AvailableCountry = new List<SelectListItem>();
             //AvailableStateProvince = new List<SelectListItem>();
             SelectedSpeciality = new List<string>();
+            //AddPictureModel = new PictureModel();
         }
-
+       // public PictureModel AddPictureModel { get; set; }
         public string Id { get; set; }
 
         /// <summary>

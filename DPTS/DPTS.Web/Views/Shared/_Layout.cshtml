@@ -20,9 +20,9 @@
             <div class="pulse"></div>
         </div>*@
     <div id="wrapper" class="tg-haslayout">
-        @Html.Partial("_Header")
+        @{Html.RenderPartial("_Header");}
         @RenderBody()
-        @Html.Partial("_Footer")
+        @{Html.RenderPartial("_Footer");}
     </div>
     <div id="loader" class="overlay">
         <div class="load-container load1">
