@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-@Html.Partial("AccountNavigation")
+@{Html.RenderAction("AccountNavigation");}
 <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 pull-right">
     <div class="tg-haslayout tg-myaccount">
         <div class="tg-system-packages">
