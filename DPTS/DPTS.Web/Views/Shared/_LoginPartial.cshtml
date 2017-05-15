@@ -16,7 +16,7 @@
             if (User.IsInRole("Doctor"))
             {
                 <li class="session-user-info">
-                    <a href="javascript:;"><span class="s-user">@firstName</span><img alt="Welcome" src="~/Content/wp-content/themes/docdirect/images/singin_icon.png?1488563881397" id="welcome"></a>
+                    @{ Html.RenderAction("_ProfilePicture","Home");}
                     <ul>
                         @*<li class="active"><a href="@Url.Action("Info", "Doctor")"><i class="fa fa-line-chart"></i>Profile</a></li>*@
                         <li class="active"><a href="@Url.Action("ProfileSetting", "Doctor")">Profile Settings</a></li>
@@ -43,7 +43,7 @@
             else
             {
                 <li class="session-user-info">
-                    <a href="javascript:;"><span class="s-user">@firstName</span><img alt="Welcome" src="~/Content/wp-content/themes/docdirect/images/singin_icon.png?1488563881397" id="welcome"></a>
+                    <a href="javascript:;"><span class="s-user">@firstName</span><img alt="Welcome" src="~/Content/wp-content/themes/docdirect/images/singin_icon.png" id="welcome"></a>
                     <ul>
                         <li class="active">
                             <a href="@Url.Action("AppointmentList", "Visitor")">

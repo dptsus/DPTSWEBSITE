@@ -318,7 +318,6 @@ namespace DPTS.Web.Controllers
             ViewBag.ProfilePictureUrl = GetProfilePicture(User.Identity.GetUserId());
             return PartialView();
         }
-
         #region Profile Settings
         public ActionResult ProfileSetting()
         {

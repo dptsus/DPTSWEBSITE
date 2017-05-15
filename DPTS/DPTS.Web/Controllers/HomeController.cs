@@ -14,6 +14,7 @@ using DPTS.Domain.Core.StateProvince;
 using DPTS.Data.Context;
 using System;
 using DPTS.Domain.Common;
+using Microsoft.AspNet.Identity;
 
 namespace DPTS.Web.Controllers
 {
@@ -420,6 +421,30 @@ namespace DPTS.Web.Controllers
             return View(pageDoctors);
         }
 
-        
+        public string GetProfilePicture1(string doctorId)
+        {
+            try
+            {
+                var pictures = _pictureService.GetPicturesByUserId(doctorId);
+                var defaultPicture = pictures.FirstOrDefault();
+                var imageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/singin_icon.png" :
+                    _pictureService.GetPictureUrl(defaultPicture, 365, false);
+                return imageUrl;
+            }
+            catch
+            {
+                return "/Content/wp-content/themes/docdirect/images/singin_icon.png";
+            }
+        }
+
+        public ActionResult _ProfilePicture()
+        {
+            if (!Request.IsAuthenticated && !User.IsInRole("Doctor"))
+                return new HttpUnauthorizedResult();
+
+            ViewBag.FirstName = UserManager.FindById(User.Identity.GetUserId()).FirstName;
+            ViewBag.SmallProfilePictureUrl = GetProfilePicture1(User.Identity.GetUserId());
+            return PartialView();
+        }
     }
 }
