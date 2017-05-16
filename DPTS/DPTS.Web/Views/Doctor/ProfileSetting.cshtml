@@ -51,36 +51,44 @@
                     <h3>Specialities</h3>
                 </div>
                 <div class="row">
-                    <div class="specialities-list">
-                        <ul>
-                            @foreach (var item in Model.AvailableSpeciality)
+                    <div class="specialities-list" style="overflow: auto;height: 150px;">
+                        <select id="SelectedSpeciality" name="SelectedSpeciality" multiple="multiple" class="form-control" data-placeholder="select specialities">
+                            @if (Model.AvailableSpeciality.Any())
                             {
-                                if (item.Selected == true)
+                                foreach (var item in Model.AvailableSpeciality)
                                 {
-                                    <li>
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages active-user-type specialities-type">
-                                                <input type="checkbox" checked="" name="SelectedSpeciality" value="@item.Value" id="@item.Text">
-                                                <label for="@item.Text">@item.Text</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li>
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages active-user-type specialities-type">
-                                                <input type="checkbox" name="SelectedSpeciality" value="@item.Value" id="@item.Text">
-                                                <label for="@item.Text">@item.Text</label>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    if (item.Selected == true)
+                                    {
+                                        <option selected>@item.Text</option>
+                                    }
+                                    else
+                                    {
+                                        <option>@item.Text</option>
+                                    }
                                 }
                             }
-
-                        </ul>
+                        </select>
                     </div>
+                    <script>
+                                $(document).ready(function() {
+                                    var categoryIdsInput = $('#SelectedSpeciality').kendoMultiSelect().data("kendoMultiSelect");
+                                    categoryIdsInput.setOptions({
+                                        autoClose: false
+                                    });
+
+                                    @if (Model.AvailableSpeciality.Count == 0)
+                                    {
+                                        <text>
+                                            categoryIdsInput.setOptions({
+                                                enable: false,
+                                                placeholder: 'None'
+                                            });
+                                            categoryIdsInput._placeholder();
+                                            categoryIdsInput._enable();
+                                            </text>
+                                    }
+                                });
+                    </script>
                 </div>
             </div>
         </div>
