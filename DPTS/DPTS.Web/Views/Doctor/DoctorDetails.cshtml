@@ -109,8 +109,8 @@
                                         {
                                             foreach (var sch in Model.Schedule)
                                             {
-                                                var startTime = DateTime.Parse(sch.StartTime).ToString("hh:mm tt");
-                                                var endTime = DateTime.Parse(sch.EndTime).ToString("hh:mm tt");
+                                                var startTime = DateTime.Parse(sch.SessionOneStartTime).ToString("hh:mm tt");
+                                                var endTime = DateTime.Parse(sch.SessionOneEndTime).ToString("hh:mm tt");
                                                 string todayDay = DateTime.UtcNow.ToString("dddd");
                                                 if (sch.Day.Equals(todayDay))
                                                 {
@@ -339,7 +339,7 @@
                                     <h2>Photo Gallery</h2>
                                 </div>
                                 <ul>
-                                    @foreach (var pic in Model.DoctorPictureModels)
+                                    @foreach (var pic in Model.DoctorPictureModels.Skip(1))
                                     {
                                         <li>
                                             <figure>
