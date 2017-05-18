@@ -23,7 +23,6 @@ using DPTS.Data.Context;
 using DPTS.Web.AppInfra;
 using RestSharp.Extensions.MonoHttp;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace DPTS.Web.Controllers
@@ -31,7 +30,6 @@ namespace DPTS.Web.Controllers
     public class DoctorController : BaseController
     {
         #region Fields
-
         private readonly IDoctorService _doctorService;
         private readonly ISpecialityService _specialityService;
         private readonly ICountryService _countryService;
@@ -42,7 +40,6 @@ namespace DPTS.Web.Controllers
         private readonly IPictureService _pictureService;
         private ISmsNotificationService _smsService;
         private readonly DPTSDbContext context;
-       // private ApplicationUserManager _userManager;
         #endregion
 
         #region Contructor
@@ -318,6 +315,7 @@ namespace DPTS.Web.Controllers
             ViewBag.ProfilePictureUrl = GetProfilePicture(User.Identity.GetUserId());
             return PartialView();
         }
+
         #region Profile Settings
         public ActionResult ProfileSetting()
         {
@@ -369,7 +367,6 @@ namespace DPTS.Web.Controllers
             ViewBag.GenderList = GetGender();
             return View(model);
         }
-
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult ProfileSetting(DoctorProfileSettingViewModel model)
@@ -425,7 +422,6 @@ namespace DPTS.Web.Controllers
                 return RedirectToAction("ProfileSetting");
             }
         }
-
         #endregion
 
         #region Address
@@ -716,7 +712,6 @@ namespace DPTS.Web.Controllers
             return View(model);
         }
         #endregion
-
 
         #endregion
 
