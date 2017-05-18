@@ -39,37 +39,50 @@
     </style>
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 pull-right">
     @using (Html.BeginForm("ProfileSetting", "Doctor",
-        new {},
-        FormMethod.Post, new {@class = "tg-formeditprofile tg-haslayout do-account-setitngs"}))
+                                new { },
+                                FormMethod.Post, new { @class = "tg-formeditprofile tg-haslayout do-account-setitngs" }))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.Id)
         <fieldset>
-        <div class="tg-bordertop tg-haslayout">
-            <div class="tg-formsection">
-                <div class="tg-heading-border tg-small">
-                    <h3>Specialities</h3>
-                </div>
-                <div class="row">
-                    <div class="specialities-list" style="overflow: auto;height: 150px;">
-                        <select id="SelectedSpeciality" name="SelectedSpeciality" multiple="multiple" class="form-control" data-placeholder="select specialities">
-                            @if (Model.AvailableSpeciality.Any())
-                            {
-                                foreach (var item in Model.AvailableSpeciality)
-                                {
-                                    if (item.Selected == true)
+
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#home">Specialities</a></li>
+                <li><a data-toggle="pill" href="#menu1">Basic Information</a></li>
+                <li><a data-toggle="pill" href="#menu2">Language</a></li>
+                <li><a data-toggle="pill" href="#menu3">Fees And Availability</a></li>
+                <li><a data-toggle="pill" href="#menu4">Professional Statements</a></li>
+                <li><a data-toggle="pill" href="#menu5">Video Link</a></li>
+                <li><a data-toggle="pill" href="#menu6">Skype Handler</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    <div class="tg-bordertop tg-haslayout">
+                        <div class="tg-formsection">
+                            <div class="tg-heading-border tg-small">
+                                <h3>Specialities</h3>
+                            </div>
+                            <div class="row">
+                                <div class="specialities-list" style="overflow: auto;height: 150px;">
+                                    <select id="SelectedSpeciality" name="SelectedSpeciality" multiple="multiple" class="form-control" data-placeholder="select specialities">
+                                        @if (Model.AvailableSpeciality.Any())
                                     {
-                                        <option selected>@item.Text</option>
+                                        foreach (var item in Model.AvailableSpeciality)
+                                        {
+                                            if (item.Selected == true)
+                                            {
+                                    <option selected>@item.Text</option>
+                                            }
+                                            else
+                                            {
+                                    <option>@item.Text</option>
+                                            }
+                                        }
                                     }
-                                    else
-                                    {
-                                        <option>@item.Text</option>
-                                    }
-                                }
-                            }
-                        </select>
-                    </div>
-                    <script>
+                                    </select>
+                                </div>
+                                <script>
                                 $(document).ready(function() {
                                     var categoryIdsInput = $('#SelectedSpeciality').kendoMultiSelect().data("kendoMultiSelect");
                                     categoryIdsInput.setOptions({
@@ -88,34 +101,36 @@
                                             </text>
                                     }
                                 });
-                    </script>
-                </div>
-            </div>
-        </div>
-        <div class="tg-bordertop tg-haslayout">
-            <div class="tg-formsection">
-                <div class="tg-heading-border tg-small">
-                    <h3>Basic Information</h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.FirstName)
-                            @Html.EditorFor(model => model.FirstName, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.FirstName)
+                                </script>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">    
-                            @Html.LabelFor(model => model.LastName)
-                            @Html.EditorFor(model => model.LastName, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.LastName)
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <label>Date Of Birth</label>
-                            @Html.DatePickerDropDowns(Html.FieldNameFor(x => x.DateOfBirthDay),
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <div class="tg-bordertop tg-haslayout">
+                        <div class="tg-formsection">
+                            <div class="tg-heading-border tg-small">
+                                <h3>Basic Information</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FirstName)
+                                        @Html.EditorFor(model => model.FirstName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FirstName)
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.LastName)
+                                        @Html.EditorFor(model => model.LastName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.LastName)
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Date Of Birth</label>
+                                        @Html.DatePickerDropDowns(Html.FieldNameFor(x => x.DateOfBirthDay),
                                 Html.FieldNameFor(x => x.DateOfBirthMonth),
                                 Html.FieldNameFor(x => x.DateOfBirthYear),
                                 DateTime.Now.Year - 110,
@@ -124,104 +139,110 @@
                                 Model.DateOfBirthMonth,
                                 Model.DateOfBirthYear)
 
-                            @Html.ValidationMessageFor(model => model.DateOfBirthDay)
-                            @Html.ValidationMessageFor(model => model.DateOfBirthMonth)
-                            @Html.ValidationMessageFor(model => model.DateOfBirthYear)
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Gender)
-                            @Html.DropDownListFor(model => model.Gender, ViewBag.GenderList as IEnumerable<SelectListItem>)
-                            @Html.ValidationMessageFor(model => model.Gender)
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Email)
-                            @Html.EditorFor(model => model.Email, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.Email)
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.PhoneNumber)
-                            @Html.EditorFor(model => model.PhoneNumber, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.PhoneNumber)
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.RegistrationNumber)
-                            @Html.EditorFor(model => model.RegistrationNumber, new { @class = "form-control", @palceholder = "G-56707" })
-                            @Html.ValidationMessageFor(model => model.RegistrationNumber)
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ShortProfile)
-                            @Html.TextAreaFor(model => model.ShortProfile, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.ShortProfile)
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="tg-bordertop tg-haslayout">
-            <div class="tg-formsection">
-                <div class="tg-heading-border tg-small">
-                    <h3>Language</h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Language)
-                            @Html.EditorFor(model => model.Language, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.Language)
-                        </div>
-                    </div>
-                    <br/>
-                </div>
-            </div>
-        </div>
-            <div class="tg-bordertop tg-haslayout">
-                <div class="tg-formsection">
-                    <div class="tg-heading-border tg-small">
-                        <h3>Fee And Availability</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.ConsultationFee)
-                                @Html.EditorFor(model => model.ConsultationFee, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.ConsultationFee)
-                            </div>
-                        </div>
-                        <br />
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.IsAvailability)
-                                @Html.EditorFor(model => model.IsAvailability, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.IsAvailability)
+                                        @Html.ValidationMessageFor(model => model.DateOfBirthDay)
+                                        @Html.ValidationMessageFor(model => model.DateOfBirthMonth)
+                                        @Html.ValidationMessageFor(model => model.DateOfBirthYear)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Gender)
+                                        @Html.DropDownListFor(model => model.Gender, ViewBag.GenderList as IEnumerable<SelectListItem>)
+                                        @Html.ValidationMessageFor(model => model.Gender)
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email)
+                                        @Html.EditorFor(model => model.Email, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Email)
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PhoneNumber)
+                                        @Html.EditorFor(model => model.PhoneNumber, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PhoneNumber)
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.RegistrationNumber)
+                                        @Html.EditorFor(model => model.RegistrationNumber, new { @class = "form-control", @palceholder = "G-56707" })
+                                        @Html.ValidationMessageFor(model => model.RegistrationNumber)
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ShortProfile)
+                                        @Html.TextAreaFor(model => model.ShortProfile, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ShortProfile)
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        <div class="tg-bordertop tg-haslayout">
-            <div class="tg-formsection">
-                <div class="tg-heading-border tg-small">
-                    <h3>Professional Statements</h3>
+                <div id="menu2" class="tab-pane fade">
+                    <div class="tg-bordertop tg-haslayout">
+                        <div class="tg-formsection">
+                            <div class="tg-heading-border tg-small">
+                                <h3>Language</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Language)
+                                        @Html.EditorFor(model => model.Language, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Language)
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.ProfessionalStatements)
-                            <textarea id="ProfessionalStatements" name="ProfessionalStatements" rows="10" cols="30" style="height:350px">
-                                @Model.ProfessionalStatements
-                            </textarea>
-                            <script>
+                <div id="menu3" class="tab-pane fade">
+                    <div class="tg-bordertop tg-haslayout">
+                        <div class="tg-formsection">
+                            <div class="tg-heading-border tg-small">
+                                <h3>Fee And Availability</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ConsultationFee)
+                                        @Html.EditorFor(model => model.ConsultationFee, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ConsultationFee)
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IsAvailability)
+                                        @Html.EditorFor(model => model.IsAvailability, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IsAvailability)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu4" class="tab-pane fade">
+                    <div class="tg-bordertop tg-haslayout">
+                        <div class="tg-formsection">
+                            <div class="tg-heading-border tg-small">
+                                <h3>Professional Statements</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ProfessionalStatements)
+                                        <textarea id="ProfessionalStatements" name="ProfessionalStatements" rows="10" cols="30" style="height:350px">
+                                            @Model.ProfessionalStatements
+                                        </textarea>
+                                        <script>
                 $(document).ready(function() {
                     // create Editor from textarea HTML element with default set of tools
                     $("#ProfessionalStatements").kendoEditor({
@@ -230,100 +251,60 @@
                         toolbar: true
                     }});
                 });
-                            </script>
-                            @*@Html.TextAreaFor(model => model.ProfessionalStatements, new {@class = "form-control"})
-                            @Html.ValidationMessageFor(model => model.ProfessionalStatements)*@
+                                        </script>
+                                        @*@Html.TextAreaFor(model => model.ProfessionalStatements, new {@class = "form-control"})
+                                            @Html.ValidationMessageFor(model => model.ProfessionalStatements)*@
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-        <div class="tg-bordertop tg-haslayout">
-                <div class="tg-formsection tg-videoprofile">
-                    <div class="tg-heading-border tg-small">
-                        <h3>video link</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="menu5" class="tab-pane fade">
+                    <div class="tg-bordertop tg-haslayout">
+                        <div class="tg-formsection tg-videoprofile">
+                            <div class="tg-heading-border tg-small">
+                                <h3>video link</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.VideoLink)
                                         @Html.EditorFor(model => model.VideoLink, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.VideoLink)
                                     </div>
-                            @*<div class="form-group">
-                                <input class="form-control" name="video_url" value="https://www.youtube.com/embed/0aNNYEUARAk" type="url" placeholder="Enter Url">
-                            </div>*@
+                                    @*<div class="form-group">
+                                            <input class="form-control" name="video_url" value="https://www.youtube.com/embed/0aNNYEUARAk" type="url" placeholder="Enter Url">
+                                        </div>*@
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tg-bordertop tg-haslayout">
-                <div class="tg-formsection tg-videoprofile">
-                    <div class="tg-heading-border tg-small">
-                        <h3>Skype Handler</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.SkypeHandler)
-                                @Html.EditorFor(model => model.SkypeHandler, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.SkypeHandler)
+                <div id="menu6" class="tab-pane fade">
+                    <div class="tg-bordertop tg-haslayout">
+                        <div class="tg-formsection tg-videoprofile">
+                            <div class="tg-heading-border tg-small">
+                                <h3>Skype Handler</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SkypeHandler)
+                                        @Html.EditorFor(model => model.SkypeHandler, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.SkypeHandler)
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <button type="submit" class="tg-btn process-account-settings">update</button>
 
-        @*<div class="tg-formsection">
-            <div class="email-settings-tabs">
-                <div class="tg-heading-border tg-small">
-                    <h3>Social Media Links</h3>
-                </div>
-
-                
-
-            </div>
-        </div>*@
-        @*<div class="tg-formsection">
-            <div class="email-settings-tabs">
-                <div class="tg-heading-border tg-small">
-                    <h3>Honors & Awards</h3>
-                </div>
-                <div class="tab-data" style="display: block;">
-                    
-                </div>
-            </div>
-        </div>*@
-        @*<div class="tg-formsection">
-            <div class="email-settings-tabs">
-                <div class="tg-heading-border tg-small">
-                    <h3>Education</h3>
-                </div>
-
-                <div class="tab-data" style="display: block;">
-                   
-                </div>
-
-            </div>
-        </div>*@
-        @*<div class="tg-formsection">
-                <div class="email-settings-tabs">
-                    <div class="tg-heading-border tg-small">
-                        <h3>Experience </h3>
-                    </div>
-
-                    <div class="tab-data" style="display: block;">
-                        
-
-                    </div>
-
-                </div>
-            </div>*@
-        
-
-            <div class="panel-group" id="accordion">
+            <button type="submit" class="tg-btn process-account-settings">update</button>
+            <br />
+            <div class="panel-group" id="accordion" style="margin-top:20px">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -1038,8 +1019,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-
+            </div>
         </fieldset>
     }
     </div>
