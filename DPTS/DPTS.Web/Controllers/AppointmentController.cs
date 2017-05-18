@@ -244,62 +244,70 @@ namespace DPTS.Web.Controllers
                         result = resultNoResultFound
                     });
                 }
-
-                foreach (var item in scheduleSlots.SessionOneScheduleSlotModel)
+                if (scheduleSlots.SessionOneScheduleSlotModel.Any())
                 {
-                    string repo = string.Empty;
-                    if (item.IsBooked)
+                    response.AppendLine("<fieldset> <legend> Session - 1 :</legend>");
+
+                    foreach (var item in scheduleSlots.SessionOneScheduleSlotModel)
                     {
-                        repo = "<div class=\"tg-doctimeslot tg-booked\">";
-                        repo += "<div class=\"tg-box\">";
-                        repo += "<div class=\"tg-radio\">";
-                        repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
-                                "\" type=\"radio\" name=\"slottime\" disabled >";
-                        repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
-                        repo += "</div> </div> </div>";
+                        string repo = string.Empty;
+                        if (item.IsBooked)
+                        {
+                            repo = "<div class=\"tg-doctimeslot tg-booked\">";
+                            repo += "<div class=\"tg-box\">";
+                            repo += "<div class=\"tg-radio\">";
+                            repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
+                                    "\" type=\"radio\" name=\"slottime\" disabled >";
+                            repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
+                            repo += "</div> </div> </div>";
+                        }
+                        else
+                        {
+                            repo = "<div class=\"tg-doctimeslot tg-available\">";
+                            repo += "<div class=\"tg-box\">";
+                            repo += "<div class=\"tg-radio\">";
+                            repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
+                                    "\" type=\"radio\" name=\"slottime\">";
+                            repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
+                            repo += "</div> </div> </div>";
+                        }
+                        response.AppendLine(repo);
                     }
-                    else
-                    {
-                        repo = "<div class=\"tg-doctimeslot tg-available\">";
-                        repo += "<div class=\"tg-box\">";
-                        repo += "<div class=\"tg-radio\">";
-                        repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
-                                "\" type=\"radio\" name=\"slottime\">";
-                        repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
-                        repo += "</div> </div> </div>";
-                    }
-                    response.AppendLine(repo);
+                    response.AppendLine("</fieldset>");
                 }
 
-                if(scheduleSlots.SessionTwoScheduleSlotModel.Any())
+                if (scheduleSlots.SessionTwoScheduleSlotModel.Any())
                 {
-                    response.AppendLine("<br/> <br/> <span> Session 2</span> <br/>");
-                }
+                    response.AppendLine("<br/><fieldset> <legend> Session - 2 :</legend>");
 
-                foreach (var item in scheduleSlots.SessionTwoScheduleSlotModel)
-                {
-                    string repo = string.Empty;
-                    if (item.IsBooked)
+                    foreach (var item in scheduleSlots.SessionTwoScheduleSlotModel)
                     {
-                        repo = "<div class=\"tg-doctimeslot tg-booked\">";
-                        repo += "<div class=\"tg-box\">";
-                        repo += "<div class=\"tg-radio\">";
-                        repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
-                                "\" type=\"radio\" name=\"slottime\" disabled >";
-                        repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
-                        repo += "</div> </div> </div>";
+                        string repo = string.Empty;
+                        repo += "<fieldset> <legend> Session - 1 :</legend>";
+
+                        if (item.IsBooked)
+                        {
+                            repo = "<div class=\"tg-doctimeslot tg-booked\">";
+                            repo += "<div class=\"tg-box\">";
+                            repo += "<div class=\"tg-radio\">";
+                            repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
+                                    "\" type=\"radio\" name=\"slottime\" disabled >";
+                            repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
+                            repo += "</div> </div> </div>";
+                        }
+                        else
+                        {
+                            repo = "<div class=\"tg-doctimeslot tg-available\">";
+                            repo += "<div class=\"tg-box\">";
+                            repo += "<div class=\"tg-radio\">";
+                            repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
+                                    "\" type=\"radio\" name=\"slottime\">";
+                            repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
+                            repo += "</div> </div> </div>";
+                        }
+                        response.AppendLine(repo);
                     }
-                    else
-                    {
-                        repo = "<div class=\"tg-doctimeslot tg-available\">";
-                        repo += "<div class=\"tg-box\">";
-                        repo += "<div class=\"tg-radio\">";
-                        repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
-                                "\" type=\"radio\" name=\"slottime\">";
-                        repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
-                        repo += "</div> </div> </div>";
-                    }
-                    response.AppendLine(repo);
+                    response.AppendLine("</fieldset>");
                 }
 
                 return Json(new
