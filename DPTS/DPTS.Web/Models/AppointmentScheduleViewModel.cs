@@ -10,12 +10,9 @@ namespace DPTS.Web.Models
             SessionOneScheduleSlotModel = new List<ScheduleSlotModel>();
             SessionTwoScheduleSlotModel = new List<ScheduleSlotModel>();
         }
-
         public IList<ScheduleSlotModel> SessionOneScheduleSlotModel { get; set; }
         public IList<ScheduleSlotModel> SessionTwoScheduleSlotModel { get; set; }
-
         public AppointmentSchedule AppointmentSchedule { get; set; }
-
         public string doctorId { get; set; }
     }
     public class ScheduleSlotModel
