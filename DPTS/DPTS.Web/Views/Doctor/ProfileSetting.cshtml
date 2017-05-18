@@ -28,15 +28,6 @@
     <div class="container">
     <div class="row">
     @{Html.RenderAction("AccountNavigation");}
-    <style>
-        .progress {
-            height: 35px;
-            margin-bottom: 0;
-        }
-        li {
-        list-style: none;
-    }
-    </style>
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 pull-right">
     @using (Html.BeginForm("ProfileSetting", "Doctor",
                                 new { },
