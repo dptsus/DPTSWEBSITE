@@ -270,6 +270,38 @@ namespace DPTS.Web.Controllers
                     }
                     response.AppendLine(repo);
                 }
+
+                if(scheduleSlots.SessionTwoScheduleSlotModel.Any())
+                {
+                    response.AppendLine("<br/> <br/> <span> Session 2</span> <br/>");
+                }
+
+                foreach (var item in scheduleSlots.SessionTwoScheduleSlotModel)
+                {
+                    string repo = string.Empty;
+                    if (item.IsBooked)
+                    {
+                        repo = "<div class=\"tg-doctimeslot tg-booked\">";
+                        repo += "<div class=\"tg-box\">";
+                        repo += "<div class=\"tg-radio\">";
+                        repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
+                                "\" type=\"radio\" name=\"slottime\" disabled >";
+                        repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
+                        repo += "</div> </div> </div>";
+                    }
+                    else
+                    {
+                        repo = "<div class=\"tg-doctimeslot tg-available\">";
+                        repo += "<div class=\"tg-box\">";
+                        repo += "<div class=\"tg-radio\">";
+                        repo += "<input id = \"" + item.Slot + "\" value=\"" + item.Slot +
+                                "\" type=\"radio\" name=\"slottime\">";
+                        repo += "<label for=\"" + item.Slot + "\">" + item.Slot + "</label>";
+                        repo += "</div> </div> </div>";
+                    }
+                    response.AppendLine(repo);
+                }
+
                 return Json(new
                 {
                     response = response.ToString()
