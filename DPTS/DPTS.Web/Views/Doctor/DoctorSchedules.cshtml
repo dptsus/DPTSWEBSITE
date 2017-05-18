@@ -19,62 +19,67 @@
         <fieldset class="row">
             @foreach (var item in Model)
             {
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="col-md-2 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label>@item.Day</label>
-                            </div>
-                        </div>
-
-                        <div class="col-md-5 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <div class='input-group date' id='s1_@item.Day.ToLower()'>
-                                    <input type='text' name="@item.Day.ToLower()_S1start" class="form-control schedule-pickrs" value="@item.SessionOneStartTime" placeholder="session 1 start time"/>
-                                    <span class="input-group-addon">
-                                       <span class="glyphicon glyphicon-time"></span>
-                                     </span>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>@item.Day</label>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-5 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <div class='input-group date' id='e1_@item.Day.ToLower()'>
-                                    <input type='text' name="@item.Day.ToLower()_E1end" class="form-control schedule-pickrs" value="@item.SessionOneEndTime" placeholder="session 1 end time"/>
-                                    <span class="input-group-addon">
-                                       <span class="glyphicon glyphicon-time"></span>
-                                     </span>
+                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class='input-group date' id='s1_@item.Day.ToLower()'>
+                                        <input type='text' name="@item.Day.ToLower()_S1start" class="form-control schedule-pickrs" value="@item.SessionOneStartTime" placeholder="session 1 start time" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br />
-                        <hr />
-                        <div class="col-md-5 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <div class='input-group date' id='s2_@item.Day.ToLower()'>
-                                    <input type='text' name="@item.Day.ToLower()_S2start" class="form-control schedule-pickrs" value="@item.SessionTwoStartTime" placeholder="session 2 start time" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-time"></span>
-                                    </span>
+
+                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class='input-group date' id='e1_@item.Day.ToLower()'>
+                                        <input type='text' name="@item.Day.ToLower()_E1end" class="form-control schedule-pickrs" value="@item.SessionOneEndTime" placeholder="session 1 end time" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-5 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                                <div class='input-group date' id='e2_@item.Day.ToLower()'>
-                                    <input type='text' name="@item.Day.ToLower()_E2end" class="form-control schedule-pickrs" value="@item.SessionTwoEndTime" placeholder="session 2 end time" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-time"></span>
-                                    </span>
+                            <br />
+                            <hr />
+                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class='input-group date' id='s2_@item.Day.ToLower()'>
+                                        <input type='text' name="@item.Day.ToLower()_S2start" class="form-control schedule-pickrs" value="@item.SessionTwoStartTime" placeholder="session 2 start time" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <hr />
 
+                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <div class='input-group date' id='e2_@item.Day.ToLower()'>
+                                        <input type='text' name="@item.Day.ToLower()_E2end" class="form-control schedule-pickrs" value="@item.SessionTwoEndTime" placeholder="session 2 end time" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+
+                        </div>
                     </div>
+                        </div>
                 </div>
+
             }
                 <button type="submit" class="tg-btn pull-left">update</button>
         </fieldset>
