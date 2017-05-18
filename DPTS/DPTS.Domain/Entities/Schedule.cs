@@ -15,9 +15,13 @@ namespace DPTS.Domain.Entities
         [StringLength(10)]
         public string Day { get; set; }
 
-        public string StartTime { get; set; }
+        public string SessionOneStartTime { get; set; }
 
-        public string EndTime { get; set; }
+        public string SessionOneEndTime { get; set; }
+
+        public string SessionTwoStartTime { get; set; }
+
+        public string SessionTwoEndTime { get; set; }
 
         public virtual Doctor Doctor { get; set; }
     }

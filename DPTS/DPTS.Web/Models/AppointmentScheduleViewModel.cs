@@ -7,10 +7,12 @@ namespace DPTS.Web.Models
     {
         public AppointmentScheduleViewModel()
         {
-            ScheduleSlotModel = new List<ScheduleSlotModel>();
+            SessionOneScheduleSlotModel = new List<ScheduleSlotModel>();
+            SessionTwoScheduleSlotModel = new List<ScheduleSlotModel>();
         }
 
-        public IList<ScheduleSlotModel> ScheduleSlotModel { get; set; }
+        public IList<ScheduleSlotModel> SessionOneScheduleSlotModel { get; set; }
+        public IList<ScheduleSlotModel> SessionTwoScheduleSlotModel { get; set; }
 
         public AppointmentSchedule AppointmentSchedule { get; set; }
 
@@ -19,6 +21,7 @@ namespace DPTS.Web.Models
     public class ScheduleSlotModel
     {
         public string Slot { get; set; }
+        public string Session { get; set; }
         public bool IsBooked { get; set; }
     }
 }

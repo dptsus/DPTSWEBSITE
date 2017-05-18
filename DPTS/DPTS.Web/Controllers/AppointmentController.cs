@@ -43,33 +43,67 @@ namespace DPTS.Web.Controllers
 
         #region Utilities
 
-        private static AppointmentScheduleViewModel GenrateTimeSlots(string startTime,
-            string endTime, double duration,
+        private static AppointmentScheduleViewModel GenrateTimeSlots(string S1startTime,
+            string E1endTime, string S2startTime,
+            string E2endTime, double duration,
             IList<AppointmentSchedule> bookedSlots)
         {
             try
             {
                 var slots = new AppointmentScheduleViewModel();
 
-                var start = DateTime.Parse(startTime);
-                var end = DateTime.Parse(endTime);
-                while (true)
+                #region Session 1
+                if (!string.IsNullOrWhiteSpace(S1startTime) && !string.IsNullOrWhiteSpace(E1endTime))
                 {
-                    var dtNext = start.AddMinutes(duration);
-                    if (start > end || dtNext > end)
-                        break;
-
-                    var slot = start.ToString("hh:mm tt") + " - " + dtNext.ToString("hh:mm tt");
-                    var bookingstatus = bookedSlots.Where(s => s.AppointmentTime == slot).FirstOrDefault();
-
-                    var splitSlot = new ScheduleSlotModel
+                    var start = DateTime.Parse(S1startTime);
+                    var end = DateTime.Parse(E1endTime);
+                    while (true)
                     {
-                        Slot = slot,
-                        IsBooked = bookingstatus == null ? false : true
-                    };
-                    slots.ScheduleSlotModel.Add(splitSlot);
-                    start = dtNext;
+                        var dtNext = start.AddMinutes(duration);
+                        if (start > end || dtNext > end)
+                            break;
+
+                        var slot = start.ToString("hh:mm tt") + " - " + dtNext.ToString("hh:mm tt");
+                        var bookingstatus = bookedSlots.Where(s => s.AppointmentTime == slot).FirstOrDefault();
+
+                        var splitSlot = new ScheduleSlotModel
+                        {
+                            Slot = slot,
+                            Session = "Session1",
+                            IsBooked = bookingstatus == null ? false : true
+                        };
+                        slots.SessionOneScheduleSlotModel.Add(splitSlot);
+                        start = dtNext;
+                    }
                 }
+                #endregion
+
+                #region Session 2
+                if (!string.IsNullOrWhiteSpace(S2startTime) && !string.IsNullOrWhiteSpace(E2endTime))
+                {
+                    var start = DateTime.Parse(S2startTime);
+                    var end = DateTime.Parse(E2endTime);
+                    while (true)
+                    {
+                        var dtNext = start.AddMinutes(duration);
+                        if (start > end || dtNext > end)
+                            break;
+
+                        var slot = start.ToString("hh:mm tt") + " - " + dtNext.ToString("hh:mm tt");
+                        var bookingstatus = bookedSlots.Where(s => s.AppointmentTime == slot).FirstOrDefault();
+
+                        var splitSlot = new ScheduleSlotModel
+                        {
+                            Slot = slot,
+                            Session = "Session2",
+                            IsBooked = bookingstatus == null ? false : true
+                        };
+                        slots.SessionTwoScheduleSlotModel.Add(splitSlot);
+                        start = dtNext;
+                    }
+                }
+                #endregion
+
                 return slots;
             }
             catch
@@ -97,7 +131,9 @@ namespace DPTS.Web.Controllers
                         s => s.AppointmentStatus.Name == "Pending" || s.AppointmentStatus.Name == "Booked")
                         .ToList();
 
-                var scheduleSlots = GenrateTimeSlots(schedule.StartTime, schedule.EndTime, 20, bookedSlots);
+                var scheduleSlots = GenrateTimeSlots(schedule.SessionOneStartTime,
+                    schedule.SessionOneEndTime,
+                    schedule.SessionTwoStartTime,schedule.SessionTwoEndTime, 20, bookedSlots);
 
                 return scheduleSlots;
             }
@@ -197,7 +233,9 @@ namespace DPTS.Web.Controllers
                         .ToList();
 
 
-                var scheduleSlots = GenrateTimeSlots(schedule.StartTime, schedule.EndTime, 20, bookedSlots);
+                var scheduleSlots = GenrateTimeSlots(schedule.SessionOneStartTime, 
+                    schedule.SessionOneEndTime,schedule.SessionTwoStartTime,
+                    schedule.SessionTwoEndTime, 20, bookedSlots);
 
                 if (scheduleSlots == null)
                 {
@@ -207,7 +245,7 @@ namespace DPTS.Web.Controllers
                     });
                 }
 
-                foreach (var item in scheduleSlots.ScheduleSlotModel)
+                foreach (var item in scheduleSlots.SessionOneScheduleSlotModel)
                 {
                     string repo = string.Empty;
                     if (item.IsBooked)

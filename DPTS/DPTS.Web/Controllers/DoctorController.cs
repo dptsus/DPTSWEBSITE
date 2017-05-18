@@ -249,8 +249,8 @@ namespace DPTS.Web.Controllers
             {
                 obj.DoctorId = scheduleSunday.DoctorId;
                 obj.Day = scheduleSunday.Day;
-                obj.EndTime = scheduleSunday.EndTime;
-                obj.StartTime = scheduleSunday.StartTime;
+                obj.SessionOneEndTime = scheduleSunday.SessionOneEndTime;
+                obj.SessionOneStartTime = scheduleSunday.SessionOneStartTime;
             }
         }
 
@@ -275,15 +275,15 @@ namespace DPTS.Web.Controllers
                         {
                             Day = lowerDay,
                             DoctorId = User.Identity.GetUserId(),
-                            StartTime = form[lowerDayStart].Trim(),
-                            EndTime = form[lowerDayEnd].Trim()
+                            SessionOneStartTime = form[lowerDayStart].Trim(),
+                            SessionTwoEndTime = form[lowerDayEnd].Trim()
                         };
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
-                        schedule.StartTime = form[lowerDayStart].Trim();
-                        schedule.EndTime = form[lowerDayEnd].Trim();
+                        schedule.SessionOneStartTime = form[lowerDayStart].Trim();
+                        schedule.SessionOneEndTime = form[lowerDayEnd].Trim();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }
@@ -755,8 +755,10 @@ namespace DPTS.Web.Controllers
                             {
                                 obj.DoctorId = scheduleSunday.DoctorId;
                                 obj.Day = scheduleSunday.Day;
-                                obj.EndTime = scheduleSunday.EndTime.ToString();
-                                obj.StartTime = scheduleSunday.StartTime.ToString();
+                                obj.SessionOneEndTime = scheduleSunday.SessionOneEndTime.ToString();
+                                obj.SessionOneStartTime = scheduleSunday.SessionOneStartTime.ToString();
+                                obj.SessionTwoEndTime = scheduleSunday.SessionTwoEndTime.ToString();
+                                obj.SessionTwoStartTime = scheduleSunday.SessionTwoStartTime.ToString();
                             }
                             break;
                         case DayOfWeek.Monday:
@@ -767,8 +769,10 @@ namespace DPTS.Web.Controllers
                             {
                                 obj.DoctorId = scheduleMonday.DoctorId;
                                 obj.Day = scheduleMonday.Day;
-                                obj.EndTime = scheduleMonday.EndTime.ToString();
-                                obj.StartTime = scheduleMonday.StartTime.ToString();
+                                obj.SessionOneEndTime = scheduleMonday.SessionOneEndTime.ToString();
+                                obj.SessionOneStartTime = scheduleMonday.SessionOneStartTime.ToString();
+                                obj.SessionTwoEndTime = scheduleMonday.SessionTwoEndTime.ToString();
+                                obj.SessionTwoStartTime = scheduleMonday.SessionTwoStartTime.ToString();
                             }
                             break;
                         case DayOfWeek.Tuesday:
@@ -779,8 +783,10 @@ namespace DPTS.Web.Controllers
                             {
                                 obj.DoctorId = scheduleTuesday.DoctorId;
                                 obj.Day = scheduleTuesday.Day;
-                                obj.EndTime = scheduleTuesday.EndTime.ToString();
-                                obj.StartTime = scheduleTuesday.StartTime.ToString();
+                                obj.SessionOneEndTime = scheduleTuesday.SessionOneEndTime.ToString();
+                                obj.SessionOneStartTime = scheduleTuesday.SessionOneStartTime.ToString();
+                                obj.SessionTwoEndTime = scheduleTuesday.SessionTwoEndTime.ToString();
+                                obj.SessionTwoStartTime = scheduleTuesday.SessionTwoStartTime.ToString();
                             }
                             break;
                         case DayOfWeek.Wednesday:
@@ -791,8 +797,10 @@ namespace DPTS.Web.Controllers
                             {
                                 obj.DoctorId = scheduleWednesday.DoctorId;
                                 obj.Day = scheduleWednesday.Day;
-                                obj.EndTime = scheduleWednesday.EndTime.ToString();
-                                obj.StartTime = scheduleWednesday.StartTime.ToString();
+                                obj.SessionOneEndTime = scheduleWednesday.SessionOneEndTime.ToString();
+                                obj.SessionOneStartTime = scheduleWednesday.SessionOneStartTime.ToString();
+                                obj.SessionTwoEndTime = scheduleWednesday.SessionTwoEndTime.ToString();
+                                obj.SessionTwoStartTime = scheduleWednesday.SessionTwoStartTime.ToString();
                             }
                             break;
                         case DayOfWeek.Thursday:
@@ -803,8 +811,10 @@ namespace DPTS.Web.Controllers
                             {
                                 obj.DoctorId = scheduleThursday.DoctorId;
                                 obj.Day = scheduleThursday.Day;
-                                obj.EndTime = scheduleThursday.EndTime.ToString();
-                                obj.StartTime = scheduleThursday.StartTime.ToString();
+                                obj.SessionOneEndTime = scheduleThursday.SessionOneEndTime.ToString();
+                                obj.SessionOneStartTime = scheduleThursday.SessionOneStartTime.ToString();
+                                obj.SessionTwoEndTime = scheduleThursday.SessionTwoEndTime.ToString();
+                                obj.SessionTwoStartTime = scheduleThursday.SessionTwoStartTime.ToString();
                             }
                             break;
                         case DayOfWeek.Friday:
@@ -815,8 +825,10 @@ namespace DPTS.Web.Controllers
                             {
                                 obj.DoctorId = scheduleFriday.DoctorId;
                                 obj.Day = scheduleFriday.Day;
-                                obj.EndTime = scheduleFriday.EndTime.ToString();
-                                obj.StartTime = scheduleFriday.StartTime.ToString();
+                                obj.SessionOneEndTime = scheduleFriday.SessionOneEndTime.ToString();
+                                obj.SessionOneStartTime = scheduleFriday.SessionOneStartTime.ToString();
+                                obj.SessionTwoEndTime = scheduleFriday.SessionTwoEndTime.ToString();
+                                obj.SessionTwoStartTime = scheduleFriday.SessionTwoStartTime.ToString();
                             }
                             break;
                         case DayOfWeek.Saturday:
@@ -827,8 +839,10 @@ namespace DPTS.Web.Controllers
                             {
                                 obj.DoctorId = scheduleSaturday.DoctorId;
                                 obj.Day = scheduleSaturday.Day;
-                                obj.EndTime = scheduleSaturday.EndTime.ToString();
-                                obj.StartTime = scheduleSaturday.StartTime.ToString();
+                                obj.SessionOneEndTime = scheduleSaturday.SessionOneEndTime.ToString();
+                                obj.SessionOneStartTime = scheduleSaturday.SessionOneStartTime.ToString();
+                                obj.SessionTwoEndTime = scheduleSaturday.SessionTwoEndTime.ToString();
+                                obj.SessionTwoStartTime = scheduleSaturday.SessionTwoStartTime.ToString();
                             }
                             break;
                         default:
@@ -852,8 +866,10 @@ namespace DPTS.Web.Controllers
                     return HttpNotFound();
 
                 #region Sunday
-                if (!string.IsNullOrWhiteSpace(form["sunday_start"].ToString()) &&
-                    !string.IsNullOrWhiteSpace(form["sunday_end"].ToString()))
+                if (!string.IsNullOrWhiteSpace(form["sunday_S1start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["sunday_E1end"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["sunday_S2start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["sunday_E2end"].ToString()))
                 {
                     var schedule = _scheduleService.GetScheduleByDoctorId(User.Identity.GetUserId()).Where(s => s.Day.Equals("Sunday")).FirstOrDefault();
 
@@ -863,15 +879,19 @@ namespace DPTS.Web.Controllers
                         var model = new Schedule();
                         model.Day = "Sunday";
                         model.DoctorId = User.Identity.GetUserId();
-                        model.StartTime = form["sunday_start"].Trim().ToString();
-                        model.EndTime = form["sunday_end"].Trim().ToString();
+                        model.SessionOneStartTime = form["sunday_S1start"].Trim().ToString();
+                        model.SessionOneEndTime = form["sunday_E1end"].Trim().ToString();
+                        model.SessionTwoStartTime = form["sunday_S2start"].Trim().ToString();
+                        model.SessionTwoEndTime = form["sunday_E2end"].Trim().ToString();
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
                         //update record
-                        schedule.StartTime = form["sunday_start"].Trim().ToString();
-                        schedule.EndTime = form["sunday_end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["sunday_S1start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["sunday_E1end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["sunday_S2start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["sunday_E2end"].Trim().ToString();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }
@@ -879,8 +899,10 @@ namespace DPTS.Web.Controllers
 
                 #region Monday
 
-                if (!string.IsNullOrWhiteSpace(form["monday_start"].ToString()) &&
-                   !string.IsNullOrWhiteSpace(form["monday_end"].ToString()))
+                if (!string.IsNullOrWhiteSpace(form["monday_S1start"].ToString()) &&
+                   !string.IsNullOrWhiteSpace(form["monday_E1end"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["monday_S2start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["monday_E2end"].ToString()))
                 {
                     var schedule = _scheduleService.GetScheduleByDoctorId(User.Identity.GetUserId()).Where(s => s.Day.Equals("Monday")).FirstOrDefault();
 
@@ -890,15 +912,19 @@ namespace DPTS.Web.Controllers
                         var model = new Schedule();
                         model.Day = "Monday";
                         model.DoctorId = User.Identity.GetUserId();
-                        model.StartTime = form["monday_start"].Trim().ToString();
-                        model.EndTime = form["monday_end"].Trim().ToString();
+                        model.SessionOneStartTime = form["monday_S1start"].Trim().ToString();
+                        model.SessionOneEndTime = form["monday_E1end"].Trim().ToString();
+                        model.SessionTwoStartTime = form["monday_S2start"].Trim().ToString();
+                        model.SessionTwoEndTime = form["monday_E2end"].Trim().ToString();
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
                         //update record
-                        schedule.StartTime = form["monday_start"].Trim().ToString();
-                        schedule.EndTime = form["monday_end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["monday_S1start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["monday_E1end"].Trim().ToString();
+                        schedule.SessionTwoStartTime = form["monday_S2start"].Trim().ToString();
+                        schedule.SessionTwoEndTime = form["monday_E2end"].Trim().ToString();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }
@@ -906,8 +932,10 @@ namespace DPTS.Web.Controllers
 
                 #region Tuesday
 
-                if (!string.IsNullOrWhiteSpace(form["tuesday_start"].ToString()) &&
-                    !string.IsNullOrWhiteSpace(form["tuesday_end"].ToString()))
+                if (!string.IsNullOrWhiteSpace(form["tuesday_S1start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["tuesday_E1end"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["tuesday_S2start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["tuesday_E2end"].ToString()))
                 {
                     var schedule = _scheduleService.GetScheduleByDoctorId(User.Identity.GetUserId()).Where(s => s.Day.Equals("Tuesday")).FirstOrDefault();
 
@@ -917,15 +945,19 @@ namespace DPTS.Web.Controllers
                         var model = new Schedule();
                         model.Day = "Tuesday";
                         model.DoctorId = User.Identity.GetUserId();
-                        model.StartTime = form["tuesday_start"].Trim().ToString();
-                        model.EndTime = form["tuesday_end"].Trim().ToString();
+                        model.SessionOneStartTime = form["tuesday_S1start"].Trim().ToString();
+                        model.SessionOneEndTime = form["tuesday_E1end"].Trim().ToString();
+                        model.SessionTwoStartTime = form["tuesday_S2start"].Trim().ToString();
+                        model.SessionTwoEndTime = form["tuesday_E2end"].Trim().ToString();
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
                         //update record
-                        schedule.StartTime = form["tuesday_start"].Trim().ToString();
-                        schedule.EndTime = form["tuesday_end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["tuesday_S1start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["tuesday_E2end"].Trim().ToString();
+                        schedule.SessionTwoStartTime = form["tuesday_S2start"].Trim().ToString();
+                        schedule.SessionTwoEndTime = form["tuesday_E2end"].Trim().ToString();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }
@@ -934,8 +966,10 @@ namespace DPTS.Web.Controllers
                 #region Wednesday
 
                 //Wednesday
-                if (!string.IsNullOrWhiteSpace(form["wednesday_start"].ToString()) &&
-                   !string.IsNullOrWhiteSpace(form["wednesday_end"].ToString()))
+                if (!string.IsNullOrWhiteSpace(form["wednesday_S1start"].ToString()) &&
+                   !string.IsNullOrWhiteSpace(form["wednesday_E1end"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["wednesday_S2start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["wednesday_E2end"].ToString()))
                 {
                     var schedule = _scheduleService.GetScheduleByDoctorId(User.Identity.GetUserId())
                         .Where(s => s.Day.Equals("Wednesday")).FirstOrDefault();
@@ -946,15 +980,19 @@ namespace DPTS.Web.Controllers
                         var model = new Schedule();
                         model.Day = "Wednesday";
                         model.DoctorId = User.Identity.GetUserId();
-                        model.StartTime = form["wednesday_start"].Trim().ToString();
-                        model.EndTime = form["wednesday_end"].Trim().ToString();
+                        model.SessionOneStartTime = form["wednesday_S1start"].Trim().ToString();
+                        model.SessionOneEndTime = form["wednesday_E1end"].Trim().ToString();
+                        model.SessionTwoStartTime = form["wednesday_S1start"].Trim().ToString();
+                        model.SessionTwoEndTime = form["wednesday_E2end"].Trim().ToString();
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
                         //update record
-                        schedule.StartTime = form["wednesday_start"].Trim().ToString();
-                        schedule.EndTime = form["wednesday_end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["wednesday_S1start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["wednesday_E1end"].Trim().ToString();
+                        schedule.SessionTwoStartTime = form["wednesday_S2start"].Trim().ToString();
+                        schedule.SessionTwoEndTime = form["wednesday_E2end"].Trim().ToString();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }
@@ -962,8 +1000,10 @@ namespace DPTS.Web.Controllers
 
                 #region Thursday
                 //Thursday
-                if (!string.IsNullOrWhiteSpace(form["thursday_start"].ToString()) &&
-                  !string.IsNullOrWhiteSpace(form["thursday_end"].ToString()))
+                if (!string.IsNullOrWhiteSpace(form["thursday_S1start"].ToString()) &&
+                  !string.IsNullOrWhiteSpace(form["thursday_E1end"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["thursday_S2start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["thursday_E2end"].ToString()))
                 {
                     var schedule = _scheduleService.GetScheduleByDoctorId(User.Identity.GetUserId())
                         .Where(s => s.Day.Equals("Thursday")).FirstOrDefault();
@@ -974,15 +1014,19 @@ namespace DPTS.Web.Controllers
                         var model = new Schedule();
                         model.Day = "Thursday";
                         model.DoctorId = User.Identity.GetUserId();
-                        model.StartTime = form["thursday_start"].Trim().ToString();
-                        model.EndTime = form["thursday_end"].Trim().ToString();
+                        model.SessionOneStartTime = form["thursday_S1start"].Trim().ToString();
+                        model.SessionOneEndTime = form["thursday_E1end"].Trim().ToString();
+                        model.SessionTwoStartTime = form["thursday_S2start"].Trim().ToString();
+                        model.SessionTwoEndTime = form["thursday_E2end"].Trim().ToString();
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
                         //update record
-                        schedule.StartTime = form["thursday_start"].Trim().ToString();
-                        schedule.EndTime = form["thursday_end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["thursday_S1start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["thursday_E1end"].Trim().ToString();
+                        schedule.SessionTwoStartTime = form["thursday_S2start"].Trim().ToString();
+                        schedule.SessionTwoEndTime = form["thursday_E2end"].Trim().ToString();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }
@@ -990,8 +1034,10 @@ namespace DPTS.Web.Controllers
 
                 #region Friday
                 //Friday
-                if (!string.IsNullOrWhiteSpace(form["friday_start"].ToString()) &&
-                 !string.IsNullOrWhiteSpace(form["friday_end"].ToString()))
+                if (!string.IsNullOrWhiteSpace(form["friday_S1start"].ToString()) &&
+                 !string.IsNullOrWhiteSpace(form["friday_E1end"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["friday_S2start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["friday_E2end"].ToString()))
                 {
                     var schedule = _scheduleService.GetScheduleByDoctorId(User.Identity.GetUserId())
                         .Where(s => s.Day.Equals("Friday")).FirstOrDefault();
@@ -1002,15 +1048,19 @@ namespace DPTS.Web.Controllers
                         var model = new Schedule();
                         model.Day = "Friday";
                         model.DoctorId = User.Identity.GetUserId();
-                        model.StartTime = form["friday_start"].Trim().ToString();
-                        model.EndTime = form["friday_end"].Trim().ToString();
+                        model.SessionOneStartTime = form["friday_S1start"].Trim().ToString();
+                        model.SessionOneEndTime = form["friday_E1end"].Trim().ToString();
+                        model.SessionTwoStartTime = form["friday_S2start"].Trim().ToString();
+                        model.SessionTwoEndTime = form["friday_E2end"].Trim().ToString();
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
                         //update record
-                        schedule.StartTime = form["friday_start"].Trim().ToString();
-                        schedule.EndTime = form["friday_end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["friday_S1start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["friday_E2end"].Trim().ToString();
+                        schedule.SessionTwoStartTime = form["friday_S2start"].Trim().ToString();
+                        schedule.SessionTwoEndTime = form["friday_E2end"].Trim().ToString();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }
@@ -1018,8 +1068,10 @@ namespace DPTS.Web.Controllers
 
                 #region Saturday
                 //Saturday
-                if (!string.IsNullOrWhiteSpace(form["saturday_start"].ToString()) &&
-                !string.IsNullOrWhiteSpace(form["saturday_end"].ToString()))
+                if (!string.IsNullOrWhiteSpace(form["saturday_S1start"].ToString()) &&
+                !string.IsNullOrWhiteSpace(form["saturday_E1end"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["saturday_S2start"].ToString()) &&
+                    !string.IsNullOrWhiteSpace(form["saturday_E2end"].ToString()))
                 {
                     var schedule = _scheduleService.GetScheduleByDoctorId(User.Identity.GetUserId())
                         .Where(s => s.Day.Equals("Saturday")).FirstOrDefault();
@@ -1030,15 +1082,19 @@ namespace DPTS.Web.Controllers
                         var model = new Schedule();
                         model.Day = "Saturday";
                         model.DoctorId = User.Identity.GetUserId();
-                        model.StartTime = form["saturday_start"].Trim().ToString();
-                        model.EndTime = form["saturday_end"].Trim().ToString();
+                        model.SessionOneStartTime = form["saturday_S1start"].Trim().ToString();
+                        model.SessionOneEndTime = form["saturday_E1end"].Trim().ToString();
+                        model.SessionTwoStartTime = form["saturday_S2start"].Trim().ToString();
+                        model.SessionTwoEndTime = form["saturday_E2end"].Trim().ToString();
                         _scheduleService.InsertSchedule(model);
                     }
                     else
                     {
                         //update record
-                        schedule.StartTime = form["saturday_start"].Trim().ToString();
-                        schedule.EndTime = form["saturday_end"].Trim().ToString();
+                        schedule.SessionOneStartTime = form["saturday_S1start"].Trim().ToString();
+                        schedule.SessionOneEndTime = form["saturday_E1end"].Trim().ToString();
+                        schedule.SessionTwoStartTime = form["saturday_S2start"].Trim().ToString();
+                        schedule.SessionTwoEndTime = form["saturday_E2end"].Trim().ToString();
                         _scheduleService.UpdateSchedule(schedule);
                     }
                 }

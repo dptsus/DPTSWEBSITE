@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201705090333132_addskypehandler.Designer.cs">
       <DependentUpon>201705090333132_addskypehandler.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705180421307_addSession1Session2Appoinment.cs" />
+    <Compile Include="Migrations\201705180421307_addSession1Session2Appoinment.Designer.cs">
+      <DependentUpon>201705180421307_addSession1Session2Appoinment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -99,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705090333132_addskypehandler.resx">
       <DependentUpon>201705090333132_addskypehandler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705180421307_addSession1Session2Appoinment.resx">
+      <DependentUpon>201705180421307_addSession1Session2Appoinment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

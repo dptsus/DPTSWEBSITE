@@ -957,7 +957,6 @@ namespace DPTS.Web.Controllers
             }
             return dictionary;
         }
-        
         public IList<SelectListItem> GetSpecialityList()
         {
             var specialitys = _specialityService.GetAllSpeciality(false);
@@ -996,9 +995,6 @@ namespace DPTS.Web.Controllers
             return items;
 
         }
-
-       
-
         #region Helpers
 
         // Used for XSRF protection when adding external logins

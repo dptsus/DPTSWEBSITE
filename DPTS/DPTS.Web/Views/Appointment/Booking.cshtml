@@ -28,7 +28,36 @@
                             </div>
                             <div class="tg-timeslots step-one-slots">
                                 <div class="tg-timeslotswrapper">
-                                    @foreach (var slot in Model.ScheduleSlotModel)
+                                    @foreach (var slot in Model.SessionOneScheduleSlotModel)
+                                    {
+                                            if (slot.IsBooked)
+                                            {
+                                                <div class="tg-doctimeslot tg-booked">
+                                                    <div class="tg-box">
+                                                        <div class="tg-radio">
+                                                            <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime" disabled>
+                                                            <label for="@slot.Slot">@slot.Slot</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="tg-doctimeslot tg-available">
+                                                    <div class="tg-box">
+                                                        <div class="tg-radio">
+                                                            <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime">
+                                                            <label for="@slot.Slot">@slot.Slot</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                    }
+                                    <hr />
+                                    <br />
+                                    <span> Session 2</span>
+                                    <br />
+                                    @foreach (var slot in Model.SessionTwoScheduleSlotModel)
                                     {
                                         if (slot.IsBooked)
                                         {
@@ -52,7 +81,6 @@
                                                 </div>
                                             </div>
                                         }
-
                                     }
                                 </div>
                             </div>
