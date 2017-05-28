@@ -231,7 +231,6 @@ namespace DPTS.Web.Controllers
             return View();
         }
         
-
         public PartialViewResult _DoctorBox(SearchModel model, int? page)
         {
             var searchViewModel = new List<TempDoctorViewModel>();
@@ -326,11 +325,9 @@ namespace DPTS.Web.Controllers
             if (model == null)
                 model = new SearchModel();
 
-
             var searchTerms = model.q ?? "";
             if(!string.IsNullOrWhiteSpace(model.q))
                 searchTerms = model.q.Trim();
-
 
             if(!string.IsNullOrWhiteSpace(searchTerms))
             {
@@ -351,7 +348,8 @@ namespace DPTS.Web.Controllers
             var data = _doctorService.SearchDoctor(pageNumber, pageSize, out totalCount,
                 model.geo_location,
                 specilityId,
-                searchByName);
+                searchByName,
+                searchCategory:null);
 
             if (data != null)
             {
@@ -368,7 +366,6 @@ namespace DPTS.Web.Controllers
                 }).ToList();
             }
 
-
             IPagedList<TempDoctorViewModel> pageDoctors = new StaticPagedList<TempDoctorViewModel>(searchViewModel,
                 pageNumber + 1, pageSize, totalCount);
 
@@ -379,6 +376,49 @@ namespace DPTS.Web.Controllers
             return View(pageDoctors);
         }
 
+        [ValidateInput(false)]
+        public ActionResult HeaderMenuSearch(string searchCriteria, int? page)
+        {
+            var searchViewModel = new List<TempDoctorViewModel>();
+            var pageNumber = (page ?? 1) - 1;
+            var pageSize = 5;
+            int totalCount;
+
+            var model = new SearchModel();
+
+            var searchTerms = model.q ?? "";
+            if (!string.IsNullOrWhiteSpace(model.q))
+                searchTerms = model.q.Trim();
+
+            var data = _doctorService.SearchDoctor(pageNumber, pageSize, out totalCount,
+                model.geo_location,
+                0,null,
+                searchCriteria);
+
+            if (data != null)
+            {
+                searchViewModel = data.Select(doc => new TempDoctorViewModel
+                {
+                    Doctors = doc,
+                    Address = _addressService.GetAllAddressByUser(doc.DoctorId).FirstOrDefault(),
+                    AddressLine = GetAddressline(_addressService.GetAllAddressByUser(doc.DoctorId).FirstOrDefault()),
+                    YearOfExperience = GetTotalExperience(doc.Experience),
+                    Qualification = GetQualification(doc.Education),
+                    ListSpecialities = GetSpecialities(_specialityService.GetDoctorSpecilities(doc.DoctorId)),
+                    ReviewOverviewModel = PrepareDoctorReviewOverviewModel(doc),
+                    AddPictureModel = GetProfilePicture(doc.DoctorId)
+                }).ToList();
+            }
+
+            IPagedList<TempDoctorViewModel> pageDoctors = new StaticPagedList<TempDoctorViewModel>(searchViewModel,
+                pageNumber + 1, pageSize, totalCount);
+
+            ViewBag.SearchModel = PrepareSearchModel(model);
+
+            ViewBag.IsHomePageSearch = true;
+
+            return View("Search",pageDoctors);
+        }
 
         /// <summary>
         /// Get all doctors

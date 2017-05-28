@@ -49,6 +49,7 @@
                         <div id="docfee"></div>
                         <input id="minfee" name="minfee" type="hidden" value="" />
                         <input id="maxfee" name="maxfee" type="hidden" value="" />
+                        <input id="searchCriteria" name="searchCriteria" type="hidden" value="" />
                     </div>
                     <script>
                         jQuery(document).ready(function(e) {
@@ -89,7 +90,9 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
     jQuery(document).ready(function (e) {
+        var paramCriteria = getParameterByName('searchCriteria');
         var myParam = getParameterByName('q');
+        jQuery("#searchCriteria").val(paramCriteria);
         jQuery("#speciality").val(myParam);
         jQuery("#speciality").val("@Model.q");
                     jQuery("#speciality").kendoAutoComplete({

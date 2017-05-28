@@ -239,16 +239,20 @@ namespace DPTS.Services.Doctors
         public IList<Doctor> SearchDoctor(int page, int itemsPerPage, out int totalCount,
             string zipcode = null,
             int specialityId = 0,
-            string searchByName = null)
+            string searchByName = null,
+            string searchCategory = null)
            // double Geo_Distance = 50)
         {
             IList<int> addressIds = null;
             var query = from d in _doctorRepository.Table
                         select d;
 
-            //  query = query.Where(p => !p.Deleted && p.IsActive);
-            //  if (string.IsNullOrWhiteSpace(directoryType) && directoryType != "doctor")
-            //  return null;
+           // query = query.Where(p => !p.Deleted && p.IsActive);
+
+            if (!string.IsNullOrWhiteSpace(searchCategory) && searchCategory.Equals("Appoinment"))
+            {
+                 query = query.Where(p => p.Schedules.Any());
+            }
 
             if (!string.IsNullOrWhiteSpace(zipcode))
             {
@@ -381,7 +385,8 @@ namespace DPTS.Services.Doctors
             string searchByName = null,
             decimal maxFee = 0,
             decimal minFee = 0,
-            string SortBy = "all")
+            string SortBy = "all",
+            string searchCriteria = null)
         {
             IList<int> addressIds = null;
             var query = from d in _doctorRepository.Table
@@ -390,6 +395,11 @@ namespace DPTS.Services.Doctors
             //  query = query.Where(p => !p.Deleted && p.IsActive);
             //  if (string.IsNullOrWhiteSpace(directoryType) && directoryType != "doctor")
             //  return null;
+
+            if(!string.IsNullOrWhiteSpace(searchCriteria) && searchCriteria.Equals("Appoinment"))
+            {
+                query = query.Where(p => p.Schedules.Any());
+            }
 
             if (!string.IsNullOrWhiteSpace(zipcode))
             {

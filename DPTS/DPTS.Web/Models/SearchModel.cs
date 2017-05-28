@@ -36,5 +36,6 @@ namespace DPTS.Web.Models
         [AllowHtml]
         public string q { get; set; }
 
+        public string searchCriteria { get; set; }
     }
 }
