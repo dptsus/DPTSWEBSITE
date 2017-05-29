@@ -32,7 +32,7 @@ p a,
 .tg-post .tg-description blockquote:before,
 .tg-post .tg-description blockquote:after,
 .tg-metadata li a:hover,
-.tg-info i,
+/*.tg-info i,*/
 .tg-docinfo .tg-stars i,
 .tg-img-hover a,
 .tg-widget ul li .tg-docinfo a:hover,
@@ -86,8 +86,8 @@ p a,
 .tg-userschedule ul li.current a,
 .tg-userschedule ul li.current a span,
 .tg-userschedule ul li.current a em,
-.tg-usercontactinfo .tg-doccontactinfo li:last-child a{color: #008be4;}
-.tg-doctor-detail2 .tg-findbycategory ul li a:hover{color: #008be4 !important;}
+.tg-usercontactinfo .tg-doccontactinfo li:last-child a{color: #ffa000;}
+.tg-doctor-detail2 .tg-findbycategory ul li a:hover{color: #ffa000 !important;}
 /* =============================================
 			Theme Background Color
 ============================================= */
@@ -157,14 +157,14 @@ p a,
 .tg-radio input[type="radio"]:checked + label,
 .tg-userrating li:after,
 .doc-topbar.doc-topbar-v1
-{background:#008be4;}
+{background:#28328c;}
 
 .tg-featureverified li.tg-varified a{background:#10a64a;}
 
 .chosen-container-multi .chosen-choices li.search-choice:hover,
 .tg-banner-holder .tg-searcharea-v2 .tg-searchform .tg-btn{
-	border-color:#008be4 !important;
-	background:#008be4 !important;
+	border-color:#1ebef0  !important;
+	background:#1ebef0  !important;
 }
 /* =============================================
 			Theme Border Color
@@ -189,7 +189,7 @@ p a,
 .tg-radio input[type="radio"] + label,
 .tg-radio input[type="radio"]:checked + label,
 .tg-mapmarker figure
-{border-color: #008be4 ;}
+{border-color: #ffa000 ;}
 .tg-map-marker .tg-docimg .tg-show,
 .tg-docimg .tg-uploadimg{border-bottom-color: #008be4 ;}
 .tg-login-logout li ul,
@@ -202,4 +202,7 @@ p a,
 .product-no-reviews a{
     color:white;
     font-weight:700;
+}
+#footer{
+    background-color: #28328c;
 }

@@ -1724,7 +1724,7 @@ body.tg-comming-soon #main{
 .tg-threecolumn{
 	width: 100%;
 	float: left;
-	background: #43a047;
+	/*background: #43a047;*/
 	border-top: 5px solid;
 	padding: 70px 0;
 }
@@ -1904,22 +1904,21 @@ body.tg-comming-soon #main{
 .tg-widget ul li .tg-docinfo a{color: #fff;}
 .tg-widget ul li .tg-docinfo a:hover{text-decoration: none;}
 .tg-footerbar{
-	/*background: #006699;*/
 	padding: 10px 0;
 	text-align: center;
     border-top: 1px dotted white; 
 }
 .tg-copyrights p{
 	margin: 0;
-	color:#314152;
+	color:white;
 	line-height: normal;
 }
 /* =============================================
 			Home2 Style
 ============================================= */
 .tg-searcharea{
-	background: #5d5955;
-	padding: 40px 0;
+	background: #eaeaea;
+	padding: 10px 0;
 }
 .tg-searchform{
 	width: 100%;
@@ -6273,8 +6272,8 @@ div.docdirect-loader-wrap {
     display: inline-block;
     padding: 10px;
     vertical-align: middle;
-    background: #f44336;
-	margin: 0 -2px;
+    background: rgba(255, 255, 255, 0.80);
+	/*margin: 0 -2px;*/
 }
 .tg-banner-holder .tg-searcharea-v2 .tg-searchform select{
 	height:48px;
@@ -6334,6 +6333,7 @@ div.docdirect-loader-wrap {
 	height:48px;
 	border-radius:3px;
 	padding:0 20px;
+    border: 2px solid #ffa000;
 }
 .tg-banner-holder .tg-searcharea-v2 .locate-me-wrap .geolocate{
 	position:absolute;
