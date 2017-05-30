@@ -271,7 +271,8 @@ namespace DPTS.Web.Controllers
                 searchByName: searchByName,
                 maxFee: model.maxfee,
                 minFee: model.minfee,
-                SortBy:model.SortBy
+                SortBy:model.SortBy,
+                searchCriteria:model.searchCriteria
                 );
 
             if (data != null)
@@ -377,7 +378,7 @@ namespace DPTS.Web.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult HeaderMenuSearch(string searchCriteria, int? page)
+        public ActionResult TopFilter(string searchCriteria, int? page)
         {
             var searchViewModel = new List<TempDoctorViewModel>();
             var pageNumber = (page ?? 1) - 1;

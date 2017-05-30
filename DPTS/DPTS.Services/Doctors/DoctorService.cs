@@ -247,11 +247,17 @@ namespace DPTS.Services.Doctors
             var query = from d in _doctorRepository.Table
                         select d;
 
-           // query = query.Where(p => !p.Deleted && p.IsActive);
-
-            if (!string.IsNullOrWhiteSpace(searchCategory) && searchCategory.Equals("Appoinment"))
+            // query = query.Where(p => !p.Deleted && p.IsActive);
+            if (!string.IsNullOrWhiteSpace(searchCategory))
             {
-                 query = query.Where(p => p.Schedules.Any());
+                if (searchCategory.Equals("Appoinment"))
+                {
+                    query = query.Where(p => p.Schedules.Any());
+                }
+                else if (searchCategory.Equals("VideoChat") || searchCategory.Equals("CallConsult"))
+                {
+                    query = query.Where(p => p.SkypeHandler != null);
+                }
             }
 
             if (!string.IsNullOrWhiteSpace(zipcode))
@@ -396,9 +402,15 @@ namespace DPTS.Services.Doctors
             //  if (string.IsNullOrWhiteSpace(directoryType) && directoryType != "doctor")
             //  return null;
 
-            if(!string.IsNullOrWhiteSpace(searchCriteria) && searchCriteria.Equals("Appoinment"))
+            if (!string.IsNullOrWhiteSpace(searchCriteria))
             {
-                query = query.Where(p => p.Schedules.Any());
+                if (searchCriteria.Equals("Appoinment"))
+                {
+                    query = query.Where(p => p.Schedules.Any());
+                }else if (searchCriteria.Equals("VideoChat") || searchCriteria.Equals("CallConsult"))
+                {
+                    query = query.Where(p => p.SkypeHandler != null || p.SkypeHandler != string.Empty);
+                }
             }
 
             if (!string.IsNullOrWhiteSpace(zipcode))

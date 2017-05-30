@@ -49,7 +49,6 @@
                         <div id="docfee"></div>
                         <input id="minfee" name="minfee" type="hidden" value="" />
                         <input id="maxfee" name="maxfee" type="hidden" value="" />
-                        <input id="searchCriteria" name="searchCriteria" type="hidden" value="" />
                     </div>
                     <script>
                         jQuery(document).ready(function(e) {
@@ -63,7 +62,6 @@
                                                     jQuery("#amount").html(ui.values[0] + " - " + ui.values[1]);
                                                     jQuery("#minfee").val(ui.values[0]);
                                                     jQuery("#maxfee").val(ui.values[1]);
-
                                                 }
                                             });
                                         });
@@ -71,6 +69,8 @@
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-4">
                     <div class="form-group" style="margin-bottom:0">
+                        <input id="searchCriteria" name="searchCriteria" type="hidden" value="" />
+
                         <input type="submit" id="search_banner" style="background: #7dbb00;color: white;margin-top: 11px;margin-left: 15px;" class="tg-btn search-nav" value="Search">
                     </div>
                 </div>
