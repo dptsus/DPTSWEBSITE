@@ -204,5 +204,6 @@ p a,
     font-weight:700;
 }
 #footer{
-    background-color: #28328c;
+    background: url(../../docdirect/images/ft_pattern.png) center top no-repeat #2d261b;
+    background-size: cover;
 }

@@ -552,6 +552,8 @@
     <Content Include="Content\wp-content\themes\docdirect\css\freelancer.css" />
     <Content Include="Content\wp-content\themes\docdirect\customdpts.css" />
     <Content Include="Content\wp-content\themes\docdirect\images\flags.png" />
+    <Content Include="Content\wp-content\themes\docdirect\images\ft_pattern.png" />
+    <Content Include="Content\wp-content\themes\docdirect\images\Future.gif" />
     <Content Include="Content\wp-content\themes\docdirect\images\icon24.png" />
     <Content Include="Content\wp-content\themes\docdirect\images\mimg.png" />
     <Content Include="Content\wp-content\themes\docdirect\images\rating1.png" />
