@@ -75,7 +75,7 @@ namespace DPTS.Web.Controllers
             var defaultPicture = pictures.FirstOrDefault();
             var defaultPictureModel = new PictureModel
             {
-                ImageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/user365x365.jpg" :
+                ImageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/doctor-male.png" :
                 _pictureService.GetPictureUrl(defaultPicture, 365, false),
                 FullSizeImageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/user365x365.jpg" :
                 _pictureService.GetPictureUrl(defaultPicture, 0, false),
@@ -83,6 +83,26 @@ namespace DPTS.Web.Controllers
                 AlternateText = "",
             };
             return defaultPictureModel;
+        }
+        public List<PictureModel> GetAllPictures(string doctorId)
+        {
+            var pictures = _pictureService.GetPicturesByUserId(doctorId);
+            var pictureModels = new List<PictureModel>();
+            if (pictures != null)
+            {
+                foreach (var picture in pictures.Skip(1))
+                {
+                    var pictureModel = new PictureModel
+                    {
+                        ImageUrl = _pictureService.GetPictureUrl(picture, 150),
+                        FullSizeImageUrl = _pictureService.GetPictureUrl(picture),
+                        Title = "",
+                        AlternateText = "",
+                    };
+                    pictureModels.Add(pictureModel);
+                }
+            }
+            return pictureModels;
         }
 
         [NonAction]
@@ -95,9 +115,6 @@ namespace DPTS.Web.Controllers
                 {
                     addrLine += model.Address1 + ", ";
                     addrLine += model.City;
-                   // addrLine += _stateService.GetStateProvinceById(model.StateProvinceId.GetValueOrDefault()).Name + ", ";
-                   // addrLine += _countryService.GetCountryById(model.CountryId.GetValueOrDefault()).Name + ", ";
-                  //  addrLine += model.ZipPostalCode;
                 }
                 return addrLine;
             }
@@ -286,7 +303,8 @@ namespace DPTS.Web.Controllers
                     Qualification = GetQualification(doc.Education),
                     ListSpecialities = GetSpecialities(_specialityService.GetDoctorSpecilities(doc.DoctorId)),
                     ReviewOverviewModel = PrepareDoctorReviewOverviewModel(doc),
-                    AddPictureModel = GetProfilePicture(doc.DoctorId)
+                    AddPictureModel = GetProfilePicture(doc.DoctorId),
+                    DoctorPictureModels = GetAllPictures(doc.DoctorId)
                 }).ToList();
             }
 
@@ -363,7 +381,8 @@ namespace DPTS.Web.Controllers
                     Qualification = GetQualification(doc.Education),
                     ListSpecialities = GetSpecialities(_specialityService.GetDoctorSpecilities(doc.DoctorId)),
                     ReviewOverviewModel = PrepareDoctorReviewOverviewModel(doc),
-                    AddPictureModel =GetProfilePicture(doc.DoctorId)
+                    AddPictureModel =GetProfilePicture(doc.DoctorId),
+                    DoctorPictureModels = GetAllPictures(doc.DoctorId)
                 }).ToList();
             }
 

@@ -11,6 +11,7 @@ namespace DPTS.Web.Models
             Address = new Address();
             ReviewOverviewModel = new DoctorReviewOverviewModel();
             AddPictureModel = new PictureModel();
+            DoctorPictureModels = new List<PictureModel>();
         }
 
         public Doctor Doctors { get; set; }
@@ -22,5 +23,6 @@ namespace DPTS.Web.Models
         public string ListSpecialities { get; set; }
         public PictureModel AddPictureModel { get; set; }
         public DoctorReviewOverviewModel ReviewOverviewModel { get; set; }
+        public IList<PictureModel> DoctorPictureModels { get; set; }
     }
 }
