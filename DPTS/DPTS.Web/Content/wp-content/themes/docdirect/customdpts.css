@@ -27,7 +27,7 @@
 }
 .ui-slider .ui-slider-range{
     background-image:none;
-    background-color:#5ac4a0;
+    background-color:#ffa000;
 }
 .dropbtn{
     background-color: #59b059;
@@ -635,3 +635,8 @@ result--card .results--add-info, .result--card .results--info {
 }
 
 }
+#search_banner{
+    background-color: #4ebb4e  !important;
+    border:none;
+}
+    

@@ -1917,7 +1917,7 @@ body.tg-comming-soon #main{
 			Home2 Style
 ============================================= */
 .tg-searcharea{
-	background: #eaeaea;
+	background: #585858;
 	padding: 10px 0;
 }
 .tg-searchform{
@@ -4253,16 +4253,16 @@ button[type="button"] .fa-refresh.fa-spin{
 .tg-grid-view .list-avatar{ display:none;}
 .tg-list-view .grid-avatar{ display:none;}
 .map-top{ margin:-100px 0px 80px 0px; height:600px;}
-.tg-stars.star-rating{ position:relative; width:129px; height:36px;}
+.tg-stars.star-rating{ position:relative;}
 .tg-stars.star-rating:before {
     font-family: 'FontAwesome';
-    font-size: 24px;
+    font-size: 10px;
     position: absolute;
     top: 0;
     left: 0;
     content: '\f005 \f005 \f005 \f005 \f005';
     letter-spacing: 4px;
-    color: rgba(218, 218, 218, .8);
+    color: rgb(255, 160, 0);
 }
 .tg-stars.star-rating span {
 	position: absolute;

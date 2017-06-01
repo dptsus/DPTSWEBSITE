@@ -1,165 +1,178 @@
 ﻿@using PagedList
 @using DPTS.Web.Models
 @model  IPagedList<TempDoctorViewModel>
+    @{ 
+        int ind = 0;
+    }
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
-<div class="results--row clearfix" style="border:1px solid #eaeaea; padding:0">
-
+<div id="shops-list" class="results--row clearfix" style="border:1px solid #eaeaea; padding:0">
+    <ul class="shops-list">
     @foreach (var item in Model)
     {
+        int ratingPercent = 0;
+        if (item.ReviewOverviewModel.TotalReviews != 0)
+        {
+            ratingPercent = ((item.ReviewOverviewModel.RatingSum * 100) / item.ReviewOverviewModel.TotalReviews) / 5;
+        }
         var addr = item.Address;
+        <li class="shops-item" style="list-style: none;" data-ind="@(ind++)">
+            <div id="doc-box" class="result--card clearfix bg-white col-md-12" data-ind="@(ind++)">
+                <div class="col-sm-7  results--info">
+                    <div class="media-box">
+                        <div class="media__image-wrapper">
+                            <a href="@Url.Action("DoctorDetails", "Doctor", new { doctorId = item.Doctors.DoctorId })"><img src="@item.AddPictureModel.ImageUrl" class="results--image"></a>
+                            <div>
+                                <span class="tg-stars star-rating">
+                                    <span style="width: @(ratingPercent)%"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="media__cotent">
 
-        <div class="result--card clearfix bg-white col-md-12">
-            <div class="col-sm-7  results--info">
-                <div class="media-box">
-                    <div class="media__image-wrapper">
-                        <a href="@Url.Action("DoctorDetails", "Doctor", new { doctorId = item.Doctors.DoctorId })"><img src="@item.AddPictureModel.ImageUrl" class="results--image"></a>
-                        <!-- <span class="avail-dr">Available</span>
-                        <span class="not-avail-dr">Unavailable Today</span> -->
-                    </div>
-                    <div class="media__cotent">
-
-                        <h5 class="results--name no-margin "><a href="@Url.Action("DoctorDetails", "Doctor", new { doctorId = item.Doctors.DoctorId })">@item.Doctors.AspNetUser.FirstName @item.Doctors.AspNetUser.LastName</a></h5>
-                        @if (!string.IsNullOrWhiteSpace(item.Qualification))
+                            <h5 class="results--name no-margin "><a href="@Url.Action("DoctorDetails", "Doctor", new { doctorId = item.Doctors.DoctorId })">@item.Doctors.AspNetUser.FirstName @item.Doctors.AspNetUser.LastName</a></h5>
+                            @if (!string.IsNullOrWhiteSpace(item.Qualification))
                         {
-                            <p class="results--role txt-small no-margin" style="color:#999">
-                                @item.Qualification
-                            </p>
+                        <p class="results--role txt-small no-margin" style="color:#999">
+                            @item.Qualification
+                        </p>
                         }
-                        @if (!string.IsNullOrWhiteSpace(item.ListSpecialities))
+                            @if (!string.IsNullOrWhiteSpace(item.ListSpecialities))
                         {
-                            <p class="results--role txt-small no-margin"> @item.ListSpecialities </p>
+                        <p class="results--role txt-small no-margin"> @item.ListSpecialities </p>
                         }
-                        <p class="results--practising">Practicing at</p>
+                            <p class="results--practising">Practicing at</p>
                         @if (!string.IsNullOrWhiteSpace(item.AddressLine) && addr != null)
                         {
-                            <p class="results--role txt-small no-margin">
-                                <span class="results-clinic-name">@addr.Hospital</span>
-                                @item.AddressLine
-                            </p>
-                            <p class="med-reg-verify"><b>Medical Registration Verified</b></p>
+                        <p class="results--role txt-small no-margin">
+                            <span class="results-clinic-name">@addr.Hospital</span>
+                            @item.AddressLine<br />
+                                <i class="fa fa-map-marker" aria-hidden="true" style="color: green;font-size: 19px;"></i>
+                                <a href="https://www.google.com/maps/embed/v1/place?q=@addr.Latitude,@addr.Longitude&amp;key=AIzaSyDvanm9mpt0gdHXeUTLbmedVCYU8OKNS3U" style="color:#3baf9c;margin-right:10px" target="_new">Show Map</a>
+                        </p>
+                        <p class="med-reg-verify"><i class="fa fa-check" aria-hidden="true"style="color: green;font-size: 19px;"></i><b> Medical Registration Verified</b></p>
                         }
-                    </div>
-                @if (item.DoctorPictureModels.Any() && item.DoctorPictureModels != null)
-                {
-                    <div class="photo-gallery">
+                        </div>
+                        @if (item.DoctorPictureModels.Any() && item.DoctorPictureModels != null)
+                        {
+                           <div class="photo-gallery">
                         <ul class="popup-gallery">
                             @foreach (var pic in item.DoctorPictureModels)
                             {
-                                <li>
-                                    <a href="@pic.FullSizeImageUrl" title="">
-                                        <img src="@pic.ImageUrl">
-                                    </a>
-                                </li>
+                            <li>
+                                <a href="@pic.FullSizeImageUrl" title="">
+                                    <img src="@pic.ImageUrl">
+                                </a>
+                            </li>
                             }
                         </ul>
                     </div>
-                }
+                        }
+                        
+                        
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-5 results--add-info">
-                <div class="results-border-left">
-                    <div class="results-doc-info row">
-
-                        <div class="col-xs-4 results-info-bg">
-                            <label>Experience</label>
-                            <label class="info">
+                <div class="col-sm-5 results--add-info">
+                    <div class="results-border-left">
+                        <div class="results-doc-info row">
+                            <div class="col-xs-4 results-info-bg">
+                                <label>Experience</label>
+                                <label class="info">
                                 @if (!string.IsNullOrWhiteSpace(item.YearOfExperience) && item.YearOfExperience != "0")
                                 {
                                     @item.YearOfExperience <span>yrs</span>
                                 }
                                 else
                                 {
-                                    <span><i class="fa fa-registered" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-registered" aria-hidden="true"></i></span>
                                 }
-                            </label>
-                        </div>
+                                </label>
+                            </div>
 
-                        <div class="col-xs-4 results-info-bg">
-                            <label>Fee</label>
-                            <label class="info">
-                                @if (item.Doctors.ConsultationFee > 0)
+                            <div class="col-xs-4 results-info-bg">
+                                <label>Fee</label>
+                                <label class="info">
+                                    @if (item.Doctors.ConsultationFee > 0)
                                 {
-                                    <i class="fa fa-inr" aria-hidden="true"></i> @item.Doctors.ConsultationFee
+                                <i class="fa fa-inr" aria-hidden="true"></i> @item.Doctors.ConsultationFee
                                 }
                                 else
                                 {
-                                    <i class="fa fa-exclamation" aria-hidden="true"> N/A</i>
+                                <i class="fa fa-exclamation" aria-hidden="true"> N/A</i>
                                 }
-                            </label>
-                        </div>
+                                </label>
+                            </div>
 
-                        <div class="col-xs-4 results-info-bg">
-                            <label>24/7</label>
+                            <div class="col-xs-4 results-info-bg">
+                                <label>24/7</label>
 
-                            <label class="info">
-                                @if (item.Doctors.IsAvailability)
+                                <label class="info">
+                                    @if (item.Doctors.IsAvailability)
                                 {
-                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                <i class="fa fa-check" aria-hidden="true"></i>
                                 }
                                 else
                                 {
-                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                <i class="fa fa-times" aria-hidden="true"></i>
                                 }
-                            </label>
-                        </div>
+                                </label>
+                            </div>
 
-                        <span class="consult-title"> Consult Option</span>
+                            <span class="consult-title"> Consult Option</span>
 
-                        <div class="col-xs-4 results-info-bg">
-                            <label>Video</label>
-                            <label class="info">
-                                @if (!string.IsNullOrWhiteSpace(item.Doctors.SkypeHandler))
+                            <div class="col-xs-4 results-info-bg">
+                                <label>Video</label>
+                                <label class="info">
+                                    @if (!string.IsNullOrWhiteSpace(item.Doctors.SkypeHandler))
                                 {
-                                    <a href="skype:@item.Doctors.SkypeHandler?call&video=true"><i class="fa fa-video-camera"></i></a>
+                                <a href="skype:@item.Doctors.SkypeHandler?call&video=true"><i class="fa fa-video-camera"></i></a>
                                 }
                                 else
                                 {
-                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                <i class="fa fa-times" aria-hidden="true"></i>
                                 }
-                            </label>
-                        </div>
-                        <div class="col-xs-4 results-info-bg">
-                            <label>Audio/Chat</label>
-                            <label class="info">
-                                @if (!string.IsNullOrWhiteSpace(item.Doctors.SkypeHandler))
+                                </label>
+                            </div>
+                            <div class="col-xs-4 results-info-bg">
+                                <label>Audio/Chat</label>
+                                <label class="info">
+                                    @if (!string.IsNullOrWhiteSpace(item.Doctors.SkypeHandler))
                                 {
-                                    <a href="skype:@item.Doctors.SkypeHandler?call"><i class="fa fa-phone">/</i></a>
-                                    <span>/</span>
-                                    <a href="skype:@item.Doctors.SkypeHandler?chat" id="meddelanden" data-title="Meddelanden" data-toggle="clickover"
-                                       data-placement="right"><i class="fa fa-commenting-o"></i></a>
+                                <a href="skype:@item.Doctors.SkypeHandler?call"><i class="fa fa-phone">/</i></a>
+                                <span>/</span>
+                                <a href="skype:@item.Doctors.SkypeHandler?chat" id="meddelanden" data-title="Meddelanden" data-toggle="clickover"
+                                   data-placement="right"><i class="fa fa-commenting-o"></i></a>
                                 }
                                 else
                                 {
-                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                <i class="fa fa-times" aria-hidden="true"></i>
                                 }
-                            </label>
-                        </div>
-                        <div class="col-xs-4 results-info-bg">
-                            <label>Email</label>
-                            <label class="info"><i class="fa fa-times" aria-hidden="true"></i></label>
-                        </div>
-                    </div>
-                    <div class="row mr-t-50">
-                        <div class="col-sm-12 no-pad">
-                        @if (addr != null)
-                        {
-                            <i class="fa fa-map-marker" aria-hidden="true" style="color: green;font-size: 19px;"></i>
-                            <a href="https://www.google.com/maps/embed/v1/place?q=@addr.Latitude,@addr.Longitude&amp;key=AIzaSyCmHk6flSd1Rze0RJs_JugBScPEN0qKurw" style="color:#3baf9c;margin-right:10px" target="_new">Show Map</a>
-                        }
-
+                                </label>
+                            </div>
+                            <div class="col-xs-4 results-info-bg">
+                                <label>Email</label>
+                                <label class="info"><i class="fa fa-times" aria-hidden="true"></i></label>
+                            </div>
+                            <div id="short-description">
                                 @if (item.Doctors.Schedules.Count() > 0)
                                 {
-                                    <a id="Book" class="btn-primary pull-right btn-light-green fill book-btn" href="@Url.Action("Booking", "Appointment", new RouteValueDictionary(new { doctorId = item.Doctors.DoctorId }))" style="width: auto; min-width: 100px;">Book</a>
+                                    if (addr != null)
+                                    {
+                                        <input type="hidden" class="shop-coordinates" data-latitude="@addr.Latitude" data-longitude="@addr.Longitude" data-shop-title="Dr @item.Doctors.AspNetUser.FirstName @item.Doctors.AspNetUser.LastName" value="1" />
+                                    }
+                                    <a id="Book" class="btn-primary pull-right btn-light-green fill book-btn" href="@Url.Action("Booking", "Appointment", new RouteValueDictionary(new { doctorId = item.Doctors.DoctorId }))" style="width: auto; min-width: 100px;padding: 6px 86px">Book Appoinment</a>
                                 }
                                 else
                                 {
                                     <i class="fa fa-calendar" aria-hidden="true"></i> <span style="font-size:10px;color:#ff0000">Schedule Not Avilable</span>
                                 }
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
-        </div>
-    }
+        </li>
+     }
+</ul>
 </div>
