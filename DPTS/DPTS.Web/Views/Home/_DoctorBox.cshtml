@@ -23,6 +23,7 @@
                 <div class="tg-doctors-list tg-haslayout left-with-map">
                     @if (Model.Any())
                     {
+
                         @Html.Partial("_BoxforDoctor", Model)
                         @Html.PagedListPager(Model, page => Url.Action("_DoctorBox", new
                         {

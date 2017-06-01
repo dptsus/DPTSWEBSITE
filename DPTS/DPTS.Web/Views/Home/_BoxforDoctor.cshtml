@@ -1,10 +1,16 @@
 ﻿@using PagedList
 @using DPTS.Web.Models
+@using DPTS.Web.Helpers
 @model  IPagedList<TempDoctorViewModel>
     @{ 
+        Html.Assets().Styles.Add("https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.1.0/jquery-confirm.min.css");
+        //Html.Assets().Scripts.Add("https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.1.0/jquery-confirm.min.js");
         int ind = 0;
     }
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+
 
 <div id="shops-list" class="results--row clearfix" style="border:1px solid #eaeaea; padding:0">
     <ul class="shops-list">
@@ -151,7 +157,9 @@
                             </div>
                             <div class="col-xs-4 results-info-bg">
                                 <label>Email</label>
-                                <label class="info"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                
+                                @*<label class="info"><i class="fa fa-times" aria-hidden="true"></i></label>*@
+                                <label class="info"><a onclick="mailConsult(500,'Tushar')"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></a></label>
                             </div>
                             <div id="short-description">
                                 @if (item.Doctors.Schedules.Count() > 0)
@@ -176,3 +184,50 @@
      }
 </ul>
 </div>
+
+
+<script type="text/javascript">
+   // $(function () {
+                                function mailConsult(mailChrg,docName) {
+                                        $.confirm({
+                                            title: 'Email Consult',
+                                            content: 'Charge for question : '+mailChrg,
+                                            icon: 'fa fa-envelope',
+                                            animation: 'scale',
+                                            closeAnimation: 'scale',
+                                            opacity: 0.5,
+                                            buttons: {
+                                                'confirm': {
+                                                    text: 'Proceed',
+                                                    btnClass: 'btn-blue',
+                                                    action: function () {
+                                                        $.confirm({
+                                                            title: 'Confirm',
+                                                            content: 'Dr. ' + docName + ' charge per mail Rs.' + mailChrg,
+                                                            icon: 'fa fa-info-circle',
+                                                            animation: 'zoom',
+                                                            closeAnimation: 'zoom',
+                                                            buttons: {
+                                                                confirm: {
+                                                                    text: 'Yes, sure!',
+                                                                    btnClass: 'btn-orange',
+                                                                    action: function () {
+                                                                        $.alert('A very critical action <strong>triggered!</strong>');
+                                                                    }
+                                                                },
+                                                                cancel: function () {
+                                                                    // lets the user close the modal.
+                                                                }
+                                                            }
+                                                        });
+                                                    }
+                                                },
+                                                cancel: function () {
+                                                    //return false;
+                                                }
+                                            }
+                                        });
+                                    }
+                                
+   // });
+</script>
