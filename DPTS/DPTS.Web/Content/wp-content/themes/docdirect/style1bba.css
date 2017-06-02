@@ -690,7 +690,7 @@ input[type="submit"].tg-btn{    background-color: #006699;
 .tg-stars{
 	float: left;
 	width: 100%;
-	padding: 0 0 10px;
+	padding: 8px 0 10px;
 	text-align: center;
 }
 .tg-stars .fa{color: #e7b900;}
@@ -1004,6 +1004,8 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 .tg-form-modal input.form-control {
 	height: 46px;
 	padding: 8px 15px;
+    color: black;
+    font-weight: 600;
 }
 /* =============================================
 			Theme Style
@@ -1018,7 +1020,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 #header{}
 .logo {
 	float: left;
-	padding: 35px 0;
+	padding: 25px 0;
 }
 .logo a {display: block;}
 .logo a img {display: block;}
@@ -1040,9 +1042,9 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 }
 .tg-nav ul li{
 	float: left;
-	padding: 40px 20px;
+	padding: 25px 20px;
 	position: relative;
-	line-height: inherit;
+	/*line-height: inherit;*/
 	list-style-type: none;
 }
 .tg-nav ul li:after{
@@ -1132,7 +1134,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 }
 .tg-login-logout > li{
 	position: relative;
-	padding: 34px 20px;
+	/*padding: 34px 20px;*/
 	float:left;
 }
 .tg-login-logout > li > a{
@@ -1141,7 +1143,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 	float:left;
 	font-size:14px;
 	line-height:20px;
-	color: #5d5955;
+	color: white;
 	text-transform:uppercase;
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 	position:relative;
@@ -1171,7 +1173,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 	z-index: 5;
 	background: #fff;
 	width: 250px;
-	border-top: 2px solid;
+	border-top: 3px solid;
 	text-align: left;
 	top: 200%;
 	visibility: hidden;
@@ -4269,7 +4271,7 @@ button[type="button"] .fa-refresh.fa-spin{
     top: 0;
     left: 0;
     overflow: hidden;
-    height: 36px;
+    /*height: 36px;*/
 	line-height:27px;
 }
 .tg-stars.star-rating span:before {
@@ -7307,7 +7309,7 @@ div.docdirect-loader-wrap {
 	table-layout:fixed;
 	background:#f7f7f7;
 	text-transform:uppercase;
-	font:12px/12px 'Montserrat', Arial, Helvetica, sans-serif;
+	/*font:12px/12px 'Montserrat', Arial, Helvetica, sans-serif;*/
 }
 .tg-navdocappointment li{
 	padding:0 15px;
@@ -7811,12 +7813,13 @@ select option:disabled {
 .tg-widgetappointment em{ padding:30px 0;}
 .tg-widgetappointment .tg-btn{ margin:0;}
 .tg-modalcontent{
-	margin:70px auto 0;
+	/*margin:70px auto 0;*/
 	max-width:1030px;
 	width:100%;
 	background:#fff;
 	box-shadow:none;
 	overflow:hidden;
+    position:inherit;
 }
 .tg-modalcontent .tg-navdocappointment{
 	margin:0;
@@ -7947,8 +7950,8 @@ select option:disabled {
 	border-color:#fff;
 }
 .tg-appointmenttime .tg-doctimeslot{
-	min-width:120px;
-	height:60px;
+	min-width:80px;
+	height:45px;
 }
 .tg-appointmenttime .tg-doctimeslot .tg-box{
 	width:100%;
@@ -8001,7 +8004,7 @@ select option:disabled {
 	float:left;
 	padding:30px 0;
 }
-.booking-model-contents{position:relative;}
+/*.booking-model-contents{position:relative;}*/
 .tg-appointmenttime .tg-doctimeslot{padding:0 10px 0 0px;}
 .tg-doctimeslot.tg-booked label{text-decoration:line-through;}
 .appointment-data-wrap li span{text-transform:none;}

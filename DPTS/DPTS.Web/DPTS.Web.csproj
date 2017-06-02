@@ -898,6 +898,7 @@
     <Content Include="Content\kendo\2017.1.118\images\kendoui.ttf" />
     <Content Include="Content\kendo\2017.1.118\images\kendoui.woff" />
     <None Include="Properties\PublishProfiles\DPTS.pubxml" />
+    <None Include="Properties\PublishProfiles\DPTSTK.pubxml" />
     <None Include="Properties\PublishProfiles\DPTSWeb.pubxml" />
     <None Include="Properties\PublishProfiles\tesrt.pubxml" />
     <None Include="Properties\PublishProfiles\testfile.pubxml" />

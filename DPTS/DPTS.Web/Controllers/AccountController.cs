@@ -280,7 +280,8 @@ namespace DPTS.Web.Controllers
             typelst.AddRange(context.Roles.ToList().Select(type => new SelectListItem
             {
                 Text = type.Name,
-                Value = type.Name
+                Value = type.Name,
+                Selected= true
             }));
             return typelst;
         }

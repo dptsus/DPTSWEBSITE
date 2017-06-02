@@ -46,31 +46,64 @@
                             </div>
                             <div class="tg-timeslots step-one-slots">
                                 <div class="tg-timeslotswrapper">
-                                    @foreach (var slot in Model.ScheduleSlotModel)
-                                    {
-                                        if (slot.IsBooked)
+                                    <fieldset>
+                                        <legend>Session 1 :</legend>
+                                        @foreach (var slot in Model.SessionOneScheduleSlotModel)
                                         {
-                                            <div class="tg-doctimeslot tg-booked">
-                                                <div class="tg-box">
-                                                    <div class="tg-radio">
-                                                        <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime" disabled>
-                                                        <label for="@slot.Slot">@slot.Slot</label>
+                                            if (slot.IsBooked)
+                                            {
+                                                <div class="tg-doctimeslot tg-booked">
+                                                    <div class="tg-box">
+                                                        <div class="tg-radio">
+                                                            <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime" disabled>
+                                                            <label for="@slot.Slot">@slot.Slot</label>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="tg-doctimeslot tg-available">
-                                                <div class="tg-box">
-                                                    <div class="tg-radio">
-                                                        <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime">
-                                                        <label for="@slot.Slot">@slot.Slot</label>
+                                            }
+                                            else
+                                            {
+                                                <div class="tg-doctimeslot tg-available">
+                                                    <div class="tg-box">
+                                                        <div class="tg-radio">
+                                                            <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime">
+                                                            <label for="@slot.Slot">@slot.Slot</label>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            }
                                         }
-                                    }
+                                    </fieldset>
+                                    <br />
+                                    <fieldset>
+                                        <legend>Session 2 :</legend>
+                                        @foreach (var slot in Model.SessionTwoScheduleSlotModel)
+                                        {
+                                            if (slot.IsBooked)
+                                            {
+                                                <div class="tg-doctimeslot tg-booked">
+                                                    <div class="tg-box">
+                                                        <div class="tg-radio">
+                                                            <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime" disabled>
+                                                            <label for="@slot.Slot">@slot.Slot</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="tg-doctimeslot tg-available">
+                                                    <div class="tg-box">
+                                                        <div class="tg-radio">
+                                                            <input id="@slot.Slot" value="@slot.Slot" type="radio" name="slottime">
+                                                            <label for="@slot.Slot">@slot.Slot</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </fieldset>
+
                                 </div>
                                 <br />
                                 @if (Model.AppointmentSchedule != null)

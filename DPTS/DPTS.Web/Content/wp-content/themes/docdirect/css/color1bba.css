@@ -207,3 +207,6 @@ p a,
     background: url(../../docdirect/images/ft_pattern.png) center top no-repeat #2d261b;
     background-size: cover;
 }
+.tg-login-logout > li > a:hover{
+    color:white;
+}

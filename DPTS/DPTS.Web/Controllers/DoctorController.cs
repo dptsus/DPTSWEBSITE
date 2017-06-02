@@ -1124,7 +1124,7 @@ namespace DPTS.Web.Controllers
                     }
                     ViewBag.DoctorId = userId;
                     model.AppointmentSchedule = doctorSchedule;
-                    SuccessNotification("Schedule updated successfully.");
+                   // SuccessNotification("Schedule updated successfully.");
                 }
             }
             catch (Exception)

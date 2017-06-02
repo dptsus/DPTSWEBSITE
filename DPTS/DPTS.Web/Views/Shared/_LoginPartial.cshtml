@@ -16,10 +16,14 @@
             if (User.IsInRole("Doctor"))
             {
                 <li class="session-user-info">
-                    @{ Html.RenderAction("_ProfilePicture","Home");}
+                    <a href="javascript:;">
+                        <span class="s-user">@firstName</span>
+                        @*@{ Html.RenderAction("_ProfilePicture","Home");}*@
+                        <img alt="Welcome" src="~/Content/wp-content/themes/docdirect/images/singin_icon.png" id="welcome">
+                    </a>
                     <ul>
                         @*<li class="active"><a href="@Url.Action("Info", "Doctor")"><i class="fa fa-line-chart"></i>Profile</a></li>*@
-                        <li class="active"><a href="@Url.Action("ProfileSetting", "Doctor")">Profile Settings</a></li>
+                        <li><a href="@Url.Action("ProfileSetting", "Doctor")">Profile Settings</a></li>
                         <li class=""><a href="@Url.Action("Addresses", "Doctor")">Addresses</a></li>
                         <li class=""><a href="@Url.Action("DoctorShowcasePictures", "Doctor")">Pictures</a></li>
                         @*<li class=""><a href="@Url.Action("Favourites", "Doctor")">Favourites</a></li>*@
@@ -45,7 +49,7 @@
                 <li class="session-user-info">
                     <a href="javascript:;"><span class="s-user">@firstName</span><img alt="Welcome" src="~/Content/wp-content/themes/docdirect/images/singin_icon.png" id="welcome"></a>
                     <ul>
-                        <li class="active">
+                        <li>
                             <a href="@Url.Action("AppointmentList", "Visitor")">
                                 <i class="fa fa-hospital-o" aria-hidden="true"></i>
                                 Appoinments

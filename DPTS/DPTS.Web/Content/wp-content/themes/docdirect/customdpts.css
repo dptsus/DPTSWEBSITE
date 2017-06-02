@@ -3,15 +3,16 @@
 .alert-success {
     color: white;
     background-color: #7dbb00;
-    border-color: #7dbb00;
+    border-color: white;
 }
 .alert-danger {
     color: white;
     background-color: rgb(234, 77, 59);
-    border-color: rgb(234, 77, 59);
+    border-color: white;
 }
 .alert{
     border-radius:0;
+    margin-bottom : 0;
 }
 .astric{
     padding-left:5px;
@@ -296,7 +297,7 @@
 }
 .doc-languages {
     float: right;
-    padding: 4px 0;
+    /*padding: 4px 0;*/
     position: relative;
     text-align: center;
 }
@@ -322,9 +323,9 @@
     background-color: #000; /* Add a hover color */
 }
 
-.active {
-    background-color: #4CAF50; /* Add an active/current color */
-}
+/*.active {
+    background-color: #4CAF50; 
+}*/
 
 @media (max-width: 481px) {
     #auto-search{
@@ -560,8 +561,8 @@ result--card .results--add-info, .result--card .results--info {
 }
 
 .media__image-wrapper img {
-    width: 40px;
-    min-height: 40px;
+    width: 60px;
+    min-height: 60px;
     max-height: 70px;
     border-radius: 70px;
     border: 1px solid #c2c2c2;
@@ -631,12 +632,15 @@ result--card .results--add-info, .result--card .results--info {
     padding-right: 15px;
 }
     .results--image {
-    min-width: 70px;
+    min-width: 60px;
 }
 
 }
 #search_banner{
     background-color: #4ebb4e  !important;
     border:none;
+}
+#confirm-reg-main .btn{
+        padding: 6px 5px;
 }
     
