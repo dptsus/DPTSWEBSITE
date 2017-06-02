@@ -351,7 +351,10 @@ namespace DPTS.Web.Controllers
                         model.ConsultationFee = doctor.ConsultationFee;
                         model.IsAvailability = doctor.IsAvailability;
                         model.SkypeHandler = doctor.SkypeHandler;
-                       // model.AddPictureModel = GetProfilePicture(doctor.DoctorId);
+                        model.IsEMailConsult = doctor.IsEMailConsult;
+                        if (model.IsEMailConsult)
+                            model.EmailConsultFee = doctor.EmailConsultFee;
+                        // model.AddPictureModel = GetProfilePicture(doctor.DoctorId);
                     }
                 }
                 if (user != null)
@@ -412,6 +415,10 @@ namespace DPTS.Web.Controllers
                 doctor.IsAvailability = model.IsAvailability;
                 doctor.ConsultationFee = model.ConsultationFee;
                 doctor.SkypeHandler = model.SkypeHandler;
+                doctor.IsEMailConsult = model.IsEMailConsult;
+                if (doctor.IsEMailConsult)
+                    doctor.EmailConsultFee = model.EmailConsultFee;
+
                 _doctorService.UpdateDoctor(doctor);
                 SuccessNotification("Profile updated successfully.");
                 return RedirectToAction("ProfileSetting");

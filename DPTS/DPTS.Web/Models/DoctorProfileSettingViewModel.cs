@@ -108,6 +108,10 @@ namespace DPTS.Web.Models
         [Display(Name ="Note : Add your skype handler(Id)")]
         public string SkypeHandler { get; set; }
 
+        public bool IsEMailConsult { get; set; }
+
+        public decimal EmailConsultFee { get; set; }
+
         public DateTime? ParseDateOfBirth()
         {
             if (!DateOfBirthYear.HasValue || !DateOfBirthMonth.HasValue || !DateOfBirthDay.HasValue)

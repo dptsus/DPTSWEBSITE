@@ -427,6 +427,7 @@
     <Compile Include="Models\BlogPostTagListModel.cs" />
     <Compile Include="Models\BlogPostTagModel.cs" />
     <Compile Include="Models\BlogPostYearModel.cs" />
+    <Compile Include="Models\ConsultEmailViewModel.cs" />
     <Compile Include="Models\ContactUsViewModel.cs" />
     <Compile Include="Models\DeleteConfirmationModel.cs" />
     <Compile Include="Models\DoctorPictureModel.cs" />
@@ -2184,6 +2185,7 @@
     <Content Include="Views\Doctor\JoinMeeting.cshtml" />
     <Content Include="Views\Shared\_DoctorMeetingIcon.cshtml" />
     <Content Include="Views\Shared\_ProfilePicture.cshtml" />
+    <Content Include="Views\Appointment\EmailConsult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

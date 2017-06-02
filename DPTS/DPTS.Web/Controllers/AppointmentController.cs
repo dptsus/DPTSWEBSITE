@@ -12,6 +12,7 @@ using System.Text;
 using DPTS.Services;
 using DPTS.EmailSmsNotifications.ServiceModels;
 using DPTS.EmailSmsNotifications.IServices;
+using DPTS.Domain.Core.Address;
 
 namespace DPTS.Web.Controllers
 {
@@ -23,6 +24,7 @@ namespace DPTS.Web.Controllers
         private readonly IAppointmentService _scheduleService;
         private readonly DPTSDbContext _context;
         private ISmsNotificationService _smsService;
+        private readonly IAddressService _addressService;
 
 
         #endregion
@@ -31,12 +33,14 @@ namespace DPTS.Web.Controllers
 
         public AppointmentController(IDoctorService doctorService,
             IAppointmentService scheduleService,
-            ISmsNotificationService smsService)
+            ISmsNotificationService smsService,
+            IAddressService addressService)
         {
             _doctorService = doctorService;
             _scheduleService = scheduleService;
             _context = new DPTSDbContext();
             _smsService = smsService;
+            _addressService = addressService;
         }
 
         #endregion
@@ -55,7 +59,7 @@ namespace DPTS.Web.Controllers
                 #region Session 1
                 if (!string.IsNullOrWhiteSpace(S1startTime) && !string.IsNullOrWhiteSpace(E1endTime))
                 {
-                    var start = DateTime.Parse(S1startTime);
+                    var start = Convert.ToDateTime(S1startTime);
                     var end = DateTime.Parse(E1endTime);
                     while (true)
                     {
@@ -106,7 +110,7 @@ namespace DPTS.Web.Controllers
 
                 return slots;
             }
-            catch
+            catch(Exception ex)
             {
                 return null;
             }
@@ -500,6 +504,57 @@ namespace DPTS.Web.Controllers
             });
         }
 
+        #endregion
+
+        #region Email Consult
+        [NonAction]
+        public string GetAddressline(Address model)
+        {
+            try
+            {
+                string addrLine = string.Empty;
+                if (model != null)
+                {
+                    addrLine += model.Address1 + ", ";
+                    addrLine += model.City;
+                }
+                return addrLine;
+            }
+            catch { return null; }
+        }
+        public ActionResult EmailConsult(string doctorId)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(doctorId))
+                {
+                    var model = new ConsultEmailViewModel();
+                    var doctor = _doctorService.GetDoctorbyId(doctorId);
+                    if (doctor == null)
+                        return HttpNotFound();
+                    model.DoctorId = doctor.DoctorId;
+                    model.DoctorName = doctor.AspNetUser.FirstName + ' ' + doctor.AspNetUser.LastName;
+                    var addr = _addressService.GetAllAddressByUser(doctor.DoctorId).FirstOrDefault();
+                    model.DoctorAddress = GetAddressline(addr);
+                    model.DoctorEmailCharge = doctor.EmailConsultFee;
+                    model.PatientName = User.Identity.Name;
+                    return View(model);
+                }
+                ErrorNotification("Opps !! Something wwnt wrong.");
+                return RedirectToAction("Index", "Home");
+            }
+            catch { return RedirectToAction("Index", "Home"); }
+        }
+        [HttpPost]
+        public ActionResult EmailConsult(ConsultEmailViewModel model)
+        {
+            try
+            {
+                SuccessNotification("After payment proceed..!!");
+                return View(model);
+            }
+            catch { return RedirectToAction("Index", "Home"); }
+        }
         #endregion
     }
 }

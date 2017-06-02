@@ -1,0 +1,85 @@
+﻿@model DPTS.Web.Models.ConsultEmailViewModel
+@{
+    ViewBag.Title = "EmailConsult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Request.IsAuthenticated && !User.IsInRole("Doctor"))
+{
+    <main id="main" class="tg-page-wrapper tg-haslayout">
+        <div class="container">
+            <div class="row">
+                @Html.Partial("VisitorAccountNavigation")
+                <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 pull-right">
+                    <form action="@Url.Action("EmailConsult", "Appointment")" method="post" class="tg-formeditprofile tg-haslayout do-account-setitngs">
+                        <fieldset>
+                            <div class="tg-bordertop tg-haslayout">
+                                <div class="tg-formsection">
+                                    <div class="tg-heading-border tg-small">
+                                        <h3>Email Consult</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.DoctorName)
+                                                @Html.DisplayFor(model => model.DoctorName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.DoctorName)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.DoctorAddress)
+                                                @Html.DisplayFor(model => model.DoctorAddress, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.DoctorAddress)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.DoctorEmailCharge)
+                                                @Html.DisplayFor(model => model.DoctorEmailCharge, new { @class = "form-control"})
+                                                @Html.ValidationMessageFor(model => model.DoctorEmailCharge)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.PatientName)
+                                                @Html.DisplayFor(model => model.PatientName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.PatientName)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-6 col-xs-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Question)
+                                                @Html.TextAreaFor(model => model.Question, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.Question)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="tg-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <div class="col-xs-4">
+        <p class="lead">Register now for <span class="text-success">FREE</span></p>
+        <ul class="list-unstyled" style="line-height: 2">
+            <li><span class="fa fa-check text-success"></span> See all your appoinment</li>
+            <li><span class="fa fa-check text-success"></span> Save your favorites</li>
+            <li><span class="fa fa-check text-success"></span> Fast appoinment booking</li>
+        </ul>
+        <br />
+        <p>
+            <a class="btn btn-primary btn-block" href="@Url.Action("Login","Account",
+                                    new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})">
+                Login/Register
+            </a>
+        </p>
+    </div>
+}

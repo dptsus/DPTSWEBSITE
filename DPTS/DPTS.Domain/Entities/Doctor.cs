@@ -76,6 +76,10 @@ namespace DPTS.Domain.Entities
 
         public string SkypeHandler { get; set; }
 
+        public bool IsEMailConsult { get; set; }
+
+        public decimal EmailConsultFee { get; set; }
+
         public virtual AspNetUser AspNetUser { get; set; }
 
         public virtual ICollection<SpecialityMapping> SpecialityMapping { get; set; }

@@ -258,6 +258,10 @@ namespace DPTS.Services.Doctors
                 {
                     query = query.Where(p => p.SkypeHandler != null);
                 }
+                else if (searchCategory.Equals("EmailConsult"))
+                {
+                    query = query.Where(p => p.IsEMailConsult && p.EmailConsultFee > 0);
+                }
             }
 
             if (!string.IsNullOrWhiteSpace(zipcode))

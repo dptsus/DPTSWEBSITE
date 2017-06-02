@@ -214,6 +214,39 @@
                                         @Html.ValidationMessageFor(model => model.IsAvailability)
                                     </div>
                                 </div>
+
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IsEMailConsult)
+                                        @Html.EditorFor(model => model.IsEMailConsult, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IsEMailConsult)
+                                        <span>Note : if you check then mail consult active.</span>
+                                    </div>
+                                </div>
+                                <script>
+                                $(document).ready(function() {
+                                    $('#IsEMailConsult').is(':checked') ? $('#div-emailconsultfee').show() : $('#div-emailconsultfee').hide();
+
+                                    $("#IsEMailConsult").change(function () {
+                                        var divWidget = $("#div-emailconsultfee");
+                                        if (this.checked) {
+                                            divWidget.show();
+                                        }
+                                        else {
+                                            divWidget.hide();
+                                        }
+                                    });
+                                });
+                                </script>
+                                <br />
+                                <div class="col-md-8 col-sm-6 col-xs-12" id="div-emailconsultfee">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EmailConsultFee)
+                                        @Html.EditorFor(model => model.EmailConsultFee, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EmailConsultFee)
+                                        <span>Note : fees per mail question.</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
