@@ -21,6 +21,7 @@ namespace DPTS.Web.Models
         public string YearOfExperience { get; set; }
         public string Qualification { get; set; }
         public string ListSpecialities { get; set; }
+        public string EmailConsultMessage { get; set; }
         public PictureModel AddPictureModel { get; set; }
         public DoctorReviewOverviewModel ReviewOverviewModel { get; set; }
         public IList<PictureModel> DoctorPictureModels { get; set; }

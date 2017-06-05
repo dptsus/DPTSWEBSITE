@@ -67,19 +67,27 @@
 }
 else
 {
-    <div class="col-xs-4">
-        <p class="lead">Register now for <span class="text-success">FREE</span></p>
-        <ul class="list-unstyled" style="line-height: 2">
-            <li><span class="fa fa-check text-success"></span> See all your appoinment</li>
-            <li><span class="fa fa-check text-success"></span> Save your favorites</li>
-            <li><span class="fa fa-check text-success"></span> Fast appoinment booking</li>
-        </ul>
-        <br />
-        <p>
-            <a class="btn btn-primary btn-block" href="@Url.Action("Login","Account",
+    <main id="main" class="tg-page-wrapper tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-4 col-sm-6 col-sm-offset-3" style="box-shadow: 0 0 20px 0 rgba(0,0,0,.2), 0 5px 5px 0 rgba(0,0,0,.24);">
+                    <div>
+                        <h3>Register now for FREE</h3>
+                        <ul class="list-unstyled" style="line-height: 2">
+                            <li><span class="fa fa-check text-success"></span> See all your appoinment</li>
+                            <li><span class="fa fa-check text-success"></span> Video/Audio Chat with doctor</li>
+                            <li><span class="fa fa-check text-success"></span> Fast appoinment booking</li>
+                        </ul>
+                        <br />
+                        <p class="col-md-6">
+                            <a class="btn btn-primary btn-block" href="@Url.Action("Login","Account",
                                     new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})">
-                Login/Register
-            </a>
-        </p>
-    </div>
+                                Login/Register
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 }

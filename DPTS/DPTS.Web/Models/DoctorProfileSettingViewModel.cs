@@ -107,9 +107,9 @@ namespace DPTS.Web.Models
 
         [Display(Name ="Note : Add your skype handler(Id)")]
         public string SkypeHandler { get; set; }
-
+        [Display(Name ="Is Email Consult")]
         public bool IsEMailConsult { get; set; }
-
+        [Display(Name ="Email Consult Fee")]
         public decimal EmailConsultFee { get; set; }
 
         public DateTime? ParseDateOfBirth()

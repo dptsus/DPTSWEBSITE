@@ -17,7 +17,7 @@
 
     Html.Assets().Scripts.Add("/Scripts/tagEditor/jquery.tag-editor.min.js");
 
-    Html.Assets().Scripts.Add("/Scripts/tagEditor/jquery.caret.min.js");
+    Html.Assets().Scripts.Add("/Scripts//tagEditor/jquery.caret.min.js");
     Html.Assets().Scripts.Add("/Scripts/kendo/2017.1.118/kendo.all.min.js");
 
     Html.Assets().Scripts.Add("/Scripts/jquery.ui.widget.js");
@@ -244,7 +244,7 @@
                                         @Html.LabelFor(model => model.EmailConsultFee)
                                         @Html.EditorFor(model => model.EmailConsultFee, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.EmailConsultFee)
-                                        <span>Note : fees per mail question.</span>
+                                        <span>Note : If you want to free consult then do not enter any amount just set zero. Another fees per mail question appiled.</span>
                                     </div>
                                 </div>
                             </div>

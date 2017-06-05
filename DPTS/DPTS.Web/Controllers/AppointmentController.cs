@@ -63,18 +63,31 @@ namespace DPTS.Web.Controllers
                     var end = DateTime.Parse(E1endTime);
                     while (true)
                     {
+                        bool isBooked = false;
                         var dtNext = start.AddMinutes(duration);
                         if (start > end || dtNext > end)
                             break;
 
                         var slot = start.ToString("hh:mm tt") + " - " + dtNext.ToString("hh:mm tt");
-                        var bookingstatus = bookedSlots.Where(s => s.AppointmentTime == slot).FirstOrDefault();
+
+                        if (start > DateTime.Now)
+                        {
+                            var bookingstatus = bookedSlots.Where(s => s.AppointmentTime == slot).FirstOrDefault();
+                            if (bookingstatus != null)
+                                isBooked = true;
+                        }
+                        else
+                        {
+                            isBooked = true;
+                        }
+
+                        
 
                         var splitSlot = new ScheduleSlotModel
                         {
                             Slot = slot,
                             Session = "Session1",
-                            IsBooked = bookingstatus == null ? false : true
+                            IsBooked = isBooked//bookingstatus == null ? false : true
                         };
                         slots.SessionOneScheduleSlotModel.Add(splitSlot);
                         start = dtNext;
@@ -89,18 +102,28 @@ namespace DPTS.Web.Controllers
                     var end = DateTime.Parse(E2endTime);
                     while (true)
                     {
+                        bool isBooked = false;
                         var dtNext = start.AddMinutes(duration);
                         if (start > end || dtNext > end)
                             break;
 
                         var slot = start.ToString("hh:mm tt") + " - " + dtNext.ToString("hh:mm tt");
-                        var bookingstatus = bookedSlots.Where(s => s.AppointmentTime == slot).FirstOrDefault();
+                        if (start > DateTime.Now)
+                        {
+                            var bookingstatus = bookedSlots.Where(s => s.AppointmentTime == slot).FirstOrDefault();
+                            if (bookingstatus != null)
+                                isBooked = true;
+                        }
+                        else
+                        {
+                            isBooked = true;
+                        }
 
                         var splitSlot = new ScheduleSlotModel
                         {
                             Slot = slot,
                             Session = "Session2",
-                            IsBooked = bookingstatus == null ? false : true
+                            IsBooked = isBooked
                         };
                         slots.SessionTwoScheduleSlotModel.Add(splitSlot);
                         start = dtNext;
@@ -235,11 +258,14 @@ namespace DPTS.Web.Controllers
                     bookedSlots.Where(
                         s => s.AppointmentStatus.Name == "Pending" || s.AppointmentStatus.Name == "Booked")
                         .ToList();
+                DateTime sessionOneStartTimes = Convert.ToDateTime(slot_date).Add(TimeSpan.Parse(schedule.SessionOneStartTime));
+                DateTime sessionOneEndTime = Convert.ToDateTime(slot_date).Add(TimeSpan.Parse(schedule.SessionOneEndTime));
+                DateTime sessionTwoStartTime = Convert.ToDateTime(slot_date).Add(TimeSpan.Parse(schedule.SessionTwoStartTime));
+                DateTime sessionTwoEndTime = Convert.ToDateTime(slot_date).Add(TimeSpan.Parse(schedule.SessionTwoEndTime));
 
-
-                var scheduleSlots = GenrateTimeSlots(schedule.SessionOneStartTime, 
-                    schedule.SessionOneEndTime,schedule.SessionTwoStartTime,
-                    schedule.SessionTwoEndTime, 20, bookedSlots);
+                var scheduleSlots = GenrateTimeSlots(sessionOneStartTimes.ToString(),
+                    sessionOneEndTime.ToString(), sessionTwoStartTime.ToString(),
+                    sessionTwoEndTime.ToString(), 20, bookedSlots);
 
                 if (scheduleSlots == null)
                 {

@@ -426,7 +426,9 @@ namespace DPTS.Web.Controllers
                     Qualification = GetQualification(doc.Education),
                     ListSpecialities = GetSpecialities(_specialityService.GetDoctorSpecilities(doc.DoctorId)),
                     ReviewOverviewModel = PrepareDoctorReviewOverviewModel(doc),
-                    AddPictureModel = GetProfilePicture(doc.DoctorId)
+                    AddPictureModel = GetProfilePicture(doc.DoctorId),
+                    EmailConsultMessage = (doc.EmailConsultFee > 0) ? "Charge for per question" + doc.EmailConsultFee +" by e-mail consult" :
+                    "You can conuslt to Dr."+doc.AspNetUser.FirstName +" "+ doc.AspNetUser.LastName+"  free of charge by e-mail"
                 }).ToList();
             }
 

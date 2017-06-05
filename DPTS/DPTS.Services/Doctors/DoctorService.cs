@@ -260,7 +260,7 @@ namespace DPTS.Services.Doctors
                 }
                 else if (searchCategory.Equals("EmailConsult"))
                 {
-                    query = query.Where(p => p.IsEMailConsult && p.EmailConsultFee > 0);
+                    query = query.Where(p => p.IsEMailConsult);
                 }
             }
 
@@ -411,9 +411,14 @@ namespace DPTS.Services.Doctors
                 if (searchCriteria.Equals("Appoinment"))
                 {
                     query = query.Where(p => p.Schedules.Any());
-                }else if (searchCriteria.Equals("VideoChat") || searchCriteria.Equals("CallConsult"))
+                }
+                else if (searchCriteria.Equals("VideoChat") || searchCriteria.Equals("CallConsult"))
                 {
-                    query = query.Where(p => p.SkypeHandler != null || p.SkypeHandler != string.Empty);
+                    query = query.Where(p => p.SkypeHandler != null);
+                }
+                else if (searchCriteria.Equals("EmailConsult"))
+                {
+                    query = query.Where(p => p.IsEMailConsult);
                 }
             }
 

@@ -161,9 +161,9 @@
 
                                     @*<label class="info"><i class="fa fa-times" aria-hidden="true"></i></label>*@
                                     <label class="info">
-                                        @if (item.Doctors.IsEMailConsult && item.Doctors.EmailConsultFee > 0)
+                                        @if (item.Doctors.IsEMailConsult)
                                         {
-                                            <a onclick="mailConsult('@item.Doctors.EmailConsultFee','@fullName','@item.Doctors.DoctorId')">
+                                            <a onclick="mailConsult('@item.EmailConsultMessage','@fullName','@item.Doctors.DoctorId')">
                                                 <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
                                             </a>
                                         }
@@ -202,8 +202,9 @@
                                 function mailConsult(mailChrg,docName,doctorId) {
                                         $.confirm({
                                             title: 'Email Consult',
-                                            content: 'Charge for question : '+mailChrg,
+                                            content: mailChrg,
                                             icon: 'fa fa-envelope',
+                                            theme: 'supervan',
                                             animation: 'scale',
                                             closeAnimation: 'scale',
                                             opacity: 0.5,
@@ -214,7 +215,7 @@
                                                     action: function () {
                                                         $.confirm({
                                                             title: 'Confirm',
-                                                            content: 'Dr. ' + docName + ' charge per mail Rs.' + mailChrg,
+                                                            content: 'Are you sure Dr. ' + docName + ' consult by e-mail.',
                                                             icon: 'fa fa-info-circle',
                                                             animation: 'zoom',
                                                             closeAnimation: 'zoom',
