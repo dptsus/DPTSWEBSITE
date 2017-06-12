@@ -452,6 +452,7 @@
     <Compile Include="Models\DefaultNotificationSettingsViewModel.cs" />
     <Compile Include="Models\StateProvinceViewModel.cs" />
     <Compile Include="Models\SubSpecialityViewModel.cs" />
+    <Compile Include="Models\SuggestedDoctorViewModel.cs" />
     <Compile Include="Models\TempDoctorViewModel.cs" />
     <Compile Include="Models\UpdateSectionJsonModel.cs" />
     <Compile Include="Models\UploadFilesResult.cs" />
@@ -556,6 +557,7 @@
     <Content Include="Content\wp-content\themes\docdirect\images\flags.png" />
     <Content Include="Content\wp-content\themes\docdirect\images\ft_pattern.png" />
     <Content Include="Content\wp-content\themes\docdirect\images\Future.gif" />
+    <Content Include="Content\wp-content\themes\docdirect\images\header-bg-1.jpg" />
     <Content Include="Content\wp-content\themes\docdirect\images\icon24.png" />
     <Content Include="Content\wp-content\themes\docdirect\images\mimg.png" />
     <Content Include="Content\wp-content\themes\docdirect\images\rating1.png" />
@@ -2186,6 +2188,7 @@
     <Content Include="Views\Shared\_DoctorMeetingIcon.cshtml" />
     <Content Include="Views\Shared\_ProfilePicture.cshtml" />
     <Content Include="Views\Appointment\EmailConsult.cshtml" />
+    <Content Include="Views\Shared\SuggestedDoctors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -643,4 +643,10 @@ result--card .results--add-info, .result--card .results--info {
 #confirm-reg-main .btn{
         padding: 6px 5px;
 }
+.flex-control-nav li{
+    width:10px !important;
+}
+.flex-direction-nav li{
+    list-style:none;
+}
     

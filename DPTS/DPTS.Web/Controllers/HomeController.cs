@@ -77,7 +77,7 @@ namespace DPTS.Web.Controllers
             {
                 ImageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/doctor-male.png" :
                 _pictureService.GetPictureUrl(defaultPicture, 365, false),
-                FullSizeImageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/user365x365.jpg" :
+                FullSizeImageUrl = (defaultPicture == null) ? "/Content/wp-content/themes/docdirect/images/doctor-male.png" :
                 _pictureService.GetPictureUrl(defaultPicture, 0, false),
                 Title = "",
                 AlternateText = "",
@@ -440,6 +440,44 @@ namespace DPTS.Web.Controllers
             ViewBag.IsHomePageSearch = true;
 
             return View("Search",pageDoctors);
+        }
+
+       
+        [ValidateInput(false)]
+        public ActionResult SuggestedDoctors(string categoryname)
+        {
+            var viewModel = new List<SuggestedDoctorViewModel>();
+            int specilityId = 0;
+            if (!string.IsNullOrWhiteSpace(categoryname))
+            {
+                try
+                {
+                    specilityId = _specialityService.GetAllSpeciality(true).Where(s => s.Title == categoryname).FirstOrDefault().Id;
+                }
+                catch
+                {
+                    specilityId = 0;
+                }
+            }
+
+            var data = _doctorService.GetAllDoctorBySpeciality(specialityId: specilityId);
+
+            if (data != null)
+            {
+                viewModel = data.Select(doc => new SuggestedDoctorViewModel
+                {
+                    Picture = GetProfilePicture(doc.DoctorId),
+                    DoctorId = doc.DoctorId,
+                    Name = doc.AspNetUser.FirstName + " "+doc.AspNetUser.LastName,
+                    Fees = doc.ConsultationFee,
+                    AddressLine = GetAddressline(_addressService.GetAllAddressByUser(doc.DoctorId).FirstOrDefault()),
+                    Specailities = GetSpecialities(_specialityService.GetDoctorSpecilities(doc.DoctorId)),
+                    Qualification = GetQualification(doc.Education),
+                    YearOfExperience = GetTotalExperience(doc.Experience)
+                }).ToList();
+            }
+
+            return PartialView("SuggestedDoctors", viewModel);
         }
 
         /// <summary>

@@ -64,6 +64,8 @@ namespace DPTS.Domain.Core.Doctors
         /// <returns></returns>
         IList<Doctor> GetAllDoctors(int page, int itemsPerPage, out int totalCount);
 
+        IList<Doctor> GetAllDoctorBySpeciality(int specialityId = 0);
+
         #region Social links
 
         void InsertSocialLink(SocialLinkInformation link);

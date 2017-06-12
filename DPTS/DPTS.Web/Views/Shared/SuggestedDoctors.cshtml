@@ -1,0 +1,66 @@
+﻿@using DPTS.Web.Helpers
+@model IEnumerable<DPTS.Web.Models.SuggestedDoctorViewModel>
+@{ 
+    //css part
+    Html.Assets().Styles.Add("https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/flexslider.min.css");
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.min.js"></script>
+
+@if (Model.Any())
+{
+    <div class="suggested-grid">
+        <div class="title">
+            Suggested doctors
+        </div>
+        <div class="flexslider">
+            <ul class="slides">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <article class="tg-doctor-profile user-337">
+                            <div class="tg-box">
+                                <figure class="tg-docprofile-img">
+                                    <a href="@Url.Action("DoctorDetails", "Doctor", new { doctorId = item.DoctorId })" class="list-avatar">
+                                        <img src="@item.Picture.ImageUrl.Replace("http:","http://")" alt="@item.Picture.AlternateText">
+                                    </a>
+                                    <div class="feature-rating user-star-rating">
+                                        <span class="tg-stars star-rating">
+                                            <span style="width:100%"></span>
+                                        </span>
+
+                                        <em>5.0<sub>/5</sub></em>
+                                    </div>
+                                </figure>
+                                <div class="tg-docprofile-content">
+                                    <div class="tg-heading-border tg-small">
+                                        <h5><a href="@Url.Action("DoctorDetails", "Doctor", new { doctorId = item.DoctorId })">Dr. @item.Name</a></h5>
+                                    </div>
+                                    <div class="tg-description">
+                                        <p>@item.Specailities</p>
+                                    </div>
+                                    <ul class="tg-doccontactinfo">
+                                        <li>
+                                            <i class="fa fa-map-marker"></i><address>
+                                               @item.AddressLine
+                                            </address>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                animationLoop: false,
+                itemWidth: 210,
+            });
+        });
+    </script>
+    }

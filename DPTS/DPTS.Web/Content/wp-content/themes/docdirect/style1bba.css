@@ -8365,13 +8365,13 @@ select option:disabled {
 }
 .tg-listview-v3 .tg-doctor-profile .tg-likestars li span{color:#5d5955;}
 .tg-userbanner{
-	width:100%;
-	height:320px;
-	float:left;
-	padding:100px 0;
-	position:relative;
-	margin-top:-100px;
-	background:rgba(115, 113, 113, 0.6);
+    width: 100%;
+    height: 280px;
+    float: left;
+    padding: 100px 0;
+    position: relative;
+    margin-top: -100px;
+    background: rgba(115, 113, 113, 0.6);
 }
 .tg-userbanner:after{
 	z-index:-1;
@@ -9217,8 +9217,7 @@ select option:disabled {
 	overflow:hidden;
 }
 .tg-userbanner{
-	background-color: rgba(115, 113, 113, 0.6);
-    z-index: 99;
+    background-image: url(../docdirect/images/header-bg-1.jpg);
 }
 .docdirect-site-wrap{
 	position:fixed;

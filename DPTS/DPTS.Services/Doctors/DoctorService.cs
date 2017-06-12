@@ -562,6 +562,18 @@ namespace DPTS.Services.Doctors
             return pageQuery;
         }
 
+        public IList<Doctor> GetAllDoctorBySpeciality(int specialityId = 0)
+        {
+            var query = from d in _doctorRepository.Table
+                        select d;
+            if (specialityId > 0)
+            {
+                query = query.SelectMany(d => d.SpecialityMapping.Where(s => s.Speciality_Id.Equals(specialityId)), (d, s) => d);
+            }
+            query.OrderBy(d => d.DateUpdated);
+            return query.ToList();
+        }
+
         #region Social links
         public void InsertSocialLink(SocialLinkInformation link)
         {
