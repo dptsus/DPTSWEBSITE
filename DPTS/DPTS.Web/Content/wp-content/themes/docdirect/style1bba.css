@@ -540,7 +540,7 @@ input[type="submit"].tg-btn{    background-color: #006699;
 	left: 0;
 	height: 1px;
 	width: 170px;
-	background: #5d5955;
+	/*background: #5d5955;*/
 }
 .tg-heading-border.tg-small{
 	margin: 0 0 25px;
@@ -2135,7 +2135,8 @@ body.tg-comming-soon #main{
 	width: 100%;
 	float: left;
 	border: 0;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #28328c;
+    background: rgba(149,142,124,.4);
 }
 .tg-docprofile-img a,
 .tg-docprofile-img a img{
@@ -2146,7 +2147,7 @@ body.tg-comming-soon #main{
 .tg-docprofile-content{
 	width: 100%;
 	float: left;
-	padding: 25px;
+	padding: 10px;
 }
 .tg-docprofile-content .tg-description{
 	line-height: 20px;
@@ -8149,11 +8150,14 @@ select option:disabled {
 	padding:30px;
 }
 .tg-doctor-profile .tg-heading-border.tg-small{
-	width:auto;
-	float:left;
-	z-index:1;
-	margin-right:30px;
-	position:relative;
+	 width: 100%;
+    float: left;
+    /* z-index: 1; */
+    /* margin-right: 30px; */
+    position: relative;
+    padding: 0;
+    margin: 0;
+    /* border-bottom: none; */
 }
 .tg-doctor-profile .tg-heading-border.tg-small:after{ width:100%;}
 .feature-rating.user-star-rating{

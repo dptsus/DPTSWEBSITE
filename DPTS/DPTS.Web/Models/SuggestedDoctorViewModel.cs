@@ -9,6 +9,7 @@
         public string AddressLine { get; set; }
         public string Qualification { get; set; }
         public string YearOfExperience { get; set; }
+        public int RatingPercentag { get; set; }
         public decimal Fees { get; set; }
     }
 }

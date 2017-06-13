@@ -121,6 +121,22 @@ namespace DPTS.Web.Controllers
             catch { return null; }
         }
         [NonAction]
+        public string GetShortAddressline(Address model)
+        {
+            try
+            {
+                string addrLine = string.Empty;
+                if (model != null)
+                {
+                    addrLine += model.City + ", ";
+                    addrLine += model.StateProvince.Name + ", ";
+                    addrLine += model.Country.Name;
+                }
+                return addrLine;
+            }
+            catch { return null; }
+        }
+        [NonAction]
         public string GetTotalExperience(ICollection<Experience> model)
         {
             decimal totexpr = 0;
@@ -331,6 +347,21 @@ namespace DPTS.Web.Controllers
             return doctorReview;
         }
 
+        public int GetRatingPercentage(Doctor doc)
+        {
+            int ratingPercent = 0;
+            try
+            {
+                var model = PrepareDoctorReviewOverviewModel(doc);
+                if (model.TotalReviews != 0)
+                {
+                    ratingPercent = ((model.RatingSum * 100) / model.TotalReviews) / 5;
+                }
+                return ratingPercent;
+            }
+            catch { return ratingPercent; }
+        }
+
         [ValidateInput(false)]
         public ActionResult Search(SearchModel model, int? page)
         {
@@ -459,24 +490,22 @@ namespace DPTS.Web.Controllers
                     specilityId = 0;
                 }
             }
-
             var data = _doctorService.GetAllDoctorBySpeciality(specialityId: specilityId);
-
             if (data != null)
             {
                 viewModel = data.Select(doc => new SuggestedDoctorViewModel
                 {
                     Picture = GetProfilePicture(doc.DoctorId),
                     DoctorId = doc.DoctorId,
-                    Name = doc.AspNetUser.FirstName + " "+doc.AspNetUser.LastName,
+                    Name = doc.AspNetUser.FirstName + " " + doc.AspNetUser.LastName,
                     Fees = doc.ConsultationFee,
-                    AddressLine = GetAddressline(_addressService.GetAllAddressByUser(doc.DoctorId).FirstOrDefault()),
+                    AddressLine = GetShortAddressline(_addressService.GetAllAddressByUser(doc.DoctorId).FirstOrDefault()),
                     Specailities = GetSpecialities(_specialityService.GetDoctorSpecilities(doc.DoctorId)),
                     Qualification = GetQualification(doc.Education),
-                    YearOfExperience = GetTotalExperience(doc.Experience)
+                    YearOfExperience = GetTotalExperience(doc.Experience),
+                    RatingPercentag = GetRatingPercentage(doc)
                 }).ToList();
             }
-
             return PartialView("SuggestedDoctors", viewModel);
         }
 

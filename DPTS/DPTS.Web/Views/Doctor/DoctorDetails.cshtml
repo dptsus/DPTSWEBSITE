@@ -229,7 +229,7 @@
                                     <div class="tg-doctor-profile">
                                         <ul class="tg-tags">
                                             @foreach (var sp in Model.Specialitys)
-                {
+                                            {
                                                 <li><a href="javascript:;" class="tg-btn">@sp.Title</a></li>
                                             }
                                         </ul>
@@ -353,6 +353,10 @@
                                 </ul>
                             </div>
                          }
+@if (Model.Specialitys.Any())
+{
+                        @Html.Action("SuggestedDoctors", "Home", new { categoryname = Model.Specialitys.FirstOrDefault().Title })
+}
                     </div>
                 </div>
             </div>

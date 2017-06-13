@@ -649,4 +649,21 @@ result--card .results--add-info, .result--card .results--info {
 .flex-direction-nav li{
     list-style:none;
 }
+.flexslider .slides>li{
+    margin:0 10px;
+}
+.tg-description .fa
+{
+    padding-right:5px;
+}
+.tg-description #sb-address{
+
+}
+.tg-doctor-profile .tg-heading-border.tg-small p{
+    margin-bottom:0;
+}
+.tg-doctor-profile .tg-heading-border.tg-small #sb-edu{
+    font-style:italic;
+    font-weight:700;
+}
     
