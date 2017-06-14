@@ -1321,6 +1321,7 @@ namespace DPTS.Web.Controllers
             return doctorReview;
         }
 
+        [OutputCache(Duration = 10, VaryByParam = "doctorId")]
         public ActionResult DoctorDetails(string doctorId)
         {
             var model = new DoctorViewModel();

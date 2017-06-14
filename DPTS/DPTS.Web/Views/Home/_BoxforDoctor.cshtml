@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
 
 
-<div id="shops-list" class="results--row clearfix" style="border:1px solid #eaeaea; padding:0">
+<div id="shops-list" class="results--row clearfix" style="padding:0">
     <ul class="shops-list">
         @foreach (var item in Model)
         {
@@ -56,7 +56,7 @@
                                         <span class="results-clinic-name">@addr.Hospital</span>
                                         @item.AddressLine<br />
                                         <i class="fa fa-map-marker" aria-hidden="true" style="color: green;font-size: 19px;"></i>
-                                        <a href="https://www.google.com/maps/embed/v1/place?q=@addr.Latitude,@addr.Longitude&amp;key=AIzaSyDvanm9mpt0gdHXeUTLbmedVCYU8OKNS3U" style="color:#3baf9c;margin-right:10px" target="_new">Show Map</a>
+                                        <a href="https://www.google.com/maps/embed/v1/place?q=@addr.Latitude,@addr.Longitude&amp;key=AIzaSyCCAdgY7pUHcT7Jjr4q1stnqOsKIW96TeA" style="color:#3baf9c;margin-right:10px" target="_new">Show Map</a>
                                     </p>
                                     <p class="med-reg-verify"><i class="fa fa-check" aria-hidden="true" style="color: green;font-size: 19px;"></i><b> Medical Registration Verified</b></p>
                                 }
@@ -83,7 +83,7 @@
                     <div class="col-sm-5 results--add-info">
                         <div class="results-border-left">
                             <div class="results-doc-info row">
-                                <div class="col-xs-4 results-info-bg">
+                                <div class="col-xs-5 results-info-bg">
                                     <label>Experience</label>
                                     <label class="info">
                                         @if (!string.IsNullOrWhiteSpace(item.YearOfExperience) && item.YearOfExperience != "0")
@@ -111,7 +111,7 @@
                                     </label>
                                 </div>
 
-                                <div class="col-xs-4 results-info-bg">
+                                <div class="col-xs-3 results-info-bg">
                                     <label>24/7</label>
 
                                     <label class="info">
@@ -133,7 +133,7 @@
                                     <label class="info">
                                         @if (!string.IsNullOrWhiteSpace(item.Doctors.SkypeHandler))
                                         {
-                                            <a href="skype:@item.Doctors.SkypeHandler?call&video=true"><i class="fa fa-video-camera fa-2x"></i></a>
+                                            <a href="skype:@item.Doctors.SkypeHandler?call&video=true"><i class="fa fa-video-camera fa-1x"></i></a>
                                         }
                                         else
                                         {
@@ -146,9 +146,9 @@
                                     <label class="info">
                                         @if (!string.IsNullOrWhiteSpace(item.Doctors.SkypeHandler))
                                         {
-                                            <a href="skype:@item.Doctors.SkypeHandler?call"><i class="fa fa-phone fa-2x">/</i></a>
+                                            <a href="skype:@item.Doctors.SkypeHandler?call"><i class="fa fa-phone fa-1x">/</i></a>
                                             <span>/</span>
-                                            <a href="skype:@item.Doctors.SkypeHandler?chat"><i class="fa fa-commenting-o fa-2x"></i></a>
+                                            <a href="skype:@item.Doctors.SkypeHandler?chat"><i class="fa fa-commenting-o fa-1x"></i></a>
                                         }
                                         else
                                         {
@@ -164,7 +164,7 @@
                                         @if (item.Doctors.IsEMailConsult)
                                         {
                                             <a onclick="mailConsult('@item.EmailConsultMessage','@fullName','@item.Doctors.DoctorId')">
-                                                <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+                                                <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
                                             </a>
                                         }
                                         else
@@ -180,7 +180,7 @@
                                         {
                                             <input type="hidden" class="shop-coordinates" data-latitude="@addr.Latitude" data-longitude="@addr.Longitude" data-shop-title="Dr @item.Doctors.AspNetUser.FirstName @item.Doctors.AspNetUser.LastName" value="1" />
                                         }
-                                        <a id="Book" class="btn-primary pull-right btn-light-green fill book-btn" href="@Url.Action("Booking", "Appointment", new RouteValueDictionary(new { doctorId = item.Doctors.DoctorId }))" style="width: auto; min-width: 100px;padding: 6px 86px">Book Appoinment</a>
+                                        <a id="Book" class="btn-primary pull-right btn-light-green fill book-btn" href="@Url.Action("Booking", "Appointment", new RouteValueDictionary(new { doctorId = item.Doctors.DoctorId }))" style="width: auto; min-width: 100px;padding: 0 44px">Book Appoinment</a>
                                     }
                                     else
                                     {

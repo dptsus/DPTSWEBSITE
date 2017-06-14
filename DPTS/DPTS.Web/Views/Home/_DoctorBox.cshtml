@@ -14,18 +14,18 @@
 }
 @*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvanm9mpt0gdHXeUTLbmedVCYU8OKNS3U&#038;libraries=places&callback=initializeMap" type="text/javascript"></script>*@
 @*<script src="/Scripts/searchdoc.js" type="text/javascript"></script>*@
-<main id="main" class="tg-page-wrapper tg-haslayout">
-
-    @*@Html.Partial("_MapforResult",Model)*@
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
-                <div class="tg-doctors-list tg-haslayout left-with-map">
-                    @if (Model.Any())
+<main id="main" class="tg-page-wrapper tg-haslayout" style="background:#f8f8f8">
+    <div id="search-page">
+        @*@Html.Partial("_MapforResult")*@
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                    <div class="tg-doctors-list tg-haslayout left-with-map">
+                        @if (Model.Any())
                     {
 
-                        @Html.Partial("_BoxforDoctor", Model)
-                        @Html.PagedListPager(Model, page => Url.Action("_DoctorBox", new
+                            @Html.Partial("_BoxforDoctor", Model)
+                            @Html.PagedListPager(Model, page => Url.Action("_DoctorBox", new
                         {
                             page = page,
                             q = SearchModel.q,
@@ -37,8 +37,9 @@
                      }
                      else
                      {
-                          <p>No Record Found !!</p>
+                            <p>No Record Found !!</p>
                      }
+                    </div>
                 </div>
             </div>
         </div>

@@ -363,11 +363,12 @@ namespace DPTS.Web.Controllers
         }
 
         [ValidateInput(false)]
+        [OutputCache(Duration = 300, VaryByParam = "page")]
         public ActionResult Search(SearchModel model, int? page)
         {
             var searchViewModel = new List<TempDoctorViewModel>();
             var pageNumber = (page ?? 1) - 1;
-            var pageSize = 5;
+            var pageSize = 10;
             int totalCount;
             int specilityId = 0;
             string searchByName = string.Empty;
@@ -428,6 +429,7 @@ namespace DPTS.Web.Controllers
         }
 
         [ValidateInput(false)]
+        [OutputCache(Duration = 300, VaryByParam = "page")]
         public ActionResult TopFilter(string searchCriteria, int? page)
         {
             var searchViewModel = new List<TempDoctorViewModel>();
@@ -459,7 +461,8 @@ namespace DPTS.Web.Controllers
                     ReviewOverviewModel = PrepareDoctorReviewOverviewModel(doc),
                     AddPictureModel = GetProfilePicture(doc.DoctorId),
                     EmailConsultMessage = (doc.EmailConsultFee > 0) ? "Charge for per question" + doc.EmailConsultFee +" by e-mail consult" :
-                    "You can conuslt to Dr."+doc.AspNetUser.FirstName +" "+ doc.AspNetUser.LastName+"  free of charge by e-mail"
+                    "You can conuslt to Dr."+doc.AspNetUser.FirstName +" "+ doc.AspNetUser.LastName+"  free of charge by e-mail",
+                    DoctorPictureModels = GetAllPictures(doc.DoctorId)
                 }).ToList();
             }
 
@@ -475,6 +478,7 @@ namespace DPTS.Web.Controllers
 
        
         [ValidateInput(false)]
+        [OutputCache(Duration = 300, VaryByParam = "categoryname")]
         public ActionResult SuggestedDoctors(string categoryname)
         {
             var viewModel = new List<SuggestedDoctorViewModel>();

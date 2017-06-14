@@ -18,7 +18,7 @@
 @using (Ajax.BeginForm("_DoctorBox", options))
 {
     @Html.Partial("_SearchNavigation", SearchModel)
-    <div id="searchResult">
+    <div id="searchResult" style="background-color: #f8f8f8;">
         @*<div id="divLoading">
         </div>*@
         @if (ViewBag.IsHomePageSearch)
