@@ -476,9 +476,8 @@ namespace DPTS.Web.Controllers
             return View("Search",pageDoctors);
         }
 
-       
-        [ValidateInput(false)]
-        [OutputCache(Duration = 300, VaryByParam = "categoryname")]
+        //[ValidateInput(false)]
+        //[OutputCache(Duration = 300, VaryByParam = "categoryname")]
         public ActionResult SuggestedDoctors(string categoryname)
         {
             var viewModel = new List<SuggestedDoctorViewModel>();
@@ -569,7 +568,7 @@ namespace DPTS.Web.Controllers
                 return "/Content/wp-content/themes/docdirect/images/singin_icon.png";
             }
         }
-
+        
         public ActionResult _ProfilePicture()
         {
             if (!Request.IsAuthenticated && !User.IsInRole("Doctor"))
@@ -578,6 +577,27 @@ namespace DPTS.Web.Controllers
             ViewBag.FirstName = UserManager.FindById(User.Identity.GetUserId()).FirstName;
             ViewBag.SmallProfilePictureUrl = GetProfilePicture1(User.Identity.GetUserId());
             return PartialView();
+        }
+
+        public ActionResult LocationList()
+        {
+            var model = new List<LocationsListModel>();
+            var location = new LocationsListModel
+            {
+                Name = "Nashik",
+            };
+            model.Add(location);
+            return PartialView(model);
+        }
+        public ActionResult SpecialityList()
+        {
+            var model = new List<SpecialityListModel>();
+            var spec = new SpecialityListModel
+            {
+                Name = "Cardiologist",
+            };
+            model.Add(spec);
+            return PartialView(model);
         }
     }
 }

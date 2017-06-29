@@ -671,8 +671,13 @@ result--card .results--add-info, .result--card .results--info {
     font-weight:700;
 }
 
+#dpts-home .tg-main-section{
+    padding: 30px 0;
+}
+
 @media (min-width: 1200px) {
     #search-page .container {
         width:1300px;
     }
 }
+

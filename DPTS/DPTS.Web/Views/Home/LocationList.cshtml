@@ -1,0 +1,7 @@
+﻿@model IEnumerable<DPTS.Web.Models.LocationsListModel>
+<ul>
+    @foreach (var loc in Model)
+    {
+        <li><a href="/Home/Search?q=&geo_location=@loc.Name">@loc.Name</a></li>
+    }
+</ul>

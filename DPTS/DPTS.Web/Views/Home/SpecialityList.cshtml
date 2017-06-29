@@ -1,0 +1,7 @@
+﻿@model IEnumerable<DPTS.Web.Models.SpecialityListModel>
+<ul>
+    @foreach (var loc in Model)
+    {
+        <li><a href="/Home/Search?q=@loc.Name">@loc.Name</a></li>
+    }
+</ul>

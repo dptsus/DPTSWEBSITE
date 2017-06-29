@@ -1,6 +1,7 @@
 ﻿using DPTS.Common.Kendoui;
 using DPTS.Domain.Core.Common;
 using DPTS.Domain.Core.Doctors;
+using DPTS.Domain.Core.GenericAttributes;
 using DPTS.Domain.Entities;
 using DPTS.Services;
 using System;
@@ -14,14 +15,17 @@ namespace DPTS.Web.Controllers
         #region Fields
         private readonly IDoctorService _doctorService;
         private readonly IQualifiactionService _qualificationService;
+        private readonly IGenericAttributeService _genericAttributeService;
         #endregion
 
         #region Ctr
         public AdministrationController(IDoctorService doctorService,
-            IQualifiactionService qualificationService)
+            IQualifiactionService qualificationService,
+            IGenericAttributeService genericAttributeService)
         {
             _doctorService = doctorService;
             _qualificationService = qualificationService;
+            _genericAttributeService = genericAttributeService;
         }
         #endregion
 
@@ -145,6 +149,114 @@ namespace DPTS.Web.Controllers
                 if (qualification == null)
                     throw new ArgumentException("No link found with the specified id");
                 _qualificationService.DeleteQualifiaction(qualification);
+
+                return new NullJsonResult();
+            }
+            catch (Exception)
+            {
+                return new NullJsonResult();
+            }
+        }
+        #endregion
+
+        #region GenricAttri
+        public ActionResult GenericAttributeList()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult GenericAttribute_Read(DataSourceRequest command,string locator)
+        {
+            var genericAttribute = _genericAttributeService.GetAllGenericAttributes(command.Page - 1, 10,locator);
+            var gridModel = new DataSourceResult
+            {
+                Data = genericAttribute.Select(x => new GenericAttribute
+                {
+                    Id = x.Id,
+                    EntityKey = locator,
+                    EntityValue = x.EntityValue
+                }),
+                Total = genericAttribute.TotalCount
+            };
+            return Json(gridModel);
+        }
+
+        [HttpPost]
+        public ActionResult GenericAttribute_Add([Bind(Exclude = "Id")] GenericAttribute model,string locator)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Json(new DataSourceResult { Errors = "error" });
+                }
+                var genericAttribute = new GenericAttribute();
+                if (locator == "location")
+                {
+                    _genericAttributeService.GetAllLocation().FirstOrDefault(c => c.EntityValue == model.EntityValue);
+                }
+                else if(locator == "speciality")
+                {
+                    _genericAttributeService.GetAllSpecialities().FirstOrDefault(c => c.EntityValue == model.EntityValue);
+                }
+                if (genericAttribute == null)
+                {
+                    _genericAttributeService.Insert(model);
+                }
+                return new NullJsonResult();
+            }
+            catch (Exception ex)
+            {
+                return new NullJsonResult();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GenericAttribute_Update(GenericAttribute model)
+        {
+            try
+            {
+                var genericAttribute = new GenericAttribute();
+
+                if (model.EntityKey == "location")
+                {
+                    _genericAttributeService.GetAllLocation().FirstOrDefault(c => c.EntityValue == model.EntityValue);
+                }
+                else if (model.EntityKey == "speciality")
+                {
+                    _genericAttributeService.GetAllSpecialities().FirstOrDefault(c => c.EntityValue == model.EntityValue);
+                }
+                if (genericAttribute == null)
+                    return Content("No link could be loaded with the specified ID");
+
+                if (!genericAttribute.EntityValue.Equals(model.EntityValue, StringComparison.InvariantCultureIgnoreCase) ||
+                    genericAttribute.Id != model.Id)
+                {
+                    _genericAttributeService.Delete(genericAttribute);
+                }
+
+                genericAttribute.Id = model.Id;
+                genericAttribute.EntityKey = model.EntityKey;
+                genericAttribute.EntityValue = model.EntityValue;
+              
+                _genericAttributeService.Update(genericAttribute);
+                return new NullJsonResult();
+            }
+            catch (Exception)
+            {
+                return new NullJsonResult();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GenericAttribute_Delete(int id)
+        {
+            try
+            {
+                var genericAttribute = _genericAttributeService.GetAttributeById(id);
+                if (genericAttribute == null)
+                    throw new ArgumentException("No link found with the specified id");
+                _genericAttributeService.Delete(genericAttribute);
 
                 return new NullJsonResult();
             }

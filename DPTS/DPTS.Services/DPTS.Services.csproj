@@ -112,6 +112,7 @@
     <Compile Include="ExportImport\Help\PropertyByName.cs" />
     <Compile Include="ExportImport\Help\PropertyManager.cs" />
     <Compile Include="ExportImport\ImportManager.cs" />
+    <Compile Include="GenericAttributes\GenericAttributeService.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="MimeTypes.cs" />
     <Compile Include="ModelStateExtensions.cs" />

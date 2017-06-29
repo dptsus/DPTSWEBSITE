@@ -47,6 +47,7 @@
     <Compile Include="Core\Common\IPictureService.cs" />
     <Compile Include="Core\Common\IQualifiactionService.cs" />
     <Compile Include="Core\ExportImport\IImportManager.cs" />
+    <Compile Include="Core\GenericAttributes\IGenericAttributeService.cs" />
     <Compile Include="Core\IPagedList.cs" />
     <Compile Include="Core\Notification\IDoctorNotificationSettingsService.cs" />
     <Compile Include="Core\Notification\ISentEmailHistoryService.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Entities\DoctorReview.cs" />
     <Compile Include="Entities\Education.cs" />
     <Compile Include="Entities\Experience.cs" />
+    <Compile Include="Entities\GenericAttribute.cs" />
     <Compile Include="Entities\HonorsAwards.cs" />
     <Compile Include="Entities\Notification\DoctorNotificationSettings.cs" />
     <Compile Include="Entities\Notification\EmailCategory.cs" />

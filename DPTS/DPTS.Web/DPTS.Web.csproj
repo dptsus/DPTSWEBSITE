@@ -439,6 +439,7 @@
     <Compile Include="Models\DoctorViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JoinUsViewModel.cs" />
+    <Compile Include="Models\LocationsListModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Meeting.cs" />
     <Compile Include="Models\MeetingResponse.cs" />
@@ -448,6 +449,7 @@
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\SheduleViewModel.cs" />
+    <Compile Include="Models\SpecialityListModel.cs" />
     <Compile Include="Models\SpecialityViewModel.cs" />
     <Compile Include="Models\DefaultNotificationSettingsViewModel.cs" />
     <Compile Include="Models\StateProvinceViewModel.cs" />
@@ -2189,6 +2191,9 @@
     <Content Include="Views\Shared\_ProfilePicture.cshtml" />
     <Content Include="Views\Appointment\EmailConsult.cshtml" />
     <Content Include="Views\Shared\SuggestedDoctors.cshtml" />
+    <Content Include="Views\Home\LocationList.cshtml" />
+    <Content Include="Views\Home\SpecialityList.cshtml" />
+    <Content Include="Views\Administration\GenericAttributeList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

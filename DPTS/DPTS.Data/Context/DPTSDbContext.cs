@@ -42,6 +42,7 @@ namespace DPTS.Data.Context
         public virtual DbSet<PatientReviewHelpfulness> PatientReviewHelpfulness { get; set; }
         public virtual DbSet<BlogPost> BlogPost { get; set; }
         public virtual DbSet<BlogComment> BlogComment { get; set; }
+        public virtual DbSet<GenericAttribute> GenericAttribute { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

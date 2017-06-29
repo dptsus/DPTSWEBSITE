@@ -414,7 +414,7 @@ namespace DPTS.Web.Controllers
 
                     var user = new ApplicationUser
                     {
-                        UserName = model.RegistrationDetails.Email,
+                        UserName = model.RegistrationDetails.PhoneNumber,
                         Email = model.RegistrationDetails.Email,
                         LastName = model.RegistrationDetails.LastName,
                         FirstName = model.RegistrationDetails.FirstName,

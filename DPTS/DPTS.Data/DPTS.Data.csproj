@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201706020340138_doctortblupdate.Designer.cs">
       <DependentUpon>201706020340138_doctortblupdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706291004412_GenericAttributeTblAdded.cs" />
+    <Compile Include="Migrations\201706291004412_GenericAttributeTblAdded.Designer.cs">
+      <DependentUpon>201706291004412_GenericAttributeTblAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706020340138_doctortblupdate.resx">
       <DependentUpon>201706020340138_doctortblupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706291004412_GenericAttributeTblAdded.resx">
+      <DependentUpon>201706291004412_GenericAttributeTblAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
