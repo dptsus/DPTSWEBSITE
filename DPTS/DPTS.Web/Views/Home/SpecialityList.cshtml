@@ -1,7 +1,7 @@
-﻿@model IEnumerable<DPTS.Web.Models.SpecialityListModel>
+﻿@model IEnumerable<DPTS.Domain.Entities.GenericAttribute>
 <ul>
     @foreach (var loc in Model)
     {
-        <li><a href="/Home/Search?q=@loc.Name">@loc.Name</a></li>
+        <li><a href="/Home/Search?q=@loc.EntityValue">@loc.EntityValue</a></li>
     }
 </ul>

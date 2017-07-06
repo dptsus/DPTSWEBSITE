@@ -15,6 +15,7 @@ using DPTS.Data.Context;
 using System;
 using DPTS.Domain.Common;
 using Microsoft.AspNet.Identity;
+using DPTS.Domain.Core.GenericAttributes;
 
 namespace DPTS.Web.Controllers
 {
@@ -31,6 +32,7 @@ namespace DPTS.Web.Controllers
         private ApplicationDbContext context;
         private readonly DPTSDbContext _context;
         private readonly IPictureService _pictureService;
+        private readonly IGenericAttributeService _genericAttributeService;
 
         #endregion
 
@@ -41,7 +43,8 @@ namespace DPTS.Web.Controllers
             IAddressService addressService,
             ICountryService countryService,
             IStateProvinceService stateService,
-            IPictureService pictureService)
+            IPictureService pictureService,
+            IGenericAttributeService genericAttributeService)
         {
             _specialityService = specialityService;
             _doctorService = doctorService;
@@ -52,6 +55,7 @@ namespace DPTS.Web.Controllers
             _stateService = stateService;
             _context = new DPTSDbContext();
             _pictureService = pictureService;
+            _genericAttributeService = genericAttributeService;
         }
 
         #endregion
@@ -362,8 +366,8 @@ namespace DPTS.Web.Controllers
             catch { return ratingPercent; }
         }
 
-        [ValidateInput(false)]
-        [OutputCache(Duration = 300, VaryByParam = "page")]
+       // [ValidateInput(false)]
+        //[OutputCache(Duration = 300, VaryByParam = "page")]
         public ActionResult Search(SearchModel model, int? page)
         {
             var searchViewModel = new List<TempDoctorViewModel>();
@@ -578,26 +582,17 @@ namespace DPTS.Web.Controllers
             ViewBag.SmallProfilePictureUrl = GetProfilePicture1(User.Identity.GetUserId());
             return PartialView();
         }
-
+        [OutputCache(Duration = 300)]
         public ActionResult LocationList()
         {
-            var model = new List<LocationsListModel>();
-            var location = new LocationsListModel
-            {
-                Name = "Nashik",
-            };
-            model.Add(location);
-            return PartialView(model);
+            var locations = _genericAttributeService.GetAllLocation();
+            return PartialView(locations);
         }
+        [OutputCache(Duration = 300)]
         public ActionResult SpecialityList()
         {
-            var model = new List<SpecialityListModel>();
-            var spec = new SpecialityListModel
-            {
-                Name = "Cardiologist",
-            };
-            model.Add(spec);
-            return PartialView(model);
+            var spec = _genericAttributeService.GetAllSpecialities();
+            return PartialView(spec);
         }
     }
 }

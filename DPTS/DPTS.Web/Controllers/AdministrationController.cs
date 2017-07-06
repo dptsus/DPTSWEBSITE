@@ -164,6 +164,10 @@ namespace DPTS.Web.Controllers
         {
             return View();
         }
+        public ActionResult SpeclitiesList()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult GenericAttribute_Read(DataSourceRequest command,string locator)
         {
@@ -190,19 +194,20 @@ namespace DPTS.Web.Controllers
                 {
                     return Json(new DataSourceResult { Errors = "error" });
                 }
-                var genericAttribute = new GenericAttribute();
-                if (locator == "location")
-                {
-                    _genericAttributeService.GetAllLocation().FirstOrDefault(c => c.EntityValue == model.EntityValue);
-                }
-                else if(locator == "speciality")
-                {
-                    _genericAttributeService.GetAllSpecialities().FirstOrDefault(c => c.EntityValue == model.EntityValue);
-                }
-                if (genericAttribute == null)
-                {
+                //var genericAttribute = new GenericAttribute();
+                //if (locator == "location")
+                //{
+                //    genericAttribute = _genericAttributeService.GetAllLocation().FirstOrDefault(c => c.EntityValue == model.EntityValue);
+                //}
+                //else if(locator == "speciality")
+                //{
+                //    genericAttribute = _genericAttributeService.GetAllSpecialities().FirstOrDefault(c => c.EntityValue == model.EntityValue);
+                //}
+                //if (genericAttribute.Id == 0)
+                //{
+                    model.EntityKey = locator;
                     _genericAttributeService.Insert(model);
-                }
+                //}
                 return new NullJsonResult();
             }
             catch (Exception ex)
@@ -216,25 +221,7 @@ namespace DPTS.Web.Controllers
         {
             try
             {
-                var genericAttribute = new GenericAttribute();
-
-                if (model.EntityKey == "location")
-                {
-                    _genericAttributeService.GetAllLocation().FirstOrDefault(c => c.EntityValue == model.EntityValue);
-                }
-                else if (model.EntityKey == "speciality")
-                {
-                    _genericAttributeService.GetAllSpecialities().FirstOrDefault(c => c.EntityValue == model.EntityValue);
-                }
-                if (genericAttribute == null)
-                    return Content("No link could be loaded with the specified ID");
-
-                if (!genericAttribute.EntityValue.Equals(model.EntityValue, StringComparison.InvariantCultureIgnoreCase) ||
-                    genericAttribute.Id != model.Id)
-                {
-                    _genericAttributeService.Delete(genericAttribute);
-                }
-
+                var genericAttribute = _genericAttributeService.GetAttributeById(model.Id);
                 genericAttribute.Id = model.Id;
                 genericAttribute.EntityKey = model.EntityKey;
                 genericAttribute.EntityValue = model.EntityValue;

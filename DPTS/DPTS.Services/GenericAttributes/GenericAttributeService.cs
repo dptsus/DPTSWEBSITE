@@ -1,5 +1,4 @@
-﻿using DPTS.Domain.Core.GenericAttribute;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +40,8 @@ namespace DPTS.Services.GenericAttributes
             int pageSize = Int32.MaxValue,string locator=null)
         {
             var query = _attributeRepository.Table;
+            if (!string.IsNullOrWhiteSpace(locator))
+                query = query.Where(c => c.EntityKey == locator);
 
             query = query.OrderBy(c => c.Id);
             return new PagedList<GenericAttribute>(query, pageIndex, pageSize);

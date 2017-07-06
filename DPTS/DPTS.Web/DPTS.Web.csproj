@@ -2194,6 +2194,7 @@
     <Content Include="Views\Home\LocationList.cshtml" />
     <Content Include="Views\Home\SpecialityList.cshtml" />
     <Content Include="Views\Administration\GenericAttributeList.cshtml" />
+    <Content Include="Views\Administration\SpeclitiesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
