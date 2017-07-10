@@ -339,9 +339,48 @@ namespace DPTS.Web.Controllers
 
                         if (ModelState.IsValid)
                         {
-                            SendOtp(model.PhoneNumber);
-                            TempData["regmodel"] = model;
-                            return RedirectToAction("ConfirmRegistration", "Account");
+                            //SendOtp(model.PhoneNumber);
+                            // TempData["regmodel"] = model;
+                            // return RedirectToAction("ConfirmRegistration", "Account");
+                            var user = new ApplicationUser
+                            {
+                                UserName = model.PhoneNumber,
+                                Email = model.Email,
+                                LastName = model.LastName,
+                                FirstName = model.FirstName,
+                                LastIpAddress = "192.168.225.1",
+                                IsEmailUnsubscribed = false,
+                                IsPhoneNumberUnsubscribed = true,
+                                LastLoginDateUtc = DateTime.UtcNow,
+                                CreatedOnUtc = DateTime.UtcNow,
+                                PhoneNumber = model.PhoneNumber,
+                                TwoFactorEnabled = true
+                            };
+                            var result = await UserManager.CreateAsync(user, model.Password);
+                            if (result.Succeeded)
+                            {
+                                if (model.UserType.ToLowerInvariant() == "professional")
+                                {
+                                    await this.UserManager.AddToRoleAsync(user.Id, model.Role);
+                                    var doctor = new Doctor { DoctorId = user.Id, RegistrationNumber = model.RegistrationNumber };
+                                    _doctorService.AddDoctor(doctor);
+                                }
+                                //gives content to sending thanks email
+                                await UserManager.SendEmailAsync(user.Id, "Thank you for registering at Doctor 365", "Thank you!!");
+                                await SignInManager.SignInAsync(user, false, false);
+
+                                return RedirectToAction("Index", "Home");
+                            }
+                            string errorNotify = string.Empty;
+                            foreach (var item in result.Errors)
+                            {
+                                errorNotify += item + " ,";
+                            }
+                            if (!string.IsNullOrWhiteSpace(errorNotify))
+                                ErrorNotification(errorNotify.TrimEnd(','));
+
+                            ViewBag.ReturnUrl = returnUrl;
+                            AddErrors(result);
                         }
                     }
                     else

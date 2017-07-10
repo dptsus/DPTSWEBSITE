@@ -112,7 +112,7 @@
             }
         });
         $("#PhoneNumber").on("countrychange", function (e, countryData) {
-              $("#PhoneNumber").val(countryData.dialCode);
+              //$("#PhoneNumber").val(countryData.dialCode);
             //alert(countryData.dialCode);
         });
 
@@ -122,7 +122,7 @@
 
         // initialise plugin
         telInput.intlTelInput({
-            preferredCountries: ["us", "in"],
+            preferredCountries: ["in", "us"],
             utilsScript: "/Scripts/utils.js"
         });
 
