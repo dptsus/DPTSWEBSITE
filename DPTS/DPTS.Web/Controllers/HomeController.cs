@@ -433,7 +433,7 @@ namespace DPTS.Web.Controllers
         }
 
         [ValidateInput(false)]
-        [OutputCache(Duration = 300, VaryByParam = "page")]
+        //[OutputCache(Duration = 300, VaryByParam = "page")]
         public ActionResult TopFilter(string searchCriteria, int? page)
         {
             var searchViewModel = new List<TempDoctorViewModel>();
