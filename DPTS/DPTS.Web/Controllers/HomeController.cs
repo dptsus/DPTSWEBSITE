@@ -594,5 +594,13 @@ namespace DPTS.Web.Controllers
             var spec = _genericAttributeService.GetAllSpecialities();
             return PartialView(spec);
         }
+        public ActionResult Location_subpage()
+        {
+            return View();
+        }
+        public ActionResult detail_page()
+        {
+            return View();
+        }
     }
 }

@@ -470,6 +470,7 @@
     <Content Include="Content\Admin\loading.gif" />
     <Content Include="Content\Admin\vendor\bootstrap-datetimepicker.css" />
     <Content Include="Content\Admin\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\images\bg1.jpg" />
     <Content Include="Content\images\thumbs\0000011.jpeg" />
     <Content Include="Content\images\thumbs\0000011_150.jpeg" />
     <Content Include="Content\images\thumbs\0000011_365.jpeg" />
@@ -489,6 +490,7 @@
     <Content Include="Content\images\thumbs\0000035_100.png" />
     <Content Include="Content\images\thumbs\0000041_100.jpeg" />
     <Content Include="Content\joinus.png" />
+    <Content Include="Content\StyleSheet.css" />
     <Content Include="Content\wp-content\themes\docdirect\css\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\wp-content\themes\docdirect\css\intlTelInput.css" />
     <Content Include="Content\kendo\2017.1.118\fonts\DejaVu\LICENSE.txt" />
@@ -2195,6 +2197,8 @@
     <Content Include="Views\Home\SpecialityList.cshtml" />
     <Content Include="Views\Administration\GenericAttributeList.cshtml" />
     <Content Include="Views\Administration\SpeclitiesList.cshtml" />
+    <Content Include="Views\Home\detail_page.cshtml" />
+    <Content Include="Views\Home\Location_subpage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

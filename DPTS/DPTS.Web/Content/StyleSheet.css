@@ -1,0 +1,315 @@
+﻿.doc-topbar.doc-topbar-v1.doc-haslayout {
+    background: #00cca3;
+}
+
+.doc-contactweb p {
+    color: black;
+    font-weight: 700;
+}
+
+    .doc-contactweb p a {
+        color: black;
+    }
+
+.tg-nav ul li a {
+    color: black;
+}
+
+    .tg-nav ul li a:hover {
+        color: #00cca3;
+    }
+
+.doc-menu .tg-login-logout .session-user-info a span {
+    color: black;
+}
+
+#search_banner {
+    background-color: #00cca3 !important;
+    color: black;
+}
+
+.tg-banner-holder .tg-searcharea-v2 input {
+    border: 2px solid #00cca3;
+}
+
+.tg-show {
+    border-color: #00cca3;
+}
+
+.tg-packages:hover {
+    background: black;
+    border-color: black;
+}
+
+.icon-stethoscope:before {
+    color: #00cca3;
+}
+
+.tg-search-category h3 {
+    color: #00cca3;
+    margin: 0 0 25px;
+    padding: 0 0 18px;
+    line-height: 20px;
+    border-bottom: 1px solid #00cca3;
+}
+
+.icon-Hospitalmedicalsignalofacrossinacircle:before {
+    color: #00cca3;
+}
+
+.icon-capsules:before {
+    color: #00cca3;
+}
+
+.tg-theme-heading h2 {
+    color: black;
+}
+
+.icon-Clinichistorymedicalpaperonclipboard:before {
+    color: #00cca3;
+}
+
+.icon-Pills:before {
+    color: #00cca3;
+}
+
+.icon-BloodDonation:before {
+    color: #00cca3;
+}
+
+.icon-hairs:before {
+    color: #00cca3;
+}
+
+.tg-theme-heading.tg-description p {
+    font-size: 17px;
+}
+
+a, p a, p a:hover, a:hover, a:focus, a:active, .tg-breadcrumb li a:hover, body h1, body h2, body h3, body h4, body h5, body h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, p a, .tg-nav ul li a:hover, .tg-tabs-nav li label:hover i, .tg-tabs-nav li input[type="radio"]:checked + label i, .form-searchdoctors h1 em, .tg-healthcareonthego ul li:after, .tg-findbycategory ul li:hover a, .tg-findbycategory ul li:hover:after, .tg-findbycategory ul li:last-child a, .tg-post .tg-description blockquote:before, .tg-post .tg-description blockquote:after, .tg-metadata li a:hover, .tg-docinfo .tg-stars i, .tg-img-hover a, .tg-widget ul li .tg-docinfo a:hover, .tg-widget ul li a:hover, .tg-widget ul li:hover:after, .tg-docprofile-content h3 a:hover, .tg-contactus .tg-search-categories a:hover, .tg-tab-widget .tab-content .tg-stars i, .tg-ratingbox .tg-stars i, .tg-packages .tg-stars i, .tg-packages:hover .tg-featuredicon em, .tg-otherphotos h3 a:hover, .tg-addfield button:hover i, .tg-addfield button:hover span, .tg-post-detail .tg-post .tg-tags .tg-tag li a:hover, .tg-blog-grid .tg-post .tg-contentbox h3 a:hover, .tg-reviewcontet .comment-head h3 a:hover, .tg-support h3 a:hover, .tg-reviewcontet .comment-head .tg-stars i, .tg-widget ul li time, .tg-nav .navbar-collapse ul li a:hover, .tg-doceducation .tg-findbycategory ul li:hover a, .tg-login-logout > li > a:hover, .tg-login-logout li ul > li > a:hover, .tg-login-logout li ul > li > a:hover i, .tg-packageswidth .tg-checkbox input[type=radio]:checked + label .tg-featuredicon em, .tg-widget.tg-datatype-two ul li a:hover:after, .tg-widget.tg-datatype ul li a:hover:after, .tg-schedule-widget-v2 ul li.current a, .tg-schedule-widget-v2 ul li.current a:after, .tg-schedule-widget-v2 ul li.current a:before, .tg-listbox .tg-listdata h4 a:hover, .tg-sub-featured li:hover a span, .tg-sub-featured li:hover a em, .tg-listbox .tg-listdata h4 a:hover, .tg-homeslidertwo.owl-theme .owl-prev:hover i, .tg-homeslidertwo.owl-theme .owl-next:hover i, .tg-counter i, .tg-counter .timer, .tg-appointmenttable .table > tbody tr:hover .tg-btncheck, .tg-showdetail .tg-btncheck, .tg-doctorhead .tg-heading-border h3 a, .tg-usercontact ul li:hover a em, .tg-usercontact ul li:hover a i, .tg-userschedule ul li:hover span, .tg-userschedule ul li:hover em, .tg-userschedule ul li span:after, .tg-averagerating em, .tg-reviewhead .tg-reviewheadleft h3:hover a, .tg-radio input[type="radio"] + label:after, .tg-userschedule ul li.current a, .tg-userschedule ul li.current a span, .tg-userschedule ul li.current a em, .tg-usercontactinfo .tg-doccontactinfo li:last-child a {
+    color: #00cca3;
+}
+
+    .tg-btn:after, .tg-tabs-nav li input[type="radio"]:checked + label .tg-category-name:after, .tg-tabs-nav li label:hover .tg-category-name:after, .tg-tabs-nav li label:before, .tg-searchform .form-group button[type="submit"], .navbar-header .navbar-toggle, .tg-listing-views li.active a, .tg-listing-views li a:hover, .tg-listsorttype ul li a:hover, #comming-countdown li:last-child, .tg-pagination ul li a:hover, .tg-pagination ul li:first-child a:hover, .tg-pagination ul li:last-child a:hover, .tg-pagination ul li:first-child:after, .tg-pagination ul li:last-child:before, .tg-pagination ul li.active a, .tg-packages:hover, .tg-widget ul li a:hover i, .tg-reactivate .tg-btn, .tg-widget.tg-widget-accordions .panel.active .tg-panel-heading:after, .tg-widget.tg-widget-accordions .tg-panel-heading:hover:after, .tg-mapmarker-content .tg-heading-border:after, .tg-on-off .candlestick-wrapper .candlestick-bg .candlestick-toggle, .tg-table-hover .tg-edit, .tg-schedule-slider .owl-controls.clickable .owl-next:hover, .tg-schedule-slider .owl-controls.clickable .owl-prev:hover, .specialities-list ul li .tg-checkbox input[type="checkbox"]:checked + label, .specialities-list ul li .tg-checkbox input[type="radio"] + label, #confirmBox h1, #confirmBox .button:after, .geodistance_range .ui-slider-range, .tg-packageswidth .tg-checkbox input[type=checkbox]:checked + label, .tg-packageswidth .tg-checkbox input[type=radio]:checked + label, .tg-radiobox input[type="radio"]:checked + label, .pin, .tg-share-icons .tg-socialicon li a, .tg-btn-list:hover, .tg-featuredtags .tg-featured, .tg-topbar .tg-login-logout, .tg-topbar .tg-login-logout:after, .tg-searcharea-v2 .tg-searchform select, .tg-features-listing > li:hover > .tg-main-features .tg-feature-head, .tg-featuredtags .tg-featured, .tg-btn-list:hover, .tg-homeslidertwo .tg-searcharea-v2 .tg-searchform .tg-btn, .tg-topbar .tg-login-logout:before, .tg-catagory a:hover, .tg-navdocappointment li a:hover:before, .tg-navdocappointment li.active a:before, .tg-subdoccategory.tg-edit, .tg-subdoccategory:hover, .tg-doccategory.tg-edit, .tg-doccategory:hover, .tg-appointmenttable .table > tbody tr:hover, .tg-showdetail, .tg-appointmenttime .tg-dayname, .tg-radio input[type=radio]:checked + label, .tg-appointmenttime .tg-doctimeslot.tg-available .tg-box:hover, .tg-iosstylcheckbox input[type=checkbox]:checked + label, .tg-iosstylcheckbox label:before, .tg-skillbar, .tg-userrating li:hover label, .tg-radio input[type="radio"]:checked + label, .tg-userrating li:after, .doc-topbar.doc-topbar-v1 {
+        background-color: transparent;
+    }
+
+.tg-patientfeedback {
+    border: 1px solid #00cca3;
+}
+
+    .tg-patientfeedback:before {
+        border-top: 62px solid #00cca3;
+    }
+
+.cust-location .tg-findbycategory ul li:after {
+    content: "";
+}
+
+.cust-location .tg-findbycategory ul li a {
+    border: 2px solid #333;
+    padding: 5px;
+    text-align: center;
+    font-size: 17px;
+    color: black;
+}
+
+.cust-location {
+    background-color: #ececec;
+}
+
+.default .builder-items .tg-theme-heading h2 {
+    color: #00cca3;
+}
+
+.catagories-types .tg-packages a:hover i, .catagories-types .tg-packages a:hover {
+    color: black;
+}
+
+.tg-search-category .tg-displaytable {
+    border: 4px solid #ddd;
+}
+
+/*.tg-nav ul li a {
+    color: #00cca3;
+}*/
+
+.subpage .tg-refinesearcharea {
+    background: #434343;
+}
+
+.subpage .tg-heading-border.tg-small h2 {
+    color: white;
+}
+
+.subpage .form-control {
+    background-color: transparent;
+    color: white;
+}
+
+.subpage .form-group select {
+    background-color: transparent;
+    color: white;
+}
+
+    .subpage .form-group select option {
+        color: black;
+    }
+
+.subpage .tg-btn:after {
+    border-bottom: none;
+}
+
+.subpage .tg-btn.pull-left {
+    background-color: #00cca3;
+}
+
+.subpage .tg-btn:after {
+    background-color: #00cca3;
+}
+
+.subpage .tg-btn-reset.pull-right {
+    background-color: #00cca3;
+}
+
+.subpage .tg-btn-reset:after {
+    background-color: #00cca3;
+}
+
+.subpage .tg-doclisthead .form-group select {
+    color: black;
+    border: 1px solid #434343;
+}
+
+.subpage .tg-doctor-profile .tg-box {
+    border: 1px solid #434343;
+}
+
+.subpage .tg-doctor-profile .tg-docprofile-content .c a:hover {
+    color: #00cca3;
+}
+
+.subpage .tg-doclisthead {
+    border-bottom: 1px solid #434343;
+}
+
+.subpage .tg-doctors-list .tg-doclisthead .tg-listing-views a:hover {
+    background: #00cca3;
+}
+
+.subpage .tg-doctors-list .tg-doclisthead .tg-listing-views .list {
+    background: #5d5955;
+}
+
+.subpage .tg-docprofile-content h3 a:hover {
+    color: #00cca3;
+}
+
+.shedule li {
+    list-style-type: none;
+}
+
+.shedule .tg-widget ul li a em {
+    float: right;
+}
+
+.shedule .panel-body {
+}
+
+.center-2 .make-appointment-btn {
+    padding: 0;
+}
+
+.center-2 .panel-group {
+    margin-top: 210px;
+}
+
+.side-2 .shedule ul li a span {
+    padding: 13px;
+    text-align: left;
+}
+
+.side-2 .language .tg-doctor-profile ul li a:after {
+    background: none;
+    border: none;
+}
+
+.side-2 .language .tg-listview-v3 .tg-doctor-profile .tg-tags li .tg-btn {
+    padding: 2px 22px;
+}
+
+    .side-2 .language .tg-listview-v3 .tg-doctor-profile .tg-tags li .tg-btn:hover {
+        color: black !important;
+    }
+
+.Specialties ul li {
+    list-style-type: none;
+}
+
+    .Specialties ul li a:after {
+        background: none;
+        border: none;
+    }
+
+    .Specialties ul li a {
+        border: 1px solid #ddd;
+        padding: 5px 13px 5px 13px;
+        margin: 3px;
+    }
+
+.price .left {
+    float: right;
+}
+
+.detail_page .tg-userbanner {
+    background-color: none;
+}
+
+.detail_page .panel-heading {
+    color: white;
+    background-color: #333;
+}
+
+.left {
+    float: right;
+    color: black;
+}
+
+.right {
+    color: black;
+    font-size: 17px;
+}
+
+.our-team ul li {
+    list-style-type: none;
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 6px 10px 15px 5px;
+}
+
+.our-team .tg-teammember h5 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.our-team .tg-teammember {
+    text-align: center;
+}
+
+.tgbtn {
+    border: 1px solid black;
+    padding: 9px 26px 9px 26px;
+    font-size: 17px;
+    color: black;
+}
+
+.cust-doctor h3 {
+    color: white;
+}
+
+.cust-doctor .tg-description {
+    color: white;
+}
+
+.tg-btns .tg-btn {
+    color: white;
+}
