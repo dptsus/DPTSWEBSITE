@@ -5,162 +5,560 @@
     ViewBag.Title = "DPTS";
     Layout = "~/Views/Shared/_Layout.cshtml";
     //css part
-    Html.Assets().Styles.Add("/Content/StyleSheet.css");
-    Html.Assets().Styles.Add("/Content/wp-content/themes/docdirect/css/owl.carousel1bba.css");
+    //Html.Assets().Styles.Add("/Content/StyleSheet.css");
+    //Html.Assets().Styles.Add("/Content/wp-content/themes/docdirect/css/owl.carousel1bba.css");
 
     //js part
 
-    Html.Assets().Styles.Add("/Content/kendo/2017.1.118/kendo.common-material.min.css");
-    Html.Assets().Styles.Add("/Content/kendo/2017.1.118/kendo.material.min.css");
-    Html.Assets().Styles.Add("/Content/kendo/2017.1.118/kendo.material.mobile.min.css");
+    //Html.Assets().Styles.Add("/Content/kendo/2017.1.118/kendo.common-material.min.css");
+    //Html.Assets().Styles.Add("/Content/kendo/2017.1.118/kendo.material.min.css");
+    //Html.Assets().Styles.Add("/Content/kendo/2017.1.118/kendo.material.mobile.min.css");
 
-    Html.Assets().Scripts.Add("/Content/wp-content/themes/docdirect/js/owl.carousel1bba.js");
-    Html.Assets().Scripts.Add("/Scripts/kendo/2017.1.118/kendo.all.min.js");
+    //Html.Assets().Scripts.Add("/Content/wp-content/themes/docdirect/js/owl.carousel1bba.js");
+    //Html.Assets().Scripts.Add("/Scripts/kendo/2017.1.118/kendo.all.min.js");
+    Html.Assets().Styles.Add("/Content/Cust_Content/css/font-awesome.min.css");
+    Html.Assets().Styles.Add("/Content/Cust_Content/css/bootstrap.min.css");
+    Html.Assets().Styles.Add("/Content/StyleSheet.css");
+    Html.Assets().Styles.Add("/Content/Cust_Content/css/StyleSheet.css");
+    Html.Assets().Styles.Add("/Content/Cust_Content/css/cust-style.css");
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="~/Content/Cust_Content/js/modernizr.js"></script>
 }
-@*<main id="main" class="tg-page-wrapper tg-haslayout">
-    <div id="dpts-home">
-        <section class="tg-main-section haslayout  stretch_section_contents_corner stretch_section stretch_data" style="margin-top:-100px;padding-top:0px;padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%; background-size: cover;">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-12 builder-column ">
-                    <div class="tg-banner-holder">
-                        <div class="tg-banner-content">
-                            <div class="container">
-                                <div class="tg-heading-border">
-                                    <h1><span>find your nearest</span><div class="dynamic-title">Doctor</div></h1>
-                                </div>
-                                @Html.Action("SearchBox", "Home")
-                            </div>
+<section class="tg-main-section haslayout  stretch_section_contents_corner stretch_section stretch_data" style="margin-top:-100px;padding-top:0px;padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%; background-size: cover;">
+    <div class="builder-items">
+        <div class="col-xs-12 col-md-12 builder-column ">
+            <div class="tg-banner-holder">
+                <div class="tg-banner-content">
+                    <div class="container">
+                        <div class="tg-heading-border">
+                            <h1><span>find your nearest</span><div class="dynamic-title">Doctor</div></h1>
                         </div>
-                        <div id="searchbanner-" class="tg-homeslidertwo">
-                            <div class="item">
-                                <figure>
-                                    <img src="~/Content/wp-content/uploads/2016/08/banner-img1.jpg" alt="Search">
-                                </figure>
-                            </div>
-                            <div class="item">
-                                <figure>
-                                    <img src="~/Content/wp-content/uploads/2016/08/banner-img2.jpg" alt="Search">
-                                </figure>
-                            </div>
-                            <div class="item">
-                                <figure>
-                                    <img src="~/Content/wp-content/uploads/2016/08/banner-img3.jpg" alt="Search">
-                                </figure>
-                            </div>
+                        @Html.Action("SearchBox", "Home")
+                    </div>
+                </div>
+                <div id="searchbanner-" class="tg-homeslidertwo">
+                    <div class="item">
+                        <figure>
+                            <img src="~/Content/Cust_Content/img/slide-two.jpg" alt="Search">
+                        </figure>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of slider section -->
+<!-- about section -->
+<section class="about text-center" id="about">
+    <div class="container">
+        <div class="row">
+            <h2>about us</h2>
+            <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
+            <div class="col-md-4 col-sm-6">
+                <div class="single-about-detail clearfix">
+                    <div class="about-img">
+                        <img class="img-responsive" src="~/Content/Cust_Content/img/item1.jpg" alt="">
+                    </div>
+                    <div class="about-details">
+                        <div class="pentagon-text">
+                            <h1>C</h1>
                         </div>
-                        <script>
-		jQuery(document).ready(function(e) {
-            jQuery("#searchbanner-").owlCarousel({
-				paginationSpeed : 400,
-				slideSpeed : 300,
-				autoPlay : true,
-				singleItem:true,
-				navigation : true,
-				navigationText: [
-					"<i class='tg-prev fa fa-angle-left'></i>",
-					"<i class='tg-next fa fa-angle-right'></i>"
-				]
-			});
-        });
-                        </script>
+                        <h3>Children’s specialist</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="tg-main-section haslayout  default">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-12 builder-column ">
-
-                    <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                        <div class="tg-theme-heading">
-                            <h2>find healthcare by</h2>
-                            <span class="tg-roundbox"></span>
-                            <div class="tg-description">
-                                <p>In just three simple steps, DPTS will help you find your nearest healthcare setting without having to signup. We aim to facilitate you in finding your right doctor with just three clicks without having to ask around or wander to find your nearest healthcare facility.</p>
-                            </div>
-                        </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="single-about-detail">
+                    <div class="about-img">
+                        <img class="img-responsive" src="~/Content/Cust_Content/img/item2.jpg" alt="">
                     </div>
-                </div>
-                <div class="col-xs-12 col-md-6 builder-column ">
-                    <div class="sc-dir-search">
-                        <div class="tg-findbycategory">
-                            <div class="tg-box">
-                                <div class="tg-heading-border tg-small">
-                                    <i class="icon-map"></i>
-                                    <h3>Location</h3>
-                                </div>
-                                @Html.Action("LocationList", "Home")
-                            </div>
+                    <div class="about-details">
+                        <div class="pentagon-text">
+                            <h1>W</h1>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-6 builder-column ">
-                    <div class="sc-dir-search sc-specialities">
-                        <div class="tg-findbycategory">
-                            <div class="tg-box">
-                                <div class="tg-heading-border tg-small">
-                                    <i class="fa fa-medkit"></i>
-                                    <h3>Speciality</h3>
-                                </div>
-                                @Html.Action("SpecialityList", "Home")
-                            </div>
-                        </div>
+                        <h3>Children’s specialist</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="tg-main-section haslayout tg-areuadoctor stretch_section" style="padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%" data-speed="0.5" data-bleed="0" data-appear-top-offset="600" data-parallax="scroll" data-position="center 0" data-image-src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/03/bgparallax-01.jpg">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-6 builder-column col-sm-12 col-lg-6  pull-right">
-
-                    <div class="sc-about-us tg-healthcareonthego">
-                        <div class="tg-contentbox tg-haslayout">
-                            <div class="tg-heading-border">
-                                <h2>ARE YOU A DOCTOR?</h2>
-
-                                <h3>REGISTER NOW AND REACH THOUSANDS OF PATIENTS</h3>
-                            </div>
-                            <div class="tg-description">
-                                <p>We know how much it takes to become a qualified doctor so we have taken away all your hassle to look out for your patients once you have qualified. DPTS will give you an easy reach to all the patients, all you need is to sign up!</p>
-                            </div>
-
-                            <div class="tg-btns">
-                                <a class="tg-btn" href="@Url.Action("Register","Account")">signup now</a>
-                            </div>
-
-                        </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="single-about-detail">
+                    <div class="about-img">
+                        <img class="img-responsive" src="~/Content/Cust_Content/img/item3.jpg" alt="">
                     </div>
-                </div>
-                <div class="col-xs-12 col-md-6 builder-column col-sm-12 col-lg-6  pull-left">
-
-                    <figure class="frame-img"><img src="//themographics.com/wordpress/docdirect/wp-content/uploads/2016/03/img-01.png" alt="Image Frame" /></figure>
-                </div>
-            </div>
-        </section>
-        <div class="container">
-            <div class="row">
-                <div class="main-page-wrapper tg-haslayout">
-                    <div class="fw-page-builder-content">
-
-                      
-                        <section class="tg-main-section haslayout  stretch_section" style="background-image: url(&quot;https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/08/bgparallax-03.jpg&quot;); padding: 50px 366.5px; background-repeat: no-repeat; background-position: 0% 100%; background-size: cover; position: relative; left: -366.5px; box-sizing: border-box; width: 1903px;">
-                            <div class="builder-items">
-                                <div class="col-xs-12 col-md-12 builder-column ">
-                                    <div class="tg-buynowbox">
-                                        <h3 style="color:#5d5955">Book health appointments in seconds.</h3>
-                                        <a class="tg-btn" style="color:#5d5955" href="@Url.Action("Register","Account")">Register Today</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                     
+                    <div class="about-details">
+                        <div class="pentagon-text">
+                            <h1>M</h1>
+                        </div>
+                        <h3>Children’s specialist</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</main>*@
+</section><!-- end of about section -->
+
+
+<!-- service section starts here -->
+<section class="service text-center" id="service">
+    <div class="container">
+        <div class="row">
+            <h2>our services</h2>
+            <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</h4>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service">
+                    <div class="single-service-img">
+                        <div class="service-img">
+                            <img class="heart img-responsive" src="~/Content/Cust_Content/img/service1.png" alt="">
+                        </div>
+                    </div>
+                    <h3>Heart problem</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service">
+                    <div class="single-service-img">
+                        <div class="service-img">
+                            <img class="brain img-responsive" src="~/Content/Cust_Content/img/service2.png" alt="">
+                        </div>
+                    </div>
+                    <h3>brain problem</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service">
+                    <div class="single-service-img">
+                        <div class="service-img">
+                            <img class="knee img-responsive" src="~/Content/Cust_Content/img/service3.png" alt="">
+                        </div>
+                    </div>
+                    <h3>knee problem</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service">
+                    <div class="single-service-img">
+                        <div class="service-img">
+                            <img class="bone img-responsive" src="~/Content/Cust_Content/img/service4.png" alt="">
+                        </div>
+                    </div>
+                    <h3>human bones problem</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- end of service section -->
+
+
+
+
+<section id="Speciality" class="tg-main-section haslayout  default">
+    <div class="builder-items">
+        <div class="col-xs-12 col-md-12 builder-column ">
+
+            <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="tg-theme-heading">
+                    <h2>Speciality</h2>
+
+                    <div class="tg-description">
+                        <p>In just three simple steps, DocDirect will help you find your nearest healthcare setting without having to signup.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12 builder-column ">
+
+            <div class="sc-dir-types catagories-types">
+                <div class="tg-findbycategorys">
+                    <div class="specialities-list">
+                        <ul>
+
+                            <li id="dir-127">
+                                <div class="tg-checkbox user-selection">
+                                    <div class="tg-packages">
+                                        <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=doctor">
+                                            <label>
+                                                <i class="icon-stethoscope"></i>
+                                                Doctor<span class="count">13</span>
+
+
+                                            </label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="dir-126">
+                                <div class="tg-checkbox user-selection">
+                                    <div class="tg-packages">
+                                        <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=hospital">
+                                            <label>
+                                                <i class="icon-Hospitalmedicalsignalofacrossinacircle"></i>
+                                                Hospital<span class="count">7</span>
+                                            </label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="dir-125">
+                                <div class="tg-checkbox user-selection">
+                                    <div class="tg-packages">
+                                        <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=clinic">
+                                            <label>
+                                                <i class="icon-Clinichistorymedicalpaperonclipboard"></i>
+                                                Clinic<span class="count">9</span>
+                                            </label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="dir-123">
+                                <div class="tg-checkbox user-selection">
+                                    <div class="tg-packages">
+                                        <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=pharmacy">
+                                            <label>
+                                                <i class="icon-Pills"></i>
+                                                Pharmacy<span class="count">8</span>
+                                            </label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="dir-122">
+                                <div class="tg-checkbox user-selection">
+                                    <div class="tg-packages">
+                                        <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=blood-bank">
+                                            <label>
+                                                <i class="icon-BloodDonation"></i>
+                                                Blood Bank<span class="count">9</span>
+                                            </label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="dir-121">
+                                <div class="tg-checkbox user-selection">
+                                    <div class="tg-packages">
+                                        <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=fitness-center">
+                                            <label>
+                                                <i class="icon-hairs"></i>
+                                                Fitness Center<span class="count">9</span>
+                                            </label>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="Location" class="tg-main-section haslayout  default">
+    <div class="builder-items">
+        <div class="col-xs-12 col-md-12 builder-column ">
+
+            <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="tg-theme-heading">
+                    <h2>Location</h2>
+
+                    <div class="tg-description">
+                        <p>In just three simple steps, DocDirect will help you find your nearest healthcare setting without having to signup.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-12 builder-column ">
+
+            <div class="sc-dir-types catagories-types">
+                <div class="tg-findbycategorys">
+                    <div class="Loaction-list">
+                        <ul>
+                            @Html.Action("LocationList", "Home")
+
+
+                        </ul>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- team section -->
+<section class="team" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="team-heading text-center">
+                <h2>our team</h2>
+                <h4>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
+            </div>
+            <div class="col-md-2 single-member col-sm-4">
+                <div class="person">
+                    <img class="img-responsive" src="~/Content/Cust_Content/img/member1.jpg" alt="member-1">
+                </div>
+                <div class="person-detail">
+                    <div class="arrow-bottom"></div>
+                    <h3>Dr. M. Weiner, M.D.</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+            </div>
+            <div class="col-md-2 single-member col-sm-4">
+                <div class="person-detail">
+                    <div class="arrow-top"></div>
+                    <h3>Dr. Danielle, M.D.</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+                <div class="person">
+                    <img class="img-responsive" src="~/Content/Cust_Content/img/member2.jpg" alt="member-2">
+                </div>
+            </div>
+            <div class="col-md-2 single-member col-sm-4">
+                <div class="person">
+                    <img class="img-responsive" src="~/Content/Cust_Content/img/member3.jpg" alt="member-3">
+                </div>
+                <div class="person-detail">
+                    <div class="arrow-bottom"></div>
+                    <h3>Dr. Caitlin, M.D.</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+            </div>
+            <div class="col-md-2 single-member col-sm-4">
+                <div class="person-detail">
+                    <div class="arrow-top"></div>
+                    <h3>Dr. Joseph, M.D.</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+                <div class="person">
+                    <img class="img-responsive" src="~/Content/Cust_Content/img/member4.jpg" alt="member-4">
+                </div>
+            </div>
+            <div class="col-md-2 single-member col-sm-4">
+                <div class="person">
+                    <img class="img-responsive" src="~/Content/Cust_Content/img/member5.jpg" alt="member-5">
+                </div>
+                <div class="person-detail">
+                    <div class="arrow-bottom"></div>
+                    <h3>Dr. Michael, M.D.</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+            </div>
+            <div class="col-md-2 single-member col-sm-4">
+                <div class="person-detail">
+                    <div class="arrow-top"></div>
+                    <h3>Dr. Hasina, M.D.</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                </div>
+                <div class="person">
+                    <img class="img-responsive" src="~/Content/Cust_Content/img/member6.jpg" alt="member-5">
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- end of team section -->
+<!-- map section -->
+<div class="api-map" id="contact">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 map" id="map"></div>
+        </div>
+    </div>
+</div><!-- end of map section -->
+<!-- contact section starts here -->
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-caption clearfix">
+                <div class="contact-heading text-center">
+                    <h2>contact us</h2>
+                </div>
+                <div class="col-md-5 contact-info text-left">
+                    <h3>contact information</h3>
+                    <div class="info-detail">
+                        <ul><li><i class="fa fa-calendar"></i><span>Monday - Friday:</span> 9:30 AM to 6:30 PM</li></ul>
+                        <ul><li><i class="fa fa-map-marker"></i><span>Address:</span> 123 Some Street , London, UK, CP 123</li></ul>
+                        <ul><li><i class="fa fa-phone"></i><span>Phone:</span> (032) 987-1235</li></ul>
+                        <ul><li><i class="fa fa-fax"></i><span>Fax:</span> (123) 984-1234</li></ul>
+                        <ul><li><i class="fa fa-envelope"></i><span>Email:</span> info@doctor.com</li></ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-1 contact-form">
+                    <h3>leave us a message</h3>
+                    <form class="form">
+                        <input class="name" type="text" placeholder="Name">
+                        <input class="email" type="email" placeholder="Email">
+                        <input class="phone" type="text" placeholder="Phone No:">
+                        <textarea class="message" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                        <input class="submit-btn" type="submit" value="SUBMIT">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- end of contact section -->
+
+<script src="~/Content/Cust_Content/js/jquery-2.1.1.js"></script>
+<script src="~/Content/Cust_Content/js/gmaps.js"></script>
+<script src="~/Content/Cust_Content/js/smoothscroll.js"></script>
+<script src="~/Content/Cust_Content/js/bootstrap.min.js"></script>
+<script src="~/Content/Cust_Content/js/custom.js"></script>
+
+@*<main id="main" class="tg-page-wrapper tg-haslayout">
+        <div id="dpts-home">
+            <section class="tg-main-section haslayout  stretch_section_contents_corner stretch_section stretch_data" style="margin-top:-100px;padding-top:0px;padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%; background-size: cover;">
+                <div class="builder-items">
+                    <div class="col-xs-12 col-md-12 builder-column ">
+                        <div class="tg-banner-holder">
+                            <div class="tg-banner-content">
+                                <div class="container">
+                                    <div class="tg-heading-border">
+                                        <h1><span>find your nearest</span><div class="dynamic-title">Doctor</div></h1>
+                                    </div>
+                                    @Html.Action("SearchBox", "Home")
+                                </div>
+                            </div>
+                            <div id="searchbanner-" class="tg-homeslidertwo">
+                                <div class="item">
+                                    <figure>
+                                        <img src="~/Content/wp-content/uploads/2016/08/banner-img1.jpg" alt="Search">
+                                    </figure>
+                                </div>
+                                <div class="item">
+                                    <figure>
+                                        <img src="~/Content/wp-content/uploads/2016/08/banner-img2.jpg" alt="Search">
+                                    </figure>
+                                </div>
+                                <div class="item">
+                                    <figure>
+                                        <img src="~/Content/wp-content/uploads/2016/08/banner-img3.jpg" alt="Search">
+                                    </figure>
+                                </div>
+                            </div>
+                            <script>
+            jQuery(document).ready(function(e) {
+                jQuery("#searchbanner-").owlCarousel({
+                    paginationSpeed : 400,
+                    slideSpeed : 300,
+                    autoPlay : true,
+                    singleItem:true,
+                    navigation : true,
+                    navigationText: [
+                        "<i class='tg-prev fa fa-angle-left'></i>",
+                        "<i class='tg-next fa fa-angle-right'></i>"
+                    ]
+                });
+            });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tg-main-section haslayout  default">
+                <div class="builder-items">
+                    <div class="col-xs-12 col-md-12 builder-column ">
+
+                        <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                            <div class="tg-theme-heading">
+                                <h2>find healthcare by</h2>
+                                <span class="tg-roundbox"></span>
+                                <div class="tg-description">
+                                    <p>In just three simple steps, DPTS will help you find your nearest healthcare setting without having to signup. We aim to facilitate you in finding your right doctor with just three clicks without having to ask around or wander to find your nearest healthcare facility.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 builder-column ">
+                        <div class="sc-dir-search">
+                            <div class="tg-findbycategory">
+                                <div class="tg-box">
+                                    <div class="tg-heading-border tg-small">
+                                        <i class="icon-map"></i>
+                                        <h3>Location</h3>
+                                    </div>
+                                    @Html.Action("LocationList", "Home")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 builder-column ">
+                        <div class="sc-dir-search sc-specialities">
+                            <div class="tg-findbycategory">
+                                <div class="tg-box">
+                                    <div class="tg-heading-border tg-small">
+                                        <i class="fa fa-medkit"></i>
+                                        <h3>Speciality</h3>
+                                    </div>
+                                    @Html.Action("SpecialityList", "Home")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tg-main-section haslayout tg-areuadoctor stretch_section" style="padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%" data-speed="0.5" data-bleed="0" data-appear-top-offset="600" data-parallax="scroll" data-position="center 0" data-image-src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/03/bgparallax-01.jpg">
+                <div class="builder-items">
+                    <div class="col-xs-12 col-md-6 builder-column col-sm-12 col-lg-6  pull-right">
+
+                        <div class="sc-about-us tg-healthcareonthego">
+                            <div class="tg-contentbox tg-haslayout">
+                                <div class="tg-heading-border">
+                                    <h2>ARE YOU A DOCTOR?</h2>
+
+                                    <h3>REGISTER NOW AND REACH THOUSANDS OF PATIENTS</h3>
+                                </div>
+                                <div class="tg-description">
+                                    <p>We know how much it takes to become a qualified doctor so we have taken away all your hassle to look out for your patients once you have qualified. DPTS will give you an easy reach to all the patients, all you need is to sign up!</p>
+                                </div>
+
+                                <div class="tg-btns">
+                                    <a class="tg-btn" href="@Url.Action("Register","Account")">signup now</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 builder-column col-sm-12 col-lg-6  pull-left">
+
+                        <figure class="frame-img"><img src="//themographics.com/wordpress/docdirect/wp-content/uploads/2016/03/img-01.png" alt="Image Frame" /></figure>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <div class="row">
+                    <div class="main-page-wrapper tg-haslayout">
+                        <div class="fw-page-builder-content">
+
+
+                            <section class="tg-main-section haslayout  stretch_section" style="background-image: url(&quot;https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/08/bgparallax-03.jpg&quot;); padding: 50px 366.5px; background-repeat: no-repeat; background-position: 0% 100%; background-size: cover; position: relative; left: -366.5px; box-sizing: border-box; width: 1903px;">
+                                <div class="builder-items">
+                                    <div class="col-xs-12 col-md-12 builder-column ">
+                                        <div class="tg-buynowbox">
+                                            <h3 style="color:#5d5955">Book health appointments in seconds.</h3>
+                                            <a class="tg-btn" style="color:#5d5955" href="@Url.Action("Register","Account")">Register Today</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>*@
 @*<section class="tg-main-section haslayout  stretch_section" style="margin-top: 40px">
         <div class="builder-items">
             <div class="col-xs-12 col-md-12 builder-column ">
@@ -238,380 +636,3 @@
 @*@Html.Action("SuggestedDoctors", "Home",new { categoryname = "Cardiologist" })*@
 
 
-<main id="main" class="tg-page-wrapper tg-haslayout">
-
-    <div id="dpts-home">
-        <section class="tg-main-section haslayout  stretch_section_contents_corner stretch_section stretch_data" style="margin-top:-100px;padding-top:0px;padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%; background-size: cover;">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-12 builder-column ">
-                    <div class="tg-banner-holder">
-                        <div class="tg-banner-content">
-                            <div class="container">
-                                <div class="tg-heading-border">
-                                    <h1><span>find your nearest</span><div class="dynamic-title">Doctor</div></h1>
-                                </div>
-                                @Html.Action("SearchBox", "Home")
-                            </div>
-                        </div>
-
-
-                        <div id="searchbanner-" class="tg-homeslidertwo">
-                            <div class="item">
-                                <figure>
-                                    <img src="~/Content/images/bg1.jpg" />
-                                    @*<img src="~/Content/images/CustomImage/law222.jpg" alt="Search">*@
-                                </figure>
-                            </div>
-                            @*<div class="item">
-                                    <figure>
-                                        <img src="~/Content/images/CustomImage/low444.jpg" alt="Search">
-                                    </figure>
-                                </div>*@
-                        </div>
-
-
-                        <script>
-                            jQuery(document).ready(function (e) {
-                                jQuery("#searchbanner-").owlCarousel({
-                                    paginationSpeed: 400,
-                                    slideSpeed: 300,
-                                    autoPlay: true,
-                                    singleItem: true,
-                                    navigation: true,
-                                    navigationText: [
-                                        "<i class='tg-prev fa fa-angle-left'></i>",
-                                        "<i class='tg-next fa fa-angle-right'></i>"
-                                    ]
-                                });
-                            });
-                        </script>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="tg-main-section haslayout  stretch_section what-to-expect" style="position: relative; left:0; box-sizing: border-box; width: 1349px; padding-left: 89.5px; padding-right: 89.5px;">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-12 builder-column ">
-                    <div class="sc-services">
-                        <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                            <div class="tg-theme-heading">
-                                <h2>WHAT TO EXPECT</h2>
-
-                                <div class="tg-description">
-                                    <p>In just three simple steps, DocDirect will help you find your nearest healthcare setting without having to signup. We aim to facilitate you in finding your right doctor with just three clicks without having to ask around or wander to find your nearest healthcare facility.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tg-search-categories">
-                            <div class="row">
-                                <div class="col-sm-4 col-xs-12 tg-expectwidth">
-                                    <div class="tg-search-category">
-                                        <div class="tg-displaytable">
-
-                                            <div class="tg-displaytablecell">
-
-                                                <div class="tg-box">
-                                                    <a href="https://themographics.com/wordpress/docdirect/dir-search/?directory_type=doctor"><h3>find your doctor</h3></a>
-                                                    <i class="icon-stethoscope"></i>
-                                                    <a href="https://themographics.com/wordpress/docdirect/dir-search/?directory_type=doctor"><span class="tg-show"><em class="icon-add"></em></span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-xs-12 tg-expectwidth">
-                                    <div class="tg-search-category">
-                                        <div class="tg-displaytable">
-
-                                            <div class="tg-displaytablecell">
-                                                <div class="tg-box">
-                                                    <a href="https://themographics.com/wordpress/docdirect/dir-search/?directory_type=hospital"><h3>NEAREST HOSPITAL</h3></a>
-                                                    <i class="icon-Hospitalmedicalsignalofacrossinacircle"></i>
-                                                    <a href="https://themographics.com/wordpress/docdirect/dir-search/?directory_type=hospital"><span class="tg-show"><em class="icon-add"></em></span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 col-xs-12 tg-expectwidth">
-                                    <div class="tg-search-category">
-                                        <div class="tg-displaytable">
-
-                                            <div class="tg-displaytablecell">
-                                                <div class="tg-box">
-                                                    <a href="https://themographics.com/wordpress/docdirect/dir-search/?directory_type=pharmacy"><h3>NEAREST PHARMACY</h3></a>
-                                                    <i class="icon-capsules"></i>
-                                                    <a href="https://themographics.com/wordpress/docdirect/dir-search/?directory_type=pharmacy"><span class="tg-show"><em class="icon-add"></em></span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="tg-main-section haslayout  stretch_section" style="position: relative; left:0; box-sizing: border-box; width: 1349px; padding-left: 89.5px; padding-right: 89.5px;">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-12 builder-column ">
-
-                    <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                        <div class="tg-theme-heading">
-                            <h2>Top Categories</h2>
-
-                            <div class="tg-description">
-                                <p>In just three simple steps, DocDirect will help you find your nearest healthcare setting without having to signup. We aim to facilitate you in finding your right doctor with just three clicks without having to ask around or wander to find your nearest healthcare facility.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-12 builder-column ">
-
-                    <div class="sc-dir-types catagories-types">
-                        <div class="tg-findbycategorys">
-                            <div class="specialities-list">
-                                <ul>
-                                    <li id="dir-127">
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages">
-                                                <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=doctor">
-                                                    <label>
-                                                        <i class="icon-stethoscope"></i>
-                                                        Doctor<span class="count">13</span>
-                                                    </label>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li id="dir-126">
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages">
-                                                <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=hospital">
-                                                    <label>
-                                                        <i class="icon-Hospitalmedicalsignalofacrossinacircle"></i>
-                                                        Hospital<span class="count">7</span>
-                                                    </label>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li id="dir-125">
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages">
-                                                <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=clinic">
-                                                    <label>
-                                                        <i class="icon-Clinichistorymedicalpaperonclipboard"></i>
-                                                        Clinic<span class="count">9</span>
-                                                    </label>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li id="dir-123">
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages">
-                                                <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=pharmacy">
-                                                    <label>
-                                                        <i class="icon-Pills"></i>
-                                                        Pharmacy<span class="count">8</span>
-                                                    </label>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li id="dir-122">
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages">
-                                                <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=blood-bank">
-                                                    <label>
-                                                        <i class="icon-BloodDonation"></i>
-                                                        Blood Bank<span class="count">9</span>
-                                                    </label>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li id="dir-121">
-                                        <div class="tg-checkbox user-selection">
-                                            <div class="tg-packages">
-                                                <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=fitness-center">
-                                                    <label>
-                                                        <i class="icon-hairs"></i>
-                                                        Fitness Center<span class="count">9</span>
-                                                    </label>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tg-main-section haslayout tg-areuadoctor stretch_section" style="padding-bottom: 0px; background-repeat: no-repeat; background-position: 0% 100%; position: relative; left: -89.5px; box-sizing: border-box; width: 1500px; padding-left: 89.5px;background: rgba(46, 44, 44, 1.44); padding-right: 89.5px;" data-speed="0.5" data-bleed="0" data-appear-top-offset="600" data-parallax="scroll" data-position="center 0">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-6 builder-column col-sm-12 col-lg-6  pull-right">
-
-                    <div class="sc-about-us tg-healthcareonthego">
-                        <div class="tg-contentbox tg-haslayout cust-doctor">
-                            <div class="tg-heading-border">
-                                <h2>ARE YOU A DOCTOR?</h2>
-
-                                <h3>REGISTER NOW AND REACH THOUSANDS OF PATIENTS</h3>
-                            </div>
-                            <div class="tg-description">
-                                <p>We know how much it takes to become a qualified doctor so we have taken away all your hassle to look out for your patients once you have qualified. DocDirect will give you an easy reach to all the patients, all you need is to sign up!</p>
-                            </div>
-
-                            <div class="tg-btns">
-                                <a class="tg-btn" href="#">signup now</a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-6 builder-column col-sm-12 col-lg-6  pull-left">
-
-                    <figure class="frame-img"><img src="//themographics.com/wordpress/docdirect/wp-content/uploads/2016/03/img-01.png" alt="Image Frame"></figure>
-                </div>
-            </div>
-        </section>
-
-        <section class="tg-main-section haslayout  stretch_section" data-speed="0.5" data-bleed="0" data-appear-top-offset="600" data-parallax="scroll" data-position="center 0" style="position: relative; left: -89.5px; box-sizing: border-box; width: 1500px; padding-left: 89.5px; padding-right: 89.5px;">
-            <div class="builder-items">
-
-                <div class="col-xs-12 col-md-12 builder-column ">
-                    <div class="sc-review">
-                        <div class="tg-patientfeedbacks tg-haslayout">
-                            <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                                <div class="tg-theme-heading">
-                                    <h2>PATIENT FEEDBACK</h2>
-
-
-                                    <div class="tg-description">
-                                        <p>We know how much it takes to become a qualified doctor so we have taken away all your hassle to look out for your patients once you have qualified. DocDirect will give you an easy reach to all the patients, all you need is to sign up!</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 tg-feedbackwidht">
-                                <div class="tg-patientfeedback">
-                                    <figure class="tg-patient-pic">
-                                        <a href="http://themographics.com/wordpress/docdirect/doctor/steve/"><img src="http://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/img-01-1-150x150.jpg" alt="Reviewer"></a>
-                                    </figure>
-                                    <div class="tg-patient-message">
-                                        <span class="tg-patient-name"><a href="http://themographics.com/wordpress/docdirect/doctor/steve/">Dr Steve</a></span>
-                                        <span class="tg-doctor-name">For:&nbsp;<a href="http://themographics.com/wordpress/docdirect/doctor/carol/">Dr.Carol</a></span>
-                                        <div class="tg-stars star-rating">
-                                            <span style="width:100%"></span>
-                                        </div>
-                                        <div class="tg-description">
-                                            <p>The Cardiovascular &amp; Respiratory Systems category covers resources concerned with all aspects of cardiovascular and tho...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 tg-feedbackwidht">
-                                <div class="tg-patientfeedback">
-                                    <figure class="tg-patient-pic">
-                                        <a href="http://themographics.com/wordpress/docdirect/doctor/steve/"><img src="http://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/img-01-1-150x150.jpg" alt="Reviewer"></a>
-                                    </figure>
-                                    <div class="tg-patient-message">
-                                        <span class="tg-patient-name"><a href="http://themographics.com/wordpress/docdirect/doctor/steve/">Dr Steve</a></span>
-                                        <span class="tg-doctor-name">For:&nbsp;<a href="http://themographics.com/wordpress/docdirect/doctor/professional/">Demo Professional</a></span>
-                                        <div class="tg-stars star-rating">
-                                            <span style="width:80%"></span>
-                                        </div>
-                                        <div class="tg-description">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="tg-main-section haslayout  default cust-location">
-            <div class="builder-items">
-                <div class="col-xs-12 col-md-12 builder-column ">
-
-                    <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                        <div class="tg-theme-heading">
-                            <h2>find healthcare by</h2>
-                            <span class="tg-roundbox"></span>
-                            <div class="tg-description">
-                                <p>In just three simple steps, DocDirect will help you find your nearest healthcare setting without having to signup. We aim to facilitate you in finding your right doctor with just three clicks without having to ask around or wander to find your nearest healthcare facility.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-6 builder-column ">
-                    <div class="sc-dir-search">
-                        <div class="tg-findbycategory">
-                            <div class="tg-box">
-                                <div class="tg-heading-border tg-small">
-                                    <i class="icon-map"></i>
-                                    <h3>Location</h3>
-                                </div>
-                                <ul>
-                                    @*<li><a href="http://themographics.com/wordpress/docdirect/dir-search/?location=aberdeen">Aberdeen</a></li>*@
-                                    <li><a href="Home/Location_subpage">Leeds</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-6 builder-column ">
-                    <div class="sc-dir-search sc-specialities">
-                        <div class="tg-findbycategory">
-                            <div class="tg-box">
-                                <div class="tg-heading-border tg-small">
-                                    <i class="fa fa-medkit"></i>
-                                    <h3>Speciality</h3>
-                                </div>
-                                <ul>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=aerobic-centers">Aerobic Centers</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=associazione-volontari-italiani-sangue">Associazione Volontari</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=athletic-clubs">Athletic Clubs</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=blood-services">Blood Services</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=blood-services-center-for-biologics-evaluation-and-research">Blood Services Center</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=cancer-hospital">Cancer Hospital</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=cardiologist">Cardiologist</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=cardiology-clinic">Cardiology clinic</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=children-clinic">Children clinic</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=children-hospital">Children Hospital</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=clinical-pharmacy">Clinical pharmacy</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=colorectal-surgeon">Colorectal surgeon</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=community-blood-services">Community Blood Services</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=community-pharmacy">Community pharmacy</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=compliance-medicine">Compliance (medicine)</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=cord-blood-registry">Cord Blood Registry</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=country-clubs">Country Clubs</a></li>
-                                    <li><a href="http://themographics.com/wordpress/docdirect/dir-search/?speciality%5B%5D=dance-centers">Dance Centers</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-</main>

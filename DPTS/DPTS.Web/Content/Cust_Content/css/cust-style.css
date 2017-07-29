@@ -1,0 +1,145 @@
+﻿.top-header {
+    height: 94px;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.navbar-default {
+    margin-top: 0;
+}
+
+.header-logo {
+    height: 81px;
+}
+
+.tg-banner-holder .tg-banner-content {
+    top: 152%;
+    height: auto;
+    margin: 452px 0 0;
+    background: none;
+}
+
+.tg-searcharea-v2 {
+    max-width: 100%;
+    background: transparent;
+}
+
+.tg-searchform .form-group {
+    width: 33%;
+}
+
+/*#auto-search {
+    width: 25%;
+}*/
+
+#auto-search input {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #444;
+    font-size: 21px;
+}
+
+.tg-searcharea-v2 .tg-searchform .form-group {
+    display: inline-block;
+}
+
+#speciality {
+    width: 242px;
+}
+
+#location-address {
+    margin-left: 19px;
+    height: 46px;
+    margin-top: 6px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid #444;
+    font-size: 21px;
+}
+
+.tg-searcharea-v2 {
+    background-color: #ddd;
+}
+
+.carousel-caption h1 {
+    text-align: center;
+}
+
+    .carousel-caption h1 span {
+        font-size: 40px;
+        position: relative;
+        top: -156px;
+        left: 90px;
+    }
+
+.about h2 {
+    font-size: 42px;
+}
+
+.about h4 {
+    font-size: 18px;
+}
+
+.about-details h3 {
+    font-size: 23px;
+}
+
+.service h2 {
+    font-size: 42px;
+}
+
+.team h2 {
+    font-size: 42px;
+}
+
+.contact-heading h2 {
+    font-size: 42px;
+}
+
+.contact-info h3 {
+    font-size: 23px;
+}
+
+.default .builder-items .tg-theme-heading h2 {
+    color: #42b3e5;
+    font-size: 42px;
+}
+
+.tg-theme-heading .tg-description {
+    font-size: 23px;
+}
+
+#searchbanner- {
+    margin-top: 196px;
+}
+
+.tg-banner-holder .tg-banner-content {
+    top: -20%;
+}
+
+.about .container {
+    margin-top: 653px;
+}
+
+.team .container {
+    margin-top: 835px;
+}
+
+#speciality {
+    width: 549px;
+}
+
+#location-address {
+    margin-left: 0px;
+    height: 46px;
+    margin-top: 0px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid #444;
+    font-size: 21px;
+}
+
+#search_banner {
+    background-color: #42b3e5 !important;
+    color: black;
+}
+
