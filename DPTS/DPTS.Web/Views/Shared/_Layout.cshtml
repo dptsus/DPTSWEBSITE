@@ -8,10 +8,18 @@
     <meta name="description" content="Find &amp; book appointments with doctors, diagnostic labs,  spas. Ask free health questions to doctors or get free tips from health experts" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
-
+   
     @Styles.Render("~/Content/wp-content/themes")
+  
     @Scripts.Render("~/bundles/modernizr")
+   
     @Html.Assets().Styles.Render()
+    
+    <link href="~/Content/Cust_Content/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/Content/Cust_Content/css/cust-style.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="~/Content/Cust_Content/js/modernizr.js"></script>
 </head>
 @Html.Partial("Notifications")
 <body class="home page page-id-2 page-template-default home  sample-page mec-home ">

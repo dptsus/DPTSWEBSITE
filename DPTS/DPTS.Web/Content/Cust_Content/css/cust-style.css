@@ -143,3 +143,100 @@
     color: black;
 }
 
+.cust-mini-cart .side-2 {
+    background-color: white;
+}
+
+.container .cust-mini-cart {
+    margin-top: 78px;
+    font-size: 16px;
+    font-family: serif;
+}
+
+.contact_me {
+    padding: 6px 31px;
+    font-size: 21px;
+}
+
+.btn-direction {
+    padding: 9px 46px;
+    /* background-color: #ddd; */
+    border: 1px solid #ddd;
+    font-size: 19px;
+    color: black;
+    background-color: #42b3e5;
+    margin: 0 24px;
+}
+
+    .btn-direction:hover {
+        background-color: white;
+    }
+
+.mini-cart-detail {
+    margin-top: 96px;
+}
+
+.btn-appoinment {
+    padding: 4px 41px;
+    font-size: 25px;
+}
+
+.btn-speciality {
+    padding: 11px 38px;
+    border: 1px solid #ddd;
+    color: black;
+    font-size: 17px;
+}
+
+.appoinment-sch-main {
+    margin-top: 113px;
+}
+
+    .appoinment-sch-main .tg-navdocappointment li a {
+        font-size: 19px;
+    }
+
+    .appoinment-sch-main .tg-modalcontent .tg-appointmenttabcontent {
+        background: none;
+        border: 1px solid #ddd;
+    }
+
+    .appoinment-sch-main .tg-timeslotswrapper fieldset legend {
+        text-align: center;
+        background-color: #ddd;
+        padding: 8px 0;
+    }
+
+    .appoinment-sch-main .tg-appointmenttime .tg-doctimeslot {
+        height: 58px;
+    }
+
+    .appoinment-sch-main .bk-booking-schedules .tg-appointmenttime .booking-pickr {
+        background: none;
+        color: black;
+        border: 3px solid #ddd;
+    }
+
+.tg-appointmenttime .tg-dayname:after, .tg-appointmenttime .tg-dayname:before {
+    color: black;
+}
+
+.tg-appointmenttime .tg-dayname strong {
+    color: black;
+}
+
+.cust-login {
+    margin-top: 77px;
+}
+
+    .cust-login .do-login-button {
+        background-color: #42b3e5;
+    }
+
+.cust-reg {
+    margin-top: 77px;
+}
+
+    .cust-reg .do-register-button {
+        background-color: #42b3e5;
+    }

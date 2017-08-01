@@ -34,11 +34,11 @@
     {
         addressLine = addr.Address1 + ", " + addr.City + ", " + addr.StateProvince.Name + ", " + addr.Country.Name;
     }
-}  
-<main id="main" class="tg-page-wrapper tg-haslayout">
+}
+<main id="main" class="tg-page-wrapper tg-haslayout mini-cart-detail">
     <div id="tg-userbanner" class="tg-userbanner tg-haslayout parallax-window" data-appear-top-offset="600" data-parallax="scroll" data-image-src="">
     </div>
-    <div class="container">
+    <div class="container aa">
         <div class="row">
             <div class="tg-userdetail appointment-enabled">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -55,32 +55,93 @@
                                 }
                             </figure>
                             <div class="tg-usercontactinfo">
-                                <h3>Contact Details</h3>
-                                @{
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" class="collapsed">Contact Details</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body">
+                                                @{
 
-                                    if (addr != null)
-                                    {
-                                        <ul class="tg-doccontactinfo">
-                                            <li> <i class="fa fa-map-marker"></i> <address>@addressLine</address> </li>
-                                            @if (!string.IsNullOrWhiteSpace(Model.Email))
-                                            {
-                                                <li><i class="fa fa-envelope-o"></i><a href="#">@Model.Email</a></li>
-                                            }
-                                            @if (!string.IsNullOrWhiteSpace(Model.MobileNumber))
-                                            {
-                                                <li> <i class="fa fa-phone"></i> <span>@Model.MobileNumber</span> </li>
-                                            }
-                                            @if (!string.IsNullOrWhiteSpace(addr.FaxNumber))
-                                            {
-                                                <li><i class="fa fa-fax"></i><span>@addr.FaxNumber</span></li>
-                                            }
-                                            @if (!string.IsNullOrWhiteSpace(addr.Website))
-                                            {
-                                                <li><i class="fa fa-link"></i><a style="word-wrap: break-word;" href="@addr.Website" target="_blank">@addr.Website</a></li>
-                                            }
-                                        </ul>
-                                    }
-                                }
+                                                    if (addr != null)
+                                                    {
+                                                        <ul class="tg-doccontactinfo">
+                                                            <li> <i class="fa fa-map-marker"></i> <address>@addressLine</address> </li>
+                                                            @if (!string.IsNullOrWhiteSpace(Model.Email))
+                                                            {
+                                                                <li><i class="fa fa-envelope-o"></i><a href="#">@Model.Email</a></li>
+                                                            }
+                                                            @if (!string.IsNullOrWhiteSpace(Model.MobileNumber))
+                                                            {
+                                                                <li> <i class="fa fa-phone"></i> <span>@Model.MobileNumber</span> </li>
+                                                            }
+                                                            @if (!string.IsNullOrWhiteSpace(addr.FaxNumber))
+                                                            {
+                                                                <li><i class="fa fa-fax"></i><span>@addr.FaxNumber</span></li>
+                                                            }
+                                                            @if (!string.IsNullOrWhiteSpace(addr.Website))
+                                                            {
+                                                                <li><i class="fa fa-link"></i><a style="word-wrap: break-word;" href="@addr.Website" target="_blank">@addr.Website</a></li>
+                                                            }
+                                                        </ul>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default schedule">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed" aria-expanded="false">Schedule</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse2" class="panel-collapse shedule collapse" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    @if (Model.Schedule.Any())
+                                                    {
+                                                        foreach (var sch in Model.Schedule)
+                                                        {
+                                                            var startTime = DateTime.Parse(sch.SessionOneStartTime).ToString("hh:mm tt");
+                                                            var endTime = DateTime.Parse(sch.SessionOneEndTime).ToString("hh:mm tt");
+                                                            string todayDay = DateTime.UtcNow.ToString("dddd");
+                                                            if (sch.Day.Equals(todayDay))
+                                                            {
+                                                                <li class="current"><a href="javascript:;" data-type="@startTime - @endTime"><span>@sch.Day</span><em>@startTime - @endTime</em></a></li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li class=""><a href="javascript:;" data-type="@startTime - @endTime"><span>@sch.Day</span><em>@startTime - @endTime</em></a></li>
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <li>
+                                                            <p>No Schedule !!</p>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default language">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed" aria-expanded="false">Contact</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse3" class="panel-collapse collapse" aria-expanded="false">
+                                            <div class="panel-body">
+                                                @Html.Partial("_DocContactUs", ContactModel)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <ul class="tg-socialicon-v2">
 
                                     @if (Model.doctor.SocialLinkInformation.Any())
@@ -100,43 +161,16 @@
                                 </ul>
                                 @if (addr != null)
                                 {
-                                    <a class="tg-btn tg-btn-lg" href="http://maps.google.com/maps?saddr=&amp;daddr=@addr.Address1, @addr.City, @addr.StateProvince.Name, @addr.ZipPostalCode" target="_blank">get directions</a>
+                                    <a class="tg-btn-lg btn-direction" href="http://maps.google.com/maps?saddr=&amp;daddr=@addr.Address1, @addr.City, @addr.StateProvince.Name, @addr.ZipPostalCode" target="_blank">get directions</a>
                                 }
-                                <div class="tg-userschedule">
-                                    <h3>Schedule</h3>
-                                    <ul>
-                                        @if (Model.Schedule.Any())
-                                        {
-                                            foreach (var sch in Model.Schedule)
-                                            {
-                                                var startTime = DateTime.Parse(sch.SessionOneStartTime).ToString("hh:mm tt");
-                                                var endTime = DateTime.Parse(sch.SessionOneEndTime).ToString("hh:mm tt");
-                                                string todayDay = DateTime.UtcNow.ToString("dddd");
-                                                if (sch.Day.Equals(todayDay))
-                                                {
-                                                    <li class="current"><a href="javascript:;" data-type="@startTime - @endTime"><span>@sch.Day</span><em>@startTime - @endTime</em></a></li>
-                                                }
-                                                else
-                                                {
-                                                    <li class=""><a href="javascript:;" data-type="@startTime - @endTime"><span>@sch.Day</span><em>@startTime - @endTime</em></a></li>
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <li>
-                                                <p>No Schedule !!</p>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
-                                @Html.Partial("_DocContactUs",ContactModel)
+
+
                                 <div class="tg-userschedule">
                                     <h3>Profile Url</h3>
                                     <div id="qrUrl"></div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
                     </aside>
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
@@ -146,12 +180,12 @@
                             <span>Doctor</span>
                             @if (Model.Schedule.Any())
                             {
-                                <a class="tg-btn tg-btn-lg make-appointment-btn" href="@Url.Action("Booking", "Appointment", new RouteValueDictionary(new {doctorId = Model.Id}))">MAKE AN APPOINTMENT!</a>
+                                <a class="btn-appoinment tg-btn-lg make-appointment-btn" href="@Url.Action("Booking", "Appointment", new RouteValueDictionary(new {doctorId = Model.Id}))">MAKE AN APPOINTMENT!</a>
                             }
                             @Html.Partial("_DoctorReviewOverview", Model.DoctorReviewOverview)
                             @if (!string.IsNullOrWhiteSpace(Model.doctor.SkypeHandler))
                             {
-                               @Html.Partial("_DoctorMeetingIcon", Model.doctor.SkypeHandler)
+                                @Html.Partial("_DoctorMeetingIcon", Model.doctor.SkypeHandler)
                             }
                         </div>
                         @if (addr != null)
@@ -164,40 +198,40 @@
                                     <span id="doc-lock"><i class="fa fa-lock"></i></span>
                                 </div>
                                 <script>
-				            jQuery(document).ready(function() {
-				                docdirect_init_detail_map_script({
-				                    "status": "found",
-				                    "users_list": [{
-				                        "latitude": "@addr.Latitude", "longitude": "@addr.Longitude", "title": "Dr.@Model.FirstName", "name": "Dr @Model.FirstName", "email": "@Model.Email", "phone_number": "@Model.MobileNumber",
-				                        "address": "@addressLine",
-				                        "group": "",
-				                        "icon": "\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/02.png",
-				                        "html": { "content": "<div class=\"tg-mapmarker\"><figure><img width=\"60\" heigt=\"60\" src=\"/Content/wp-content/themes/docdirect/images/user150x150.jpg\" alt=\"User\"><\/figure><div class=\"tg-mapmarkercontent\"><h3><a href=\"https:\/\/themographics.com\/wordpress\/docdirect\/doctor\/anna\/\">Dr @Model.FirstName @Model.LastName<\/a><\/h3> <hr/><span>@addressLine<\/span><\/div>" }
-				                    }]
-				                });
-				            });
+                                    jQuery(document).ready(function () {
+                                        docdirect_init_detail_map_script({
+                                            "status": "found",
+                                            "users_list": [{
+                                                "latitude": "@addr.Latitude", "longitude": "@addr.Longitude", "title": "Dr.@Model.FirstName", "name": "Dr @Model.FirstName", "email": "@Model.Email", "phone_number": "@Model.MobileNumber",
+                                                "address": "@addressLine",
+                                                "group": "",
+                                                "icon": "\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/02.png",
+                                                "html": { "content": "<div class=\"tg-mapmarker\"><figure><img width=\"60\" heigt=\"60\" src=\"/Content/wp-content/themes/docdirect/images/user150x150.jpg\" alt=\"User\"><\/figure><div class=\"tg-mapmarkercontent\"><h3><a href=\"https:\/\/themographics.com\/wordpress\/docdirect\/doctor\/anna\/\">Dr @Model.FirstName @Model.LastName<\/a><\/h3> <hr/><span>@addressLine<\/span><\/div>" }
+                                            }]
+                                        });
+                                    });
                                 </script>
                             </div>
                         }
-
+                        
                             <div class="tg-aboutuser">
                                 <div class="tg-userheading">
                                     <h2>About&nbsp;Dr @Model.FirstName</h2>
 
                                 </div>
                                 @if (!string.IsNullOrWhiteSpace(Model.doctor.ShortProfile))
-                                {
-                                    <div class="tg-description">
-                                        <p>@Model.doctor.ShortProfile</p>
-                                    </div>
-                                }
+                            {
+                            <div class="tg-description">
+                                <p>@Model.doctor.ShortProfile</p>
+                            </div>
+                            }
 
                                 @if (!string.IsNullOrWhiteSpace(Model.doctor.ProfessionalStatements))
-                                {
-                                    <div class="professional-statements">
-                                        @Html.Raw(HttpUtility.HtmlDecode(Model.doctor.ProfessionalStatements))
-                                    </div>
-                                }
+                            {
+                            <div class="professional-statements">
+                                @Html.Raw(HttpUtility.HtmlDecode(Model.doctor.ProfessionalStatements))
+                            </div>
+                            }
 
                             </div>
                             <!--Languages-->
@@ -212,9 +246,9 @@
                                     <div class="tg-doctor-profile">
                                         <ul class="tg-tags">
                                             @foreach (var lg in lgs)
-                                            {
-                                                <li><a href="javascript:;" class="tg-btn">@lg</a></li>
-                                            }
+                                        {
+                                        <li><a href="javascript:;" class="tg-btn">@lg</a></li>
+                                        }
                                         </ul>
                                     </div>
                                 </div>
@@ -229,9 +263,9 @@
                                     <div class="tg-doctor-profile">
                                         <ul class="tg-tags">
                                             @foreach (var sp in Model.Specialitys)
-                                            {
-                                                <li><a href="javascript:;" class="tg-btn">@sp.Title</a></li>
-                                            }
+                                        {
+                                        <li><a href="javascript:;" class="btn-speciality">@sp.Title</a></li>
+                                        }
                                         </ul>
 
                                     </div>
@@ -246,17 +280,17 @@
                                     </div>
                                     <ul>
                                         @foreach (var expr in Model.doctor.Experience)
-                                        {
-                                            <li>
-                                                <div class="tg-dotstyletitle">
-                                                    <h3>@expr.Title&nbsp;&nbsp;(@expr.StartDate.ToString("MMMM, yyyy")&nbsp;-&nbsp;@expr.EndDate.ToString("MMMM, yyyy"))</h3>
-                                                    <span>@expr.Organization</span>
-                                                </div>
-                                                <div class="tg-description">
-                                                    <p>@expr.Description</p>
-                                                </div>
-                                            </li>
-                                        }
+                                    {
+                                    <li>
+                                        <div class="tg-dotstyletitle">
+                                            <h3>@expr.Title&nbsp;&nbsp;(@expr.StartDate.ToString("MMMM, yyyy")&nbsp;-&nbsp;@expr.EndDate.ToString("MMMM, yyyy"))</h3>
+                                            <span>@expr.Organization</span>
+                                        </div>
+                                        <div class="tg-description">
+                                            <p>@expr.Description</p>
+                                        </div>
+                                    </li>
+                                    }
                                     </ul>
                                 </div>
                             }
@@ -270,21 +304,21 @@
                                     </div>
                                     <ul>
                                         @foreach (var edu in Model.doctor.Education)
-                                        {
-                                            <li>
-                                                <div class="tg-dotstyletitle">
-                                                    <h3>
-                                                        @edu.Title<strong>&nbsp;&nbsp;</strong>(@edu.StartDate.ToString("MMMM, yyyyy") &nbsp;-&nbsp;@edu.EndDate.ToString("MMMM, yyyyy"))
-                                                    </h3>
-                                                    <span>@edu.Institute</span>
-                                                </div>
-                                                <div class="tg-description">
-                                                    <p>
-                                                        @edu.Description
-                                                    </p>
-                                                </div>
-                                            </li>
-                                        }
+                                    {
+                                    <li>
+                                        <div class="tg-dotstyletitle">
+                                            <h3>
+                                                @edu.Title<strong>&nbsp;&nbsp;</strong>(@edu.StartDate.ToString("MMMM, yyyyy") &nbsp;-&nbsp;@edu.EndDate.ToString("MMMM, yyyyy"))
+                                            </h3>
+                                            <span>@edu.Institute</span>
+                                        </div>
+                                        <div class="tg-description">
+                                            <p>
+                                                @edu.Description
+                                            </p>
+                                        </div>
+                                    </li>
+                                    }
                                     </ul>
                                 </div>
                             }
@@ -301,18 +335,18 @@
                                     </div>
                                     <ul>
                                         @foreach (var awd in Model.doctor.HonorsAwards)
-                                         {
-                                            <li>
-                                                <div class="tg-dotstyletitle">
-                                                    <h3>@awd.Name &nbsp;&nbsp;(@awd.AwardDate.ToString("MMMM, yyyy"))</h3>
-                                                </div>
-                                                <div class="tg-description">
-                                                    <p>
-                                                        @awd.AwardDate
-                                                    </p>
-                                                </div>
-                                            </li>
-                                        }
+                                    {
+                                    <li>
+                                        <div class="tg-dotstyletitle">
+                                            <h3>@awd.Name &nbsp;&nbsp;(@awd.AwardDate.ToString("MMMM, yyyy"))</h3>
+                                        </div>
+                                        <div class="tg-description">
+                                            <p>
+                                                @awd.AwardDate
+                                            </p>
+                                        </div>
+                                    </li>
+                                    }
 
                                     </ul>
                                 </div>
@@ -326,38 +360,38 @@
                                     </div>
                                     <div class="video">
                                         <div class="video-container">
-                                        <iframe width="853" height="480" src="@Model.doctor.VideoLink" frameborder="0" allowfullscreen></iframe>
+                                            <iframe width="853" height="480" src="@Model.doctor.VideoLink" frameborder="0" allowfullscreen></iframe>
                                         </div>
 
                                     </div>
                                 </div>
                             }
-                         @if (Model.DoctorPictureModels.Any() && Model.DoctorPictureModels != null)
-                         {
-                            <div class="tg-userphotogallery">
-                                <div class="tg-userheading">
-                                    <h2>Photo Gallery</h2>
-                                </div>
-                                <ul>
-                                    @foreach (var pic in Model.DoctorPictureModels.Skip(1))
+                            @if (Model.DoctorPictureModels.Any() && Model.DoctorPictureModels != null)
+                            {
+                                <div class="tg-userphotogallery">
+                                    <div class="tg-userheading">
+                                        <h2>Photo Gallery</h2>
+                                    </div>
+                                    <ul>
+                                        @foreach (var pic in Model.DoctorPictureModels.Skip(1))
                                     {
-                                        <li>
-                                            <figure>
-                                                <a href="@pic.FullSizeImageUrl" data-rel="prettyPhoto[iframe]" rel="prettyPhoto[iframe]">
-                                                    <img src="@pic.ImageUrl" alt="img-10" width="150" height="150">
-                                                    <figcaption><span class="icon-add"></span></figcaption>
-                                                </a>
-                                            </figure>
-                                        </li>
+                                    <li>
+                                        <figure>
+                                            <a href="@pic.FullSizeImageUrl" data-rel="prettyPhoto[iframe]" rel="prettyPhoto[iframe]">
+                                                <img src="@pic.ImageUrl" alt="img-10" width="150" height="150">
+                                                <figcaption><span class="icon-add"></span></figcaption>
+                                            </a>
+                                        </figure>
+                                    </li>
                                     }
-                                </ul>
-                            </div>
-                         }
-@*@if (Model.Specialitys.Any())
-{
-                        @Html.Action("SuggestedDoctors", "Home", new { categoryname = Model.Specialitys.FirstOrDefault().Title })
-}*@
-                    </div>
+                                    </ul>
+                                </div>
+                            }
+                            @*@if (Model.Specialitys.Any())
+            {
+                                    @Html.Action("SuggestedDoctors", "Home", new { categoryname = Model.Specialitys.FirstOrDefault().Title })
+            }*@
+                        </div>
                 </div>
             </div>
         </div>
@@ -371,7 +405,7 @@
             value: url,
             errorCorrection: "M",
             size: 120,
-            color: "#67a814",   
+            color: "#67a814",
             border: {
                 color: "#67a814",
                 width: 5
