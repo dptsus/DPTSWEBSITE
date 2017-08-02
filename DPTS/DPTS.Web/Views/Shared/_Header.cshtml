@@ -1,86 +1,45 @@
-﻿<!-- ====================================================
-header section -->
-<header class="top-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3 header-logo">
-                <br>
-                <a href="@Url.Action("Index","Home")"><img src="~/Content/Cust_Content/img/logo.png" alt="" class="img-responsive logo"></a>
-            </div>
-            <div class="col-md-9">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid nav-bar">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a class="menu active" href="#home">Home</a></li>
-
-                                <li><a class="menu" href="#about">about us</a></li>
-                                <li><a class="menu" href="#Location">Location</a></li>
-                                <li><a class="menu" href="#service">our services </a></li>
-                                <li><a class="menu" href="#Speciality">Speciality </a></li>
-                                <li><a class="menu" href="#team">our team</a></li>
-                                <li><a class="menu" href="#contact"> contact us</a></li>
-                            </ul>
-                        </div><!-- /navbar-collapse -->
-                    </div><!-- / .container-fluid -->
-                </nav>
-            </div>
-        </div>
-    </div>
-</header> <!-- end of header area -->
-@*<header id="header" class="tg-haslayout tg-inner-header">
+﻿<header id="header" class="tg-haslayout tg-inner-header">
     <div class="doc-topbar doc-topbar-v1 doc-haslayout">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <span class="doc-contactweb"><p>Contact for any query: 1 - 12345 678 - 9 Or <a href="#">contact@dpts.com</a></p></span>
                     <div class="doc-languages">
-                        @Html.Partial("_LoginPartial")*@
+                        @*@Html.Partial("_LoginPartial")*@
 
-@*<ul class="tg-socialicon">
-        <li>
-            <a target="_blank" href="#">
-                <i class="fa fa-facebook"></i>
-            </a>
-        </li>
-        <li>
-            <a target="_blank" href="#">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li>
-            <a target="_blank" href="#">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        <li>
-            <a target="_blank" href="#">
-                <i class="fa fa-linkedin"></i>
-            </a>
-        </li>
-        <li>
-            <a target="_blank" href="#">
-                <i class="fa fa-instagram"></i>
-            </a>
-        </li>
-    </ul>*@
-@*</div>
+                        <ul class="tg-socialicon">
+                            <li>
+                                <a target="_blank" href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>*@
-@*<div class="container">
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="tg-navigationarea">
@@ -113,12 +72,29 @@ header section -->
                                 <li id="menu-item-654" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-654">
                                     <a href="@Url.Action("TopFilter","Home",new { searchCriteria = "EmailConsult"})">Email Consult</a>
                                 </li>
-                             </ul>
+                                @*<li id="menu-item-654" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-654">
+                                        <a href="@Url.Action("TopFilter","Home",new { searchCriteria = "CallConsult"})">Email Consult</a>
+                                    </li>*@
+                                @*<li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-13">
+                                        <a href="@Url.Action("List","Blog")">Blogs</a>
+                                    </li>*@
+                                @*<li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="@Url.Action("About","Home")">About</a></li>
+                                    <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="@Url.Action("Contact","Home")">Contact Us</a></li>*@
+                            </ul>
                         </div>
                     </nav>
+                    @*<div class="doc-menu">
 
+                            <ul class="tg-login-logout">
+                                <li class="session-user-info">
+                                    <a href="javascript:;" data-toggle="modal" data-target=".tg-user-modal"><span class="s-user get-user-modal">Login/Register</span><img alt="Login" src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
+                                    <span><a href="javascript:;" data-toggle="modal" data-target=".tg-user-modal"></a></span>
+                                </li>
+                            </ul>
+                        </div>*@
+                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
-    </div>*@
-@*</header>*@
+    </div>
+</header>

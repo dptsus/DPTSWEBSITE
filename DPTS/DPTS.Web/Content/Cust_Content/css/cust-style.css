@@ -52,7 +52,7 @@
     margin-top: 6px;
     background-color: transparent;
     color: black;
-    border: 1px solid #444;
+    border: 1px solid #ddd;
     font-size: 21px;
 }
 
@@ -72,7 +72,7 @@
     }
 
 .about h2 {
-    font-size: 42px;
+    font-size: 37px;
 }
 
 .about h4 {
@@ -84,15 +84,15 @@
 }
 
 .service h2 {
-    font-size: 42px;
+    font-size: 37px;
 }
 
 .team h2 {
-    font-size: 42px;
+    font-size: 37px;
 }
 
 .contact-heading h2 {
-    font-size: 42px;
+    font-size: 37px;
 }
 
 .contact-info h3 {
@@ -101,15 +101,15 @@
 
 .default .builder-items .tg-theme-heading h2 {
     color: #42b3e5;
-    font-size: 42px;
+    font-size: 37px;
 }
 
 .tg-theme-heading .tg-description {
-    font-size: 23px;
+    font-size: 18px;
 }
 
 #searchbanner- {
-    margin-top: 196px;
+    margin-top: 0;
 }
 
 .tg-banner-holder .tg-banner-content {
@@ -148,7 +148,7 @@
 }
 
 .container .cust-mini-cart {
-    margin-top: 78px;
+    margin-top: 31px;
     font-size: 16px;
     font-family: serif;
 }
@@ -159,7 +159,7 @@
 }
 
 .btn-direction {
-    padding: 9px 46px;
+    padding: 9px 22px;
     /* background-color: #ddd; */
     border: 1px solid #ddd;
     font-size: 19px;
@@ -169,11 +169,15 @@
 }
 
     .btn-direction:hover {
+        color: black;
+    }
+
+    .btn-direction:hover {
         background-color: white;
     }
 
 .mini-cart-detail {
-    margin-top: 96px;
+    margin-top: 1px;
 }
 
 .btn-appoinment {
@@ -226,7 +230,7 @@
 }
 
 .cust-login {
-    margin-top: 77px;
+    margin-top: 9px;
 }
 
     .cust-login .do-login-button {
@@ -234,9 +238,180 @@
     }
 
 .cust-reg {
-    margin-top: 77px;
+    margin-top: 4px;
 }
 
     .cust-reg .do-register-button {
         background-color: #42b3e5;
     }
+
+.tg-inner-header .doc-topbar-v1 {
+    background-color: #42b3e5;
+}
+
+    .tg-inner-header .doc-topbar-v1 .doc-contactweb p {
+        font-size: 17px;
+        padding: 4px;
+    }
+
+.doc-languages .tg-socialicon li a {
+    margin-top: 5px;
+    border-radius: 20px;
+    background-color: black;
+    color: #42b3e5;
+}
+
+    .doc-languages .tg-socialicon li a:hover {
+        background-color: white;
+        color: black;
+    }
+
+.tg-socialicon li a i {
+    font-size: 17px;
+}
+
+.session-user-info a span.s-user {
+    color: black;
+}
+
+.tg-inner-header .doc-topbar-v1 .doc-contactweb p a {
+    color: black;
+}
+
+.tg-banner-holder .tg-banner-content {
+    top: -29%;
+}
+
+.tg-nav ul li:after {
+    content: none;
+}
+
+.tg-login-logout > li > a:after {
+    content: none;
+}
+
+.tg-banner-holder .tg-banner-content {
+    top: -49%;
+}
+
+.service h4 {
+    font-size: 18px;
+}
+
+.team h4 {
+    font-size: 18px;
+}
+
+.tg-main-section {
+    padding: 41px 0;
+}
+
+.team h2 {
+    margin-top: 0;
+}
+
+.tg-page-wrapper {
+    padding: 0 0;
+}
+
+.tg-userbanner {
+    padding: 4px 0;
+}
+
+.tg-userdetail {
+    margin: -168px 0 0 0;
+}
+
+.doctor-review .cust-review {
+    margin: 21px auto;
+    float: none;
+}
+
+    .doctor-review .cust-review .page-title h3 {
+        color: #42b3e5;
+    }
+
+.cust-login-top {
+    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+.cust-reg .cut-register-top {
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.cust-block {
+    margin-top: 23px;
+}
+
+.tg-widget > h3 {
+    background: #42b3e5;
+    color: black;
+}
+
+.cust-abt .tg-theme-heading h2 {
+    color: #42b3e5;
+}
+
+.cust-abt .builder-items {
+    margin-top: 24px;
+}
+
+.cust-contact .stretch_section {
+    margin: 25px 0;
+}
+
+.cust-contact .tg-theme-heading h2 {
+    color: #42b3e5;
+}
+
+.cust-forgotpswd .cust-forgotpswd-top {
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+
+    .cust-forgotpswd .cust-forgotpswd-top h4 {
+        color: #42b3e5;
+        text-align: center;
+    }
+
+.cust-profile {
+    margin-top: 11px;
+}
+
+    .cust-profile ul.nav {
+        background-color: #42b3e5;
+    }
+
+    .cust-profile .nav > li > a {
+        padding: 10px 11px;
+        color: black;
+    }
+
+button.tg-btn, input[type="submit"].tg-btn {
+    background-color: #42b3e5;
+}
+
+    button.tg-btn:hover, input[type="submit"].tg-btn:hover {
+        background-color: #42b3e5;
+        transition: none;
+    }
+
+.specialities-list ul li {
+    display: inline-block;
+    border: 1px solid #ddd;
+    width: 33%;
+    max-width: 100%;
+    padding: 20px;
+    margin: 3px 3px;
+    text-align: center;
+}
+
+.specialities-list ul {
+    margin: 0;
+}
+
+.sc-dir-types .specialities-list ul li {
+    width: 32%;
+}

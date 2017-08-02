@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main id="main" class="tg-page-wrapper tg-haslayout">
+<main id="main" class="tg-page-wrapper tg-haslayout doctor-review">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-3" style="box-shadow: 0 0 20px 0 rgba(0,0,0,.2), 0 5px 5px 0 rgba(0,0,0,.24);">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-3 cust-review">
                 <div class="page-title" style="text-align: center;">
                     <h3>Review for "<a href="@Url.Action("DoctorDetails","Doctor", new { doctorId = Model.DoctorId })">@Model.DoctorName</a>"</h3>
                 </div>

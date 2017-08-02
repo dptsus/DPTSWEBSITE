@@ -24,7 +24,7 @@
 }
 @if (Request.IsAuthenticated && User.IsInRole("Doctor"))
 {
-    <main id="main" class="tg-page-wrapper tg-haslayout">
+    <main id="main" class="tg-page-wrapper tg-haslayout cust-profile">
     <div class="container">
     <div class="row">
     @{Html.RenderAction("AccountNavigation");}

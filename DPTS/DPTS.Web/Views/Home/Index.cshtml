@@ -21,11 +21,57 @@
     Html.Assets().Styles.Add("/Content/StyleSheet.css");
     Html.Assets().Styles.Add("/Content/Cust_Content/css/StyleSheet.css");
     Html.Assets().Styles.Add("/Content/Cust_Content/css/cust-style.css");
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>*@
     <script src="~/Content/Cust_Content/js/modernizr.js"></script>
 }
-<section class="tg-main-section haslayout  stretch_section_contents_corner stretch_section stretch_data" style="margin-top:-100px;padding-top:0px;padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%; background-size: cover;">
+
+
+<section class="tg-main-section haslayout  stretch_section_contents_corner stretch_section stretch_data" style="margin-top:0;padding-top:0px;padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%; background-size: cover;">
+    <div class="builder-items">
+        <div class="col-xs-12 col-md-12 builder-column ">
+            <div class="tg-banner-holder">
+                <div class="tg-banner-content">
+                    <div class="container">
+                        <div class="tg-heading-border">
+                            <h1><span>find your nearest</span><div class="dynamic-title">Doctor</div></h1>
+                        </div>
+                        @Html.Action("SearchBox", "Home")
+                    </div>
+                </div>
+                <div id="searchbanner-" class="tg-homeslidertwo">
+                    <div class="item">
+                        <figure>
+                            <img src="~/Content/Cust_Content/img/slide-two.jpg" />
+                            @*<img src="~/Content/images/CustomImage/law222.jpg" alt="Search">*@
+                        </figure>
+                    </div>
+                    @*<div class="item">
+                        <figure>
+                            <img src="~/Content/images/CustomImage/low444.jpg" alt="Search">
+                        </figure>
+                    </div>*@
+                </div>
+                <script>
+                            jQuery(document).ready(function (e) {
+                                jQuery("#searchbanner-").owlCarousel({
+                                    paginationSpeed: 400,
+                                    slideSpeed: 300,
+                                    autoPlay: true,
+                                    singleItem: true,
+                                    navigation: true,
+                                    navigationText: [
+                                        "<i class='tg-prev fa fa-angle-left'></i>",
+                                        "<i class='tg-next fa fa-angle-right'></i>"
+                                    ]
+                                });
+                            });
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+@*<section class="tg-main-section haslayout  stretch_section_contents_corner stretch_section stretch_data" style="margin-top:-100px;padding-top:0px;padding-bottom:0px;background-repeat:no-repeat;background-position:0% 100%; background-size: cover;">
     <div class="builder-items">
         <div class="col-xs-12 col-md-12 builder-column ">
             <div class="tg-banner-holder">
@@ -49,7 +95,7 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@
 <!-- end of slider section -->
 <!-- about section -->
 <section class="about text-center" id="about">
@@ -175,10 +221,10 @@
 
             <div class="sc-dir-types catagories-types">
                 <div class="tg-findbycategorys">
-                    <div class="specialities-list">
+                    <div class="specialities-list Loaction-list">
                         <ul>
-
-                            <li id="dir-127">
+                            @Html.Action("SpecialityList", "Home")
+                            @*<li id="dir-127">
                                 <div class="tg-checkbox user-selection">
                                     <div class="tg-packages">
                                         <a href="http://themographics.com/wordpress/docdirect/dir-search/?directory_type=doctor">
@@ -251,7 +297,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </li>
+                            </li>*@
                         </ul>
                     </div>
                 </div>
